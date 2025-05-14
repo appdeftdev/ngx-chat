@@ -14,19 +14,18 @@ import { map, switchMap } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 
 @Component({
-  standalone: true,
-  imports: [
-    CommonModule,
-    ChatBubbleComponent,
-    ChatBubbleAvatarComponent,
-    ChatMessageTextAreaComponent,
-    ChatMessageImageComponent,
-    ChatBubbleFooterComponent,
-    ChatMessageStateIconComponent,
-  ],
-  selector: 'ngx-chat-message-out',
-  templateUrl: './chat-message-out.component.html',
-  styleUrls: ['./chat-message-out.component.less'],
+    imports: [
+        CommonModule,
+        ChatBubbleComponent,
+        ChatBubbleAvatarComponent,
+        ChatMessageTextAreaComponent,
+        ChatMessageImageComponent,
+        ChatBubbleFooterComponent,
+        ChatMessageStateIconComponent,
+    ],
+    selector: 'ngx-chat-message-out',
+    templateUrl: './chat-message-out.component.html',
+    styleUrls: ['./chat-message-out.component.less']
 })
 export class ChatMessageOutComponent implements OnInit {
   @Input()

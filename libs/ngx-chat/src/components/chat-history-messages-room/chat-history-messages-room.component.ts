@@ -16,11 +16,10 @@ import { ChatMessageOutComponent } from '../chat-message-out';
 import { CHAT_SERVICE_TOKEN, CUSTOM_CONTACT_FACTORY_TOKEN } from '@pazznetwork/ngx-xmpp';
 
 @Component({
-  standalone: true,
-  imports: [CommonModule, ChatMessageInComponent, ChatMessageOutComponent],
-  selector: 'ngx-chat-history-messages-room',
-  templateUrl: './chat-history-messages-room.component.html',
-  styleUrls: ['./chat-history-messages-room.component.less'],
+    imports: [CommonModule, ChatMessageInComponent, ChatMessageOutComponent],
+    selector: 'ngx-chat-history-messages-room',
+    templateUrl: './chat-history-messages-room.component.html',
+    styleUrls: ['./chat-history-messages-room.component.less']
 })
 export class ChatHistoryMessagesRoomComponent {
   @Input()

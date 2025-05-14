@@ -38,23 +38,22 @@ import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'ngx-chat-index',
-  templateUrl: './index.component.html',
-  standalone: true,
-  imports: [
-    StanzaComponent,
-    ContactManagementComponent,
-    MucComponent,
-    AsyncPipe,
-    NgIf,
-    ChatComponent,
-    FormsModule,
-    RouterLink,
-    NgForOf,
-    ChatFileDropComponent,
-    ChatHistoryComponent,
-    ChatWindowInputComponent,
-  ],
+    selector: 'ngx-chat-index',
+    templateUrl: './index.component.html',
+    imports: [
+        StanzaComponent,
+        ContactManagementComponent,
+        MucComponent,
+        AsyncPipe,
+        NgIf,
+        ChatComponent,
+        FormsModule,
+        RouterLink,
+        NgForOf,
+        ChatFileDropComponent,
+        ChatHistoryComponent,
+        ChatWindowInputComponent,
+    ]
 })
 export class IndexComponent implements OnDestroy {
   domain = '';

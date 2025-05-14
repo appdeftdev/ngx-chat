@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../dist/out-tsc",
+    "declaration": true,
+    "declarationMap": true,
+    "inlineSources": true,
+    "types": []
+  },
+  "exclude": ["matrix-adapter/src/**/*.spec.ts", "matrix-adapter/src/test-setup.ts", "jest.config.ts", "matrix-adapter/src/**/*.test.ts"],
+  "include": ["matrix-adapter/src/**/*.ts", "matrix-adapter/index.ts", "matrix-adapter/src/test-setup.ts"]
+}

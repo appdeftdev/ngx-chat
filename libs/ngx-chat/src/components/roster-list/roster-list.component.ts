@@ -10,45 +10,32 @@ import { RosterRecipientComponent } from '../roster-recipient';
 import { RosterRecipientPresenceComponent } from '../roster-recipient-presence';
 
 @Component({
-  standalone: true,
-  imports: [CommonModule, RosterRecipientComponent, RosterRecipientPresenceComponent],
-  selector: 'ngx-chat-roster-list',
-  templateUrl: './roster-list.component.html',
-  styleUrls: ['./roster-list.component.less'],
-  animations: [
-    trigger('rosterVisibility', [
-      state(
-        'hidden',
-        style({
-          right: '-14em',
-        })
-      ),
-      state(
-        'shown',
-        style({
-          right: '0em',
-        })
-      ),
-      transition('hidden => shown', animate('400ms ease')),
-      transition('shown => hidden', animate('400ms ease')),
-    ]),
-    trigger('drawerVisibility', [
-      state(
-        'hidden',
-        style({
-          right: '0em',
-        })
-      ),
-      state(
-        'shown',
-        style({
-          right: '14em',
-        })
-      ),
-      transition('hidden => shown', animate('400ms ease')),
-      transition('shown => hidden', animate('400ms ease')),
-    ]),
-  ],
+    imports: [CommonModule, RosterRecipientComponent, RosterRecipientPresenceComponent],
+    selector: 'ngx-chat-roster-list',
+    templateUrl: './roster-list.component.html',
+    styleUrls: ['./roster-list.component.less'],
+    animations: [
+        trigger('rosterVisibility', [
+            state('hidden', style({
+                right: '-14em',
+            })),
+            state('shown', style({
+                right: '0em',
+            })),
+            transition('hidden => shown', animate('400ms ease')),
+            transition('shown => hidden', animate('400ms ease')),
+        ]),
+        trigger('drawerVisibility', [
+            state('hidden', style({
+                right: '0em',
+            })),
+            state('shown', style({
+                right: '14em',
+            })),
+            transition('hidden => shown', animate('400ms ease')),
+            transition('shown => hidden', animate('400ms ease')),
+        ]),
+    ]
 })
 export class RosterListComponent {
   @Input()

@@ -392,7 +392,11 @@ export class RosterPlugin implements ChatPlugin {
     }
 
     if (!type && !handleShowAsDefault) {
-      fromContact.updateResourcePresence(fromJid, presenceMapping[show] as Presence);
+      // Then modify the access to use a type assertion:
+      fromContact.updateResourcePresence(
+        fromJid,
+        presenceMapping[show as keyof typeof presenceMapping]
+      );
       return true;
     }
 

@@ -10,11 +10,10 @@ import { CHAT_SERVICE_TOKEN, FILE_UPLOAD_HANDLER_TOKEN } from '@pazznetwork/ngx-
 import { combineLatest, map, Observable, of } from 'rxjs';
 
 @Component({
-  standalone: true,
-  imports: [CommonModule, ChatFileDropComponent, ChatHistoryComponent, ChatWindowInputComponent],
-  selector: 'ngx-chat-window-content',
-  templateUrl: './chat-window-content.component.html',
-  styleUrls: ['./chat-window-content.component.less'],
+    imports: [CommonModule, ChatFileDropComponent, ChatHistoryComponent, ChatWindowInputComponent],
+    selector: 'ngx-chat-window-content',
+    templateUrl: './chat-window-content.component.html',
+    styleUrls: ['./chat-window-content.component.less']
 })
 export class ChatWindowContentComponent {
   currentRecipient!: Recipient;

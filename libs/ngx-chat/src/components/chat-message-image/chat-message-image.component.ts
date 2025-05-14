@@ -18,11 +18,10 @@ import { CommonModule, NgOptimizedImage } from '@angular/common';
 const MAX_IMAGE_SIZE = 5 * 1024 * 1024;
 
 @Component({
-  standalone: true,
-  imports: [CommonModule, HttpClientModule, NgOptimizedImage],
-  selector: 'ngx-chat-message-image',
-  templateUrl: './chat-message-image.component.html',
-  styleUrls: ['./chat-message-image.component.less'],
+    imports: [CommonModule, HttpClientModule, NgOptimizedImage],
+    selector: 'ngx-chat-message-image',
+    templateUrl: './chat-message-image.component.html',
+    styleUrls: ['./chat-message-image.component.less']
 })
 export class ChatMessageImageComponent implements OnInit {
   @Input()

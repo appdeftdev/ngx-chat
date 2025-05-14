@@ -15,11 +15,10 @@ import { FormsModule } from '@angular/forms';
 import { TextFieldModule } from '@angular/cdk/text-field';
 
 @Component({
-  standalone: true,
-  imports: [CommonModule, FormsModule, TextFieldModule],
-  selector: 'ngx-chat-window-input',
-  templateUrl: './chat-window-input.component.html',
-  styleUrls: ['./chat-window-input.component.less'],
+    imports: [CommonModule, FormsModule, TextFieldModule],
+    selector: 'ngx-chat-window-input',
+    templateUrl: './chat-window-input.component.html',
+    styleUrls: ['./chat-window-input.component.less']
 })
 export class ChatWindowInputComponent {
   @Input()

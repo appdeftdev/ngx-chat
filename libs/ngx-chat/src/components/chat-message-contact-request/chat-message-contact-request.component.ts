@@ -21,11 +21,10 @@ enum SubscriptionAction {
 }
 
 @Component({
-  standalone: true,
-  imports: [ChatBubbleComponent, NgIf, AsyncPipe],
-  selector: 'ngx-chat-message-contact-request',
-  templateUrl: './chat-message-contact-request.component.html',
-  styleUrls: ['./chat-message-contact-request.component.less'],
+    imports: [ChatBubbleComponent, NgIf, AsyncPipe],
+    selector: 'ngx-chat-message-contact-request',
+    templateUrl: './chat-message-contact-request.component.html',
+    styleUrls: ['./chat-message-contact-request.component.less']
 })
 export class ChatMessageContactRequestComponent {
   private readonly chatListStateService: OpenChatStateService = inject(

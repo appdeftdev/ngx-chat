@@ -122,7 +122,7 @@ export class AppPage {
   async newPage(): Promise<AppPage> {
     const context = await this.browser.newContext();
     const newPage = await context.newPage();
-    await newPage.goto('https://local.entenhausen.pazz.de:4200/');
+    await newPage.goto('http://localhost:4200/');
     const newAppPage = new AppPage(this.browser, newPage);
     await newAppPage.setupForTest();
     return newAppPage;

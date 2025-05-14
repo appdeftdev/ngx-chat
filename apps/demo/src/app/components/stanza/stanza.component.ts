@@ -7,7 +7,6 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'ngx-chat-demo-stanza',
   templateUrl: './stanza.component.html',
-  standalone: true,
   imports: [FormsModule],
 })
 export class StanzaComponent {
@@ -56,7 +55,7 @@ export class StanzaComponent {
     const parser = new globalThis.DOMParser();
     const element = parser.parseFromString(request, 'text/xml').documentElement;
     const attributeArray = Array.from(element.attributes);
-    const attributes = attributeArray.reduce((acc, val) => {
+    const attributes = attributeArray.reduce((acc: Record<string, string>, val) => {
       acc[`${val.name}`] = val.value;
       return acc;
     }, {});

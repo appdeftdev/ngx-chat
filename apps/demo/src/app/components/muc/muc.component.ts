@@ -15,11 +15,10 @@ import { AsyncPipe, NgForOf, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'ngx-chat-demo-muc',
-  templateUrl: './muc.component.html',
-  styleUrls: ['./muc.component.css'],
-  standalone: true,
-  imports: [AsyncPipe, FormsModule, NgIf, NgForOf],
+    selector: 'ngx-chat-demo-muc',
+    templateUrl: './muc.component.html',
+    styleUrls: ['./muc.component.css'],
+    imports: [AsyncPipe, FormsModule, NgIf, NgForOf]
 })
 export class MucComponent implements OnInit, OnDestroy {
   @Input()

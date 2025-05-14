@@ -16,5 +16,5 @@ export interface OpenChatsService {
 
   decrementOpenWindowCount(recipient: Recipient): void;
 
-  getOrDefault(recipient: Recipient, defaultValue: number): any;
+  getOrDefault(recipient: Recipient, defaultValue: number): unknown;
 }

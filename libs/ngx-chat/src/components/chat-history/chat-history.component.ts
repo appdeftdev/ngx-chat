@@ -18,18 +18,17 @@ import { ChatHistoryMessagesContactComponent } from '../chat-history-messages-co
 import { ChatHistoryMessagesRoomComponent } from '../chat-history-messages-room';
 
 @Component({
-  standalone: true,
-  imports: [
-    CommonModule,
-    ChatMessageEmptyComponent,
-    ChatMessageContactRequestComponent,
-    ChatHistoryAutoScrollComponent,
-    ChatHistoryMessagesContactComponent,
-    ChatHistoryMessagesRoomComponent,
-  ],
-  selector: 'ngx-chat-history',
-  templateUrl: './chat-history.component.html',
-  styleUrls: ['./chat-history.component.less'],
+    imports: [
+        CommonModule,
+        ChatMessageEmptyComponent,
+        ChatMessageContactRequestComponent,
+        ChatHistoryAutoScrollComponent,
+        ChatHistoryMessagesContactComponent,
+        ChatHistoryMessagesRoomComponent,
+    ],
+    selector: 'ngx-chat-history',
+    templateUrl: './chat-history.component.html',
+    styleUrls: ['./chat-history.component.less']
 })
 export class ChatHistoryComponent implements OnDestroy {
   currentRecipient?: Recipient;

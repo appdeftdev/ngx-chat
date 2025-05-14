@@ -107,7 +107,7 @@ export function getField<TFormField extends FormField>(
 
 export function setFieldValue<
   TFieldType extends FieldType,
-  TValue extends FieldValueType[TFieldType]
+  TValue extends FieldValueType[TFieldType],
 >(
   form: XmlSchemaForm,
   type: TFieldType,
@@ -185,9 +185,9 @@ export function serializeToSubmitForm(builder: StanzaBuilder, form: XmlSchemaFor
 
   const childBuilder = builder.c('x', { xmlns: nsXForm, type: 'submit' });
   serializedFields.map(([variable, values, type]) => {
-    const attrs = { var: variable };
-    if (['hidden', 'fixed', 'boolean'].includes(type)) {
-      attrs['type'] = type;
+    const attrs: { var: string; type?: string } = { var: variable };
+    if (type) {
+      attrs.type = type;
     }
     const childChildBuilder = childBuilder.c('field', attrs);
     values.map((value) => childChildBuilder.c('value', {}, value));

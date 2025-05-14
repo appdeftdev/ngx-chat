@@ -49,6 +49,11 @@ import type { BoshOptions } from './bosh-options';
 import { Handler } from './handler';
 import { isValidJID } from './utils';
 
+interface PasswordCredential extends Credential {
+  id: string;
+  password: string;
+}
+
 /**
  *  XMPP Connection manager.
  *
@@ -232,7 +237,6 @@ export class Connection {
    *    @param websocketUrl
    *    @param credentialsUrl
    *    @param password
-   *
    */
   private constructor(
     public service: string,
@@ -644,7 +648,6 @@ export class Connection {
    *  Parameters:
    *
    *    @param matched - Array of SASL mechanisms supported.
-   *
    */
   async authenticate(matched: SASLMechanism[]): Promise<void> {
     const saslAuth = await this.sasl.attemptSASLAuth(matched);
@@ -1107,15 +1110,15 @@ export class Connection {
 
   async getLoginCredentialsFromBrowser(): Promise<{ password: string; jid: string } | null> {
     try {
-      // https://github.com/microsoft/TypeScript/issues/34550
-      const creds = await navigator.credentials.get({ password: true } as CredentialRequestOptions);
-
+      const creds = (await navigator.credentials.get({
+        password: true,
+      } as CredentialRequestOptions)) as PasswordCredential;
       if (creds?.type !== 'password' || !isValidJID(creds.id)) {
         return null;
       }
 
       this.userJidSubject.next(creds.id);
-      return { jid: creds.id, password: creds['password'] as string };
+      return { jid: creds.id, password: creds.password };
     } catch (e) {
       log(LogLevel.ERROR, (e as Error).toString());
     }

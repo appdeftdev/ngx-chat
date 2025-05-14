@@ -20,16 +20,15 @@ import { ChatWindowContentComponent } from '../chat-window-content';
 import { filter, map } from 'rxjs/operators';
 
 @Component({
-  standalone: true,
-  imports: [
-    CommonModule,
-    ChatWindowFrameComponent,
-    ChatWindowHeaderComponent,
-    ChatWindowContentComponent,
-  ],
-  selector: 'ngx-chat-window',
-  templateUrl: './chat-window.component.html',
-  styleUrls: ['./chat-window.component.less'],
+    imports: [
+        CommonModule,
+        ChatWindowFrameComponent,
+        ChatWindowHeaderComponent,
+        ChatWindowContentComponent,
+    ],
+    selector: 'ngx-chat-window',
+    templateUrl: './chat-window.component.html',
+    styleUrls: ['./chat-window.component.less']
 })
 export class ChatWindowComponent implements OnInit, OnDestroy {
   currentRecipient!: Recipient;
