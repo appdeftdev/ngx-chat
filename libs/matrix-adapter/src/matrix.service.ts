@@ -48,10 +48,13 @@ export class MatrixService implements ChatService {
     @Inject(LOG_SERVICE_TOKEN) readonly log: Log,
     readonly userAvatar$: Observable<string>,
     readonly userName$: Observable<string>,
-    @Inject(OPEN_CHAT_SERVICE_TOKEN) readonly openChatsService: OpenChatsService,
-    httpClient: HttpClient
+    @Inject(OPEN_CHAT_SERVICE_TOKEN) readonly openChatsService: OpenChatsService
   ) {
-    this.chatConnectionService = new MatrixConnectionService(log);
+    // Initialize services
+    this.contactListService = new MatrixContactListService(zone);
+    this.messageService = new MatrixMessageService();
+    this.roomService = new MatrixRoomService(zone);
+    this.chatConnectionService = new MatrixConnectionService(log, this.roomService);
 
     this.onAuthenticating$ = this.chatConnectionService.onAuthenticating$.pipe(runInZone(zone));
     this.onOnline$ = this.chatConnectionService.onOnline$.pipe(runInZone(zone));
@@ -60,13 +63,9 @@ export class MatrixService implements ChatService {
     this.isOffline$ = this.chatConnectionService.isOffline$.pipe(runInZone(zone));
     this.userJid$ = this.chatConnectionService.userJid$.pipe(runInZone(zone));
 
-    // Initialize services
-    this.contactListService = new MatrixContactListService(zone);
-    this.messageService = new MatrixMessageService(this, openChatsService);
-    this.roomService = new MatrixRoomService(zone);
-    this.fileUploadHandler = new MatrixFileUploadHandler(httpClient, this);
+    this.fileUploadHandler = new MatrixFileUploadHandler();
   }
-  unregister(param: { service: string; domain: string }): Promise<void> {
+  unregister(_param: { service: string; domain: string }): Promise<void> {
     throw new Error('Method not implemented.');
   }
 
@@ -76,9 +75,9 @@ export class MatrixService implements ChatService {
     userAvatar$: Observable<string>,
     userName$: Observable<string>,
     @Inject(OPEN_CHAT_SERVICE_TOKEN) openChatsService: OpenChatsService,
-    httpClient: HttpClient,
-    customRoomFactory: any,
-    customContactFactory: any
+    _httpClient: HttpClient,
+    _customRoomFactory: any,
+    _customContactFactory: any
   ): MatrixService {
     if (!MatrixService.instance) {
       MatrixService.instance = new MatrixService(
@@ -86,8 +85,7 @@ export class MatrixService implements ChatService {
         logService,
         userAvatar$,
         userName$,
-        openChatsService,
-        httpClient
+        openChatsService
       );
     }
     return MatrixService.instance;
@@ -95,7 +93,21 @@ export class MatrixService implements ChatService {
 
   async logIn(logInRequest: AuthRequest): Promise<void> {
     this.lastLogInRequest = logInRequest;
+    const homeserverUrl = logInRequest.service || 'https://matrix.org';
+    if (!homeserverUrl || !/^https?:\/\//.test(homeserverUrl)) {
+      throw new Error('Invalid Matrix homeserver URL');
+    }
     await this.chatConnectionService.logIn(logInRequest);
+  }
+
+  // Add new method for token-based login
+  async loginWithToken(authRequest: AuthRequest, token: string): Promise<void> {
+    this.lastLogInRequest = authRequest;
+    const homeserverUrl = authRequest.service || 'https://matrix.org';
+    if (!homeserverUrl || !/^https?:\/\//.test(homeserverUrl)) {
+      throw new Error('Invalid Matrix homeserver URL');
+    }
+    await this.chatConnectionService.loginWithToken(authRequest, token);
   }
 
   async logOut(): Promise<void> {

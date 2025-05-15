@@ -56,6 +56,7 @@ export class MucComponent implements OnInit, OnDestroy {
     persistentRoom: true,
     public: false,
     allowSubscription: true,
+    subject: undefined
   };
 
   private readonly ngDestroySubject = new Subject<void>();
@@ -226,7 +227,10 @@ export class MucComponent implements OnInit, OnDestroy {
   }
 
   async onCreateRoom(): Promise<void> {
-    await this.chatService.roomService.createRoom({ roomId: this.newRoomName });
+    await this.chatService.roomService.createRoom({
+      roomId: this.newRoomName,
+      subject: undefined
+    });
     await this.queryAllRooms();
   }
 
@@ -278,12 +282,15 @@ export class MucComponent implements OnInit, OnDestroy {
   }
 
   async createRoomOnServer(): Promise<void> {
-    const { roomId } = this.newRoomConfiguration;
-    if (!roomId || roomId === '') {
-      throw new Error(`roomId is undefined can not create room`);
+    const options = {
+      name: this.newRoomName,
+      subject: this.subject || undefined,
+      roomId: this.newRoomName
+    };
+    const createdRoom = await this.chatService.roomService.createRoom(options);
+    if (!createdRoom.roomId) {
+      throw new Error(`roomId is undefined in the created room`);
     }
-
-    await this.chatService.roomService.createRoom(this.newRoomConfiguration);
     await this.queryAllRooms();
   }
 }

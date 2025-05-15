@@ -4,6 +4,7 @@
  * https://xmpp.org/extensions/xep-0045.html#terms-rooms
  */
 export interface RoomCreationOptions extends RoomConfiguration {
+  subject: string | undefined;
   /**
    * The room id to create the room with. This is the `local` part of the room JID.
    */

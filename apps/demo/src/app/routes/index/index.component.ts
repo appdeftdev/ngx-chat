@@ -36,6 +36,7 @@ import {
 } from '@pazznetwork/ngx-chat';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
+import { AdapterSelectorComponent } from '../../components/adapter-selector/adapter-selector.component';
 
 @Component({
     selector: 'ngx-chat-index',
@@ -53,6 +54,7 @@ import { RouterLink } from '@angular/router';
         ChatFileDropComponent,
         ChatHistoryComponent,
         ChatWindowInputComponent,
+        AdapterSelectorComponent,
     ]
 })
 export class IndexComponent implements OnDestroy {

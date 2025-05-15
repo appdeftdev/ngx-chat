@@ -5,10 +5,8 @@ import {
   Message,
   MessageService,
   MessageState,
-  OpenChatsService,
   Recipient,
 } from '@pazznetwork/ngx-chat-shared';
-import { MatrixService } from '../matrix.service';
 
 export class MatrixMessageService implements MessageService {
   private readonly messageReceivedSubject = new Subject<Recipient>();
@@ -20,10 +18,7 @@ export class MatrixMessageService implements MessageService {
   readonly messageSent$: Observable<Recipient>;
   readonly messageReceived$: Observable<Recipient>;
 
-  constructor(
-    private readonly chatService: MatrixService,
-    private readonly openChatsService: OpenChatsService
-  ) {
+  constructor() {
     // Initialize observables
     this.messageSent$ = this.messageSentSubject.asObservable();
     this.messageReceived$ = this.messageReceivedSubject.asObservable();
@@ -39,10 +34,10 @@ export class MatrixMessageService implements MessageService {
   loadCompleteHistory(): Promise<void> {
     throw new Error('Method not implemented.');
   }
-  loadMessagesBeforeOldestMessage(recipient: Recipient): Promise<void> {
+  loadMessagesBeforeOldestMessage(_recipient: Recipient): Promise<void> {
     throw new Error('Method not implemented.');
   }
-  loadMostRecentMessages(recipient: Recipient): Promise<void> {
+  loadMostRecentMessages(_recipient: Recipient): Promise<void> {
     throw new Error('Method not implemented.');
   }
 
@@ -62,7 +57,7 @@ export class MatrixMessageService implements MessageService {
     this.messageSentSubject.next(recipient);
   }
 
-  getContactMessageState(message: Message, recipientJid: string): MessageState {
+  getContactMessageState(message: Message, _recipientJid: string): MessageState {
     return message.state || MessageState.SENT;
   }
 }

@@ -113,5 +113,7 @@
     "url": "https://github.com/pazznetwork/ngx-chat/issues"
   },
   "sideEffects": false,
-  "dependencies": {}
+  "dependencies": {
+    "matrix-js-sdk": "^37.5.0"
+  }
 }

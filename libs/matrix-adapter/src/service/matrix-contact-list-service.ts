@@ -21,13 +21,13 @@ export class MatrixContactListService implements ContactListService {
     this.contactsBlocked$ = new BehaviorSubject<Contact[]>([]).pipe(runInZone(zone));
     this.blockedContactJIDs$ = new BehaviorSubject<Set<string>>(new Set()).pipe(runInZone(zone));
   }
-  getOrCreateContactById(id: string): Promise<Contact> {
+  getOrCreateContactById(_id: string): Promise<Contact> {
     throw new Error('Method not implemented.');
   }
-  blockJid(bareJid: string): Promise<void> {
+  blockJid(_bareJid: string): Promise<void> {
     throw new Error('Method not implemented.');
   }
-  unblockJid(bareJid: string): Promise<void> {
+  unblockJid(_bareJid: string): Promise<void> {
     throw new Error('Method not implemented.');
   }
 
@@ -36,27 +36,27 @@ export class MatrixContactListService implements ContactListService {
     return contacts.find((contact) => contact.jid.toString() === jid);
   }
 
-  async addContact(jid: string): Promise<void> {
+  async addContact(_jid: string): Promise<void> {
     // Implement Matrix contact adding logic
   }
 
-  async removeContact(jid: string): Promise<void> {
+  async removeContact(_jid: string): Promise<void> {
     // Implement Matrix contact removal logic
   }
 
-  async blockContact(jid: string): Promise<void> {
+  async blockContact(_jid: string): Promise<void> {
     // Implement Matrix contact blocking logic
   }
 
-  async unblockContact(jid: string): Promise<void> {
+  async unblockContact(_jid: string): Promise<void> {
     // Implement Matrix contact unblocking logic
   }
 
-  async acceptContactRequest(jid: string): Promise<void> {
+  async acceptContactRequest(_jid: string): Promise<void> {
     // Implement Matrix contact request acceptance logic
   }
 
-  async declineContactRequest(jid: string): Promise<void> {
+  async declineContactRequest(_jid: string): Promise<void> {
     // Implement Matrix contact request decline logic
   }
 }

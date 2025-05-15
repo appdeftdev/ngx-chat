@@ -17,7 +17,9 @@ import { CustomContact } from './service/custom-contact';
 import { CustomRoom } from './service/custom-room';
 import { of, shareReplay } from 'rxjs';
 import { dummyAvatar } from './service/dummy-avatar';
-import { NgxChatModule } from '@pazznetwork/ngx-chat';
+import { AdapterSelectionService } from './services/adapter-selection.service';
+import { XmppAdapterModule } from '@pazznetwork/ngx-xmpp';
+import { MatrixAdapterModule } from '../../../../libs/matrix-adapter/src/core/matrix-adapter.module';
 
 const routes: Routes = [
   { path: '', component: IndexComponent },
@@ -26,8 +28,11 @@ const routes: Routes = [
 ];
 
 function provideNgxChat(): EnvironmentProviders {
+  // Read the adapter type from localStorage (since services are not available at config time)
+  const adapterType = localStorage.getItem('ngx-chat-adapter-type') || 'xmpp';
+
   return makeEnvironmentProviders([
-    importProvidersFrom(NgxChatModule),
+    importProvidersFrom(adapterType === 'matrix' ? MatrixAdapterModule : XmppAdapterModule),
     {
       provide: CUSTOM_CONTACT_FACTORY_TOKEN,
       useClass: CustomContact,
@@ -37,6 +42,7 @@ function provideNgxChat(): EnvironmentProviders {
       provide: USER_AVATAR_TOKEN,
       useFactory: () => of(dummyAvatar).pipe(shareReplay({ bufferSize: 1, refCount: true })),
     },
+    AdapterSelectionService,
   ]);
 }
 

@@ -32,6 +32,7 @@ export class Room implements Recipient {
 
   private readonly pendingRoomInviteSubject = new ReplaySubject<Invitation | null>(1);
   readonly pendingRoomInvite$ = this.pendingRoomInviteSubject.asObservable();
+  roomId: any;
 
   get nick(): string | undefined {
     return this.occupantJid?.resource;
