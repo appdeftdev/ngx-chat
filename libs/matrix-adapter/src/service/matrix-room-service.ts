@@ -32,7 +32,6 @@ export class MatrixRoomService implements RoomService {
   }
 
   async createRoom(options: RoomCreationOptions): Promise<Room> {
-    console.log('reacehd', this.matrixClient);
     if (!this.matrixClient) throw new Error('Not logged in');
     const response = await this.matrixClient.createRoom({
       name: options.name,
@@ -42,16 +41,15 @@ export class MatrixRoomService implements RoomService {
     if (!response.room_id) {
       throw new Error('Matrix createRoom did not return a room_id');
     }
-    
+
     // Create a room object with just the name and ID
     return {
       roomId: response.room_id,
-      name: options.name || 'New Room'
+      name: options.name || 'New Room',
     } as unknown as Room;
   }
 
   get matrixClient(): sdk.MatrixClient {
-    console.log('reacehd', this.client);
     if (!this.client) throw new Error('Not logged in');
     return this.client;
   }
@@ -80,16 +78,71 @@ export class MatrixRoomService implements RoomService {
   async queryRoomUserList(roomJid: string): Promise<RoomOccupant[]> {
     const room = this.matrixClient.getRoom(roomJid);
     if (!room) return [];
-    return room.getJoinedMembers().map((member: { userId: any; name: any }) => ({
+    
+    const members = room.getJoinedMembers();
+    return members.map((member) => ({
       jid: member.userId,
-      name: member.name,
-      // Add other properties as needed
+      nick: member.name || member.userId,
+      affiliation: 'member', // Matrix uses power levels instead of affiliations
+      role: 'participant', // Matrix uses power levels instead of roles
     })) as unknown as RoomOccupant[];
   }
 
-  async getRoomConfiguration(_roomJid: string): Promise<XmlSchemaForm> {
-    // Matrix does not have XMPP-style room config forms; return a stub or custom implementation
-    return {} as XmlSchemaForm;
+  async getRoomConfiguration(roomJid: string): Promise<XmlSchemaForm> {
+    const room = this.matrixClient.getRoom(roomJid);
+    if (!room) {
+      return {} as XmlSchemaForm;
+    }
+
+    // Get room state events
+    const state = room.currentState;
+    const name = state.getStateEvents('m.room.name', '')?.getContent()?.['name'];
+    const topic = state.getStateEvents('m.room.topic', '')?.getContent()?.['topic'];
+    const joinRules = state.getStateEvents('m.room.join_rules', '')?.getContent()?.['join_rule'];
+
+    // Convert Matrix room config to XMPP-style form
+    return {
+      type: 'form',
+      instructions: 'Room Configuration',
+      fields: [
+        {
+          type: 'text-single',
+          variable: 'muc#roomconfig_roomname',
+          label: 'Room Name',
+          value: name || roomJid
+        },
+        {
+          type: 'text-single',
+          variable: 'muc#roominfo_description',
+          label: 'Room Description',
+          value: topic || ''
+        },
+        {
+          type: 'list-single',
+          variable: 'muc#roomconfig_whois',
+          label: 'Who Can See Members List',
+          value: joinRules === 'public' ? 'anyone' : 'moderators'
+        },
+        {
+          type: 'boolean',
+          variable: 'muc#roomconfig_membersonly',
+          label: 'Make Room Members-Only',
+          value: joinRules === 'invite'
+        },
+        {
+          type: 'boolean',
+          variable: 'muc#roomconfig_persistentroom',
+          label: 'Make Room Persistent',
+          value: true // Matrix rooms are always persistent
+        },
+        {
+          type: 'boolean',
+          variable: 'muc#roomconfig_publicroom',
+          label: 'Make Room Public',
+          value: joinRules === 'public'
+        }
+      ]
+    } as unknown as XmlSchemaForm;
   }
 
   async kickFromRoom(nick: string, roomJid: string, reason?: string): Promise<void> {
@@ -218,10 +271,12 @@ export class MatrixRoomService implements RoomService {
   }
 
   async joinRoom(roomJid: string): Promise<Room> {
-    const joinedRoom = await this.matrixClient.joinRoom(roomJid);
+    await this.matrixClient.joinRoom(roomJid);
+    const room = this.matrixClient.getRoom(roomJid);
+
     return {
-      jid: joinedRoom.roomId,
-      name: joinedRoom.name,
+      jid: roomJid,
+      name: room?.name || roomJid,
     } as unknown as Room;
   }
 

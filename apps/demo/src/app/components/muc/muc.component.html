@@ -235,7 +235,7 @@
       </form>
 
       <ng-container *ngIf="(roomConfiguration?.fields?.length || 0) > 0">
-        <p>Configuration of room: {{ room.jid.bare().toString() }}</p>
+        <p>Configuration of room: {{ typeof room.jid === 'string' ? room.jid : room.jid.bare().toString() }}</p>
         <table>
           <thead>
           <tr>

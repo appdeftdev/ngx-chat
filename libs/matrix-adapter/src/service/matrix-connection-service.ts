@@ -3,6 +3,8 @@ import { map } from 'rxjs/operators';
 import { AuthRequest, Log } from '@pazznetwork/ngx-chat-shared';
 import * as sdk from 'matrix-js-sdk';
 import { MatrixRoomService } from './matrix-room-service';
+import { MatrixMessageService } from './matrix-message-service';
+import { MatrixContactListService } from './matrix-contact-list-service';
 
 export class MatrixConnectionService {
   private readonly isOnlineSubject = new BehaviorSubject<boolean>(false);
@@ -26,7 +28,9 @@ export class MatrixConnectionService {
 
   constructor(
     private readonly logService: Log,
-    private matrixRoomService: MatrixRoomService
+    private matrixRoomService: MatrixRoomService,
+    private matrixMessageService: MatrixMessageService,
+    private matrixContactListService: MatrixContactListService
   ) {}
 
   async logIn(authRequest: AuthRequest): Promise<void> {
@@ -52,7 +56,12 @@ export class MatrixConnectionService {
         accessToken: loginResponse.access_token,
         userId: loginResponse.user_id,
       });
+
+      // Initialize all services with the client
       this.matrixRoomService.setClient(this.matrixClient);
+      this.matrixMessageService.setClient(this.matrixClient);
+      this.matrixContactListService.setClient(this.matrixClient);
+
       // Start client and sync
       await this.matrixClient.startClient();
 

@@ -54,7 +54,12 @@ export class MatrixService implements ChatService {
     this.contactListService = new MatrixContactListService(zone);
     this.messageService = new MatrixMessageService();
     this.roomService = new MatrixRoomService(zone);
-    this.chatConnectionService = new MatrixConnectionService(log, this.roomService);
+    this.chatConnectionService = new MatrixConnectionService(
+      log,
+      this.roomService,
+      this.messageService,
+      this.contactListService
+    );
 
     this.onAuthenticating$ = this.chatConnectionService.onAuthenticating$.pipe(runInZone(zone));
     this.onOnline$ = this.chatConnectionService.onOnline$.pipe(runInZone(zone));

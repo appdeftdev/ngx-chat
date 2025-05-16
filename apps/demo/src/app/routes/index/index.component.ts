@@ -58,7 +58,7 @@ import { AdapterSelectorComponent } from '../../components/adapter-selector/adap
     ]
 })
 export class IndexComponent implements OnDestroy {
-  domain = '';
+  domain = 'matrix.example.com';
   service = '';
   password = '';
   username = '';
@@ -87,9 +87,9 @@ export class IndexComponent implements OnDestroy {
       service: string;
       password: string;
       username: string;
-    } = item ? JSON.parse(item) : { domain: '', password: '', service: '', username: '' };
+    } = item ? JSON.parse(item) : { domain: 'matrix.example.com', password: '', service: '', username: '' };
     this.logService.logLevel = LogLevel.Debug;
-    this.domain = contactData.domain;
+    this.domain = contactData.domain || 'matrix.example.com';
     this.service = contactData.service;
     this.password = contactData.password;
     this.username = contactData.username;

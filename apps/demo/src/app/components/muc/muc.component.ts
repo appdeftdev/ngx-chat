@@ -15,10 +15,10 @@ import { AsyncPipe, NgForOf, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 @Component({
-    selector: 'ngx-chat-demo-muc',
-    templateUrl: './muc.component.html',
-    styleUrls: ['./muc.component.css'],
-    imports: [AsyncPipe, FormsModule, NgIf, NgForOf]
+  selector: 'ngx-chat-demo-muc',
+  templateUrl: './muc.component.html',
+  styleUrls: ['./muc.component.css'],
+  imports: [AsyncPipe, FormsModule, NgIf, NgForOf],
 })
 export class MucComponent implements OnInit, OnDestroy {
   @Input()
@@ -56,7 +56,7 @@ export class MucComponent implements OnInit, OnDestroy {
     persistentRoom: true,
     public: false,
     allowSubscription: true,
-    subject: undefined
+    subject: undefined,
   };
 
   private readonly ngDestroySubject = new Subject<void>();
@@ -69,11 +69,23 @@ export class MucComponent implements OnInit, OnDestroy {
     this.occupants$ = this.selectedRoom$.pipe(switchMap((room) => (room as Room).occupants$));
 
     const occupantChanges$ = this.selectedRoom$.pipe(
-      distinctUntilChanged(
-        (r1, r2) => (r1 == null && r2 == null) || Boolean(r1?.equals(r2) || r2?.equals(r1))
-      ),
+      distinctUntilChanged((r1, r2) => {
+        if (r1 == null && r2 == null) {
+          return true;
+        }
+        // Check if both rooms have the same JID
+        if (r1?.jid && r2?.jid) {
+          // If jid is a JID object with equals method
+          if (typeof r1.jid.equals === 'function') {
+            return r1.jid.equals(r2.jid);
+          }
+          // Fallback for Matrix adapter where jid might be a string
+          return r1.jid.toString() === r2.jid.toString();
+        }
+        return false;
+      }),
       filter((room) => room != null),
-      switchMap((room) => (room as Room).onOccupantChange$)
+      switchMap((room) => room.onOccupantChange$)
     );
 
     occupantChanges$.pipe(takeUntil(this.ngDestroySubject)).subscribe((occupantChange) => {
@@ -121,9 +133,34 @@ export class MucComponent implements OnInit, OnDestroy {
   }
 
   async joinRoom(roomName: string): Promise<void> {
-    const service = await this.chatService.pluginMap.disco.findService('conference', 'text');
-    const fullJid = roomName.includes('@') ? roomName : roomName + '@' + service.jid;
-    await this.chatService.roomService.joinRoom(fullJid);
+    try {
+      // Check if we're using XMPP (which has disco) or Matrix
+      if (this.chatService.pluginMap?.disco) {
+        // XMPP path
+        const service = await this.chatService.pluginMap.disco.findService('conference', 'text');
+        const fullJid = roomName.includes('@') ? roomName : roomName + '@' + service.jid;
+        await this.chatService.roomService.joinRoom(fullJid);
+      } else {
+        // Matrix path - directly join the room
+        try {
+          await this.chatService.roomService.joinRoom(roomName);
+        } catch (matrixError: unknown) {
+          // Error handling...
+        }
+      }
+
+      // Update the rooms list after successfully joining
+      const rooms = await this.chatService.roomService.queryAllRooms();
+      this.roomsSubject.next(rooms);
+
+      // If there's only one room, automatically select it
+      if (rooms.length > 0) {
+        this.selectRoom(rooms[0] as Room);
+      }
+    } catch (error) {
+      console.error('Failed to join room:', error);
+      throw error;
+    }
   }
 
   async leaveRoom(): Promise<void> {
@@ -159,14 +196,13 @@ export class MucComponent implements OnInit, OnDestroy {
   }
 
   async banOrUnban(occupant: RoomOccupant, room: Room): Promise<void> {
-    const memberJid = occupant.jid.bare();
+    // Handle both XMPP and Matrix user IDs
+    const memberJid =
+      typeof occupant.jid === 'string' ? occupant.jid : occupant.jid.bare().toString();
     if (occupant.affiliation === Affiliation.outcast) {
-      return this.chatService.roomService.unbanUserForRoom(
-        memberJid.toString(),
-        room.jid.toString()
-      );
+      return this.chatService.roomService.unbanUserForRoom(memberJid, room.jid.toString());
     }
-    await this.chatService.roomService.banUserForRoom(memberJid.toString(), room.jid.toString());
+    await this.chatService.roomService.banUserForRoom(memberJid, room.jid.toString());
   }
 
   async grantMembership(): Promise<void> {
@@ -229,7 +265,7 @@ export class MucComponent implements OnInit, OnDestroy {
   async onCreateRoom(): Promise<void> {
     await this.chatService.roomService.createRoom({
       roomId: this.newRoomName,
-      subject: undefined
+      subject: undefined,
     });
     await this.queryAllRooms();
   }
@@ -249,19 +285,20 @@ export class MucComponent implements OnInit, OnDestroy {
   }
 
   async queryUserList(room: Room): Promise<void> {
-    this.roomUserList = await this.chatService.roomService.queryRoomUserList(
-      room.jid.bare().toString()
-    );
+    // Handle both XMPP and Matrix room IDs
+    const roomId = typeof room.jid === 'string' ? room.jid : room.jid.bare().toString();
+    this.roomUserList = await this.chatService.roomService.queryRoomUserList(roomId);
   }
 
   async getRoomConfiguration(room: Room): Promise<void> {
-    this.roomConfiguration = await this.chatService.roomService.getRoomConfiguration(
-      room.jid.bare().toString()
-    );
+    // Handle both XMPP and Matrix room IDs
+    const roomId = typeof room.jid === 'string' ? room.jid : room.jid.bare().toString();
+    this.roomConfiguration = await this.chatService.roomService.getRoomConfiguration(roomId);
   }
 
   displayMemberJid(member: RoomOccupant): string {
-    return member.jid.bare().toString();
+    // Handle both XMPP and Matrix user IDs
+    return typeof member.jid === 'string' ? member.jid : member.jid.bare().toString();
   }
 
   displayMemberNicks(member: RoomOccupant): string | undefined {
@@ -285,7 +322,7 @@ export class MucComponent implements OnInit, OnDestroy {
     const options = {
       name: this.newRoomName,
       subject: this.subject || undefined,
-      roomId: this.newRoomName
+      roomId: this.newRoomName,
     };
     const createdRoom = await this.chatService.roomService.createRoom(options);
     if (!createdRoom.roomId) {

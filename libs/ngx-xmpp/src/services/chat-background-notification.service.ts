@@ -14,10 +14,12 @@ export class ChatBackgroundNotificationService implements ChatBrowserNotificatio
 
   constructor(@Inject(CHAT_SERVICE_TOKEN) protected chatService: ChatService) {
     chatService.messageService.message$.subscribe((msg) => {
-      if (msg.recipientType === 'contact') {
-        this.receivedDirectMessage(msg as Contact);
-      } else {
-        void this.receivedGroupMessage(msg as Room);
+      if (msg) {
+        if (msg.recipientType === 'contact') {
+          this.receivedDirectMessage(msg as Contact);
+        } else {
+          void this.receivedGroupMessage(msg as Room);
+        }
       }
     });
   }
