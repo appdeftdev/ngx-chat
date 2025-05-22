@@ -55,6 +55,8 @@ export class MatrixConnectionService {
         baseUrl: homeserverUrl,
         accessToken: loginResponse.access_token,
         userId: loginResponse.user_id,
+        useAuthorizationHeader: true,
+        timelineSupport: true
       });
 
       // Initialize all services with the client
@@ -62,8 +64,26 @@ export class MatrixConnectionService {
       this.matrixMessageService.setClient(this.matrixClient);
       this.matrixContactListService.setClient(this.matrixClient);
 
-      // Start client and sync
-      await this.matrixClient.startClient();
+      // Wait for initial sync before marking as online
+      await new Promise<void>((resolve) => {
+        const onSync = (state: string) => {
+          if (state === 'PREPARED') {
+            this.matrixClient.removeListener('sync', onSync);
+            // Set presence after sync is prepared
+            this.matrixClient.setPresence({
+              presence: 'online',
+              status_msg: ''
+            }).catch((err: Error) => this.logService.error('Error setting presence:', err));
+            resolve();
+          }
+        };
+        this.matrixClient.on('sync', onSync);
+        // Enable presence syncing when starting the client
+        this.matrixClient.startClient({ 
+          initialSyncLimit: 20,
+          disablePresence: false  // Explicitly enable presence
+        });
+      });
 
       this.userJidSubject.next(loginResponse.user_id);
       this.isOnlineSubject.next(true);

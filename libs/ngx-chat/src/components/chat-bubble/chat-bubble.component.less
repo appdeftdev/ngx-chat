@@ -2,24 +2,48 @@
 @import (reference) '../../spaces';
 
 .chat-message {
-  border-radius: 0;
-  margin: @msg-half-spacing;
-  box-sizing: content-box;
-  background-color: #fff;
-  box-shadow: 0 3px 10px #dededecc;
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+  border-radius: 12px;
+  margin: 4px 0;
+  max-width: 100%;
+  word-break: break-word;
+  background-color: #f5f5f5;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 
   .chat-message-text-wrapper {
     display: flex;
-    flex-direction: row;
+    align-items: flex-start;
+    gap: 8px;
 
-    .chat-message-text {
-      min-width: 0;
-      padding: @msg-full-spacing;
-      word-break: break-word;
+    &.reverse {
+      flex-direction: row-reverse;
     }
   }
 
-  .chat-message-text-wrapper.reverse {
-    flex-direction: row-reverse;
+  .chat-message-text {
+    flex: 1;
+    min-width: 0;
+    padding: 4px 8px;
+    font-size: 14px;
+    line-height: 1.4;
+    color: #333;
+  }
+}
+
+:host-context(.incoming) {
+  .chat-message {
+    align-self: flex-start;
+    margin-right: 20%;
+    background-color: #f1f0f0;
+  }
+}
+
+:host-context(.outgoing) {
+  .chat-message {
+    align-self: flex-end;
+    margin-left: 20%;
+    background-color: #e3f2fd;
   }
 }

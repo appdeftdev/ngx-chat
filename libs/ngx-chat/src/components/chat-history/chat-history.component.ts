@@ -1,13 +1,14 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-import { ChangeDetectorRef, Component, Inject, Input, OnDestroy } from '@angular/core';
-import { exhaustMap, map, Observable, Subject } from 'rxjs';
-import { debounceTime, distinctUntilChanged, filter, takeUntil } from 'rxjs/operators';
+import { ChangeDetectionStrategy, Component, Inject, Input, OnDestroy, OnInit } from '@angular/core';
+import { distinctUntilChanged, map, Observable } from 'rxjs';
 import {
   ChatService,
   Contact,
   OpenChatsService,
   Recipient,
   Room,
+  Log,
+  LOG_SERVICE_TOKEN
 } from '@pazznetwork/ngx-chat-shared';
 import { CommonModule } from '@angular/common';
 import { ChatMessageEmptyComponent } from '../chat-message-empty';
@@ -28,29 +29,77 @@ import { ChatHistoryMessagesRoomComponent } from '../chat-history-messages-room'
     ],
     selector: 'ngx-chat-history',
     templateUrl: './chat-history.component.html',
-    styleUrls: ['./chat-history.component.less']
+    styleUrls: ['./chat-history.component.less'],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ChatHistoryComponent implements OnDestroy {
+export class ChatHistoryComponent implements OnDestroy, OnInit {
   currentRecipient?: Recipient;
+  
+  ngOnInit() {
+    this.logService.debug('ChatHistoryComponent initialized');
+  }
+
   @Input()
   set recipient(value: Recipient | undefined) {
+    this.logService.debug('Setting recipient in ChatHistory:', {
+      recipientId: value?.jid?.toString(),
+      recipientType: value?.recipientType,
+      hasMessageStore: !!value?.messageStore
+    });
+
     if (!value) {
       throw new Error('ChatHistoryComponent: recipient was null or undefined');
     }
 
+    this.currentRecipient = value;
+    
+    // Ensure message store exists
+    if (!value.messageStore) {
+      this.logService.error('Recipient has no message store:', {
+        recipientId: value.jid.toString(),
+        recipientType: value.recipientType
+      });
+      return;
+    }
+
+    // Log initial message count
+    value.messageStore.messages$.subscribe(messages => {
+      this.logService.debug('Initial message store state:', {
+        recipientId: value.jid.toString(),
+        messageCount: messages.length,
+        messages: messages.map(m => ({
+          id: m.id,
+          body: m.body?.substring(0, 50), // Only log first 50 chars
+          direction: m.direction,
+          datetime: m.datetime,
+          from: m.from?.toString()
+        }))
+      });
+    });
+
+    // Subscribe to messages
     this.noMessages$ = value.messageStore.messages$.pipe(
-      map((messages) => messages.length === 0),
+      map((messages) => {
+        this.logService.debug('Messages updated in chat history:', {
+          count: messages.length,
+          recipientId: value.jid.toString(),
+          messages: messages.map(m => ({
+            id: m.id,
+            body: m.body?.substring(0, 50), // Only log first 50 chars
+            direction: m.direction,
+            datetime: m.datetime,
+            from: m.from?.toString()
+          }))
+        });
+        return messages.length === 0;
+      }),
       distinctUntilChanged()
     );
-    this.currentRecipient = value;
 
+    // Force initial load of messages
     this.loadMessagesOnScrollToTop();
     // the unread count plugin relies on this call
     this.openChatsService.viewedChatMessages(this.currentRecipient);
-    // todo implement xmpp message state
-    // void (this.chatService as XmppService).pluginMap.messageState.afterRecipientSeen(
-    //   this.currentRecipient
-    // );
   }
 
   @Input()
@@ -68,68 +117,63 @@ export class ChatHistoryComponent implements OnDestroy {
   @Input()
   pendingRequest$!: Observable<boolean>;
 
-  private ngDestroySubject = new Subject<void>();
-  private scheduleLoadMessagesSubject = new Subject<void>();
-
-  private isLoadingMessages = false;
-
   noMessages$!: Observable<boolean>;
 
   constructor(
-    @Inject(CHAT_SERVICE_TOKEN) readonly chatService: ChatService,
-    private changeDetectorRef: ChangeDetectorRef,
-    @Inject(OPEN_CHAT_SERVICE_TOKEN) private openChatsService: OpenChatsService
-  ) {}
-
-  isContact(recipient: Recipient | undefined): boolean {
-    if (!recipient) {
-      return false;
-    }
-    return recipient.recipientType === 'contact';
+    @Inject(CHAT_SERVICE_TOKEN) private readonly chatService: ChatService,
+    @Inject(OPEN_CHAT_SERVICE_TOKEN) private readonly openChatsService: OpenChatsService,
+    @Inject(LOG_SERVICE_TOKEN) private readonly logService: Log
+  ) {
+    this.logService.debug('ChatHistoryComponent created');
   }
 
   ngOnDestroy(): void {
     if (!this.currentRecipient) {
       throw new Error('ChatHistoryComponent: recipient was null or undefined');
     }
+    this.logService.debug('ChatHistoryComponent destroyed');
+  }
 
-    this.ngDestroySubject.next();
-    this.ngDestroySubject.complete();
+  isContact(recipient: Recipient | undefined): boolean {
+    if (!recipient) {
+      return false;
+    }
+    const isContact = recipient.recipientType === 'contact';
+    this.logService.debug('Checking if recipient is contact:', {
+      recipientId: recipient.jid.toString(),
+      recipientType: recipient.recipientType,
+      isContact
+    });
+    return isContact;
   }
 
   scheduleLoadMessages(): void {
-    this.scheduleLoadMessagesSubject.next();
+    if (this.currentRecipient) {
+      this.logService.debug('Loading more messages for recipient:', {
+        recipientId: this.currentRecipient.jid.toString(),
+        recipientType: this.currentRecipient.recipientType
+      });
+      void this.chatService.messageService.loadMessagesBeforeOldestMessage(this.currentRecipient);
+    }
   }
 
   private loadMessagesOnScrollToTop(): void {
-    this.scheduleLoadMessagesSubject
-      .pipe(
-        filter(() => !this.isLoadingMessages),
-        debounceTime(1000),
-        exhaustMap(async () => {
-          if (!this.currentRecipient) {
-            throw new Error('ChatHistoryComponent: recipient was null or undefined');
-          }
-          this.isLoadingMessages = true;
-
-          try {
-            // improve performance when loading lots of old messages
-            this.changeDetectorRef.detach();
-            await this.chatService.messageService.loadMessagesBeforeOldestMessage(
-              this.currentRecipient
-            );
-          } finally {
-            this.changeDetectorRef.reattach();
-            this.isLoadingMessages = false;
-          }
-        }),
-        takeUntil(this.ngDestroySubject)
-      )
-      .subscribe();
+    if (this.currentRecipient) {
+      this.logService.debug('Loading most recent messages for recipient:', {
+        recipientId: this.currentRecipient.jid.toString(),
+        recipientType: this.currentRecipient.recipientType
+      });
+      void this.chatService.messageService.loadMostRecentMessages(this.currentRecipient);
+    }
   }
 
-  asContact(recipient: Recipient | undefined): Contact {
-    return recipient as Contact;
+  asContact(recipient: Recipient | undefined): Contact | undefined {
+    const contact = recipient instanceof Contact ? recipient : undefined;
+    this.logService.debug('Converting recipient to contact:', {
+      recipientId: recipient?.jid.toString(),
+      isContact: !!contact
+    });
+    return contact;
   }
 
   asRoom(recipient: Recipient | undefined): Room {

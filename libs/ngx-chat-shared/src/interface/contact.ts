@@ -65,6 +65,7 @@ export class Contact implements Recipient {
     let result = Presence.unavailable;
 
     [...jidToPresence.values()].some((presence): boolean => {
+      console.log("presence" ,presence)
       if (presence === Presence.present) {
         result = presence;
         return true;

@@ -52,7 +52,7 @@ export class MatrixService implements ChatService {
   ) {
     // Initialize services
     this.contactListService = new MatrixContactListService(zone);
-    this.messageService = new MatrixMessageService();
+    this.messageService = new MatrixMessageService(zone, log);
     this.roomService = new MatrixRoomService(zone);
     this.chatConnectionService = new MatrixConnectionService(
       log,

@@ -5,11 +5,64 @@
   flex-direction: column;
 }
 
+.chat-history-messages {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 8px;
+}
+
 .chat-messages-date-group {
-  font-size: 0.7em;
-  font-style: italic;
-  margin: 0.5em 0;
   text-align: center;
+  font-size: 12px;
+  color: #666;
+  margin: 8px 0;
+  padding: 4px;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+}
+
+.chat-messages-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.chat-message-wrapper {
+  display: flex;
+  width: 100%;
+  margin: 2px 0;
+
+  &.incoming {
+    justify-content: flex-start;
+
+    ::ng-deep {
+      .chat-message {
+        background-color: #f1f0f0;
+        margin-right: 20%;
+      }
+    }
+  }
+
+  &.outgoing {
+    justify-content: flex-end;
+
+    ::ng-deep {
+      .chat-message {
+        background-color: #e3f2fd;
+        margin-left: 20%;
+      }
+    }
+  }
+}
+
+::ng-deep {
+  .chat-message {
+    max-width: 80%;
+    padding: 8px 12px;
+    border-radius: 12px;
+    word-wrap: break-word;
+  }
 }
 
 @keyframes ngx-chat-message-in {

@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 import { Component, Inject, Input, OnDestroy, OnInit } from '@angular/core';
-import { firstValueFrom, Observable, shareReplay, startWith, Subject } from 'rxjs';
+import { firstValueFrom, Observable, of, shareReplay, startWith, Subject } from 'rxjs';
 import { distinctUntilChanged, filter, switchMap, takeUntil } from 'rxjs/operators';
 import {
   Affiliation,
@@ -23,6 +23,12 @@ import { FormsModule } from '@angular/forms';
 export class MucComponent implements OnInit, OnDestroy {
   @Input()
   domain?: string;
+
+  // Add isMatrixServer property
+  get isMatrixServer(): boolean {
+    // Check if we're using Matrix (no disco plugin) or XMPP (has disco plugin)
+    return !this.chatService.pluginMap?.disco;
+  }
 
   private readonly selectedRoomSubject = new Subject<Room | null>();
   selectedRoom$: Observable<Room | null> = this.selectedRoomSubject.pipe(
@@ -66,7 +72,14 @@ export class MucComponent implements OnInit, OnDestroy {
   async ngOnInit(): Promise<void> {
     this.roomsSubject.next(await this.chatService.roomService.queryAllRooms());
 
-    this.occupants$ = this.selectedRoom$.pipe(switchMap((room) => (room as Room).occupants$));
+    this.occupants$ = this.selectedRoom$.pipe(
+      switchMap((room) => {
+        if (room) {
+          return room.occupants$;
+        }
+        return of([]);
+      })
+    );
 
     const occupantChanges$ = this.selectedRoom$.pipe(
       distinctUntilChanged((r1, r2) => {
@@ -84,29 +97,42 @@ export class MucComponent implements OnInit, OnDestroy {
         }
         return false;
       }),
-      filter((room) => room != null),
-      switchMap((room) => room.onOccupantChange$)
+      filter((room): room is Room => room !== null),
+      switchMap((room) => {
+        if (room.onOccupantChange$) {
+          return room.onOccupantChange$;
+        }
+        return of(null);
+      })
     );
-
-    occupantChanges$.pipe(takeUntil(this.ngDestroySubject)).subscribe((occupantChange) => {
-      const { change, occupant, isCurrentUser } = occupantChange;
-      if (occupantChange.change === 'modified') {
-        // eslint-disable-next-line no-console
-        console.log(
-          `change=${change}, modified=${occupant.jid.toString()}, currentUser=${String(
-            isCurrentUser
-          )}`,
-          occupant,
-          occupantChange.oldOccupant
-        );
-      } else {
-        // eslint-disable-next-line no-console
-        console.log(`change=${change}, currentUser=${String(isCurrentUser)}`, occupant);
-      }
-    });
 
     occupantChanges$
       .pipe(
+        filter((occupantChange) => occupantChange !== null),
+        takeUntil(this.ngDestroySubject)
+      )
+      .subscribe((occupantChange) => {
+        if (occupantChange) {
+          const { change, occupant, isCurrentUser } = occupantChange;
+          if (occupantChange.change === 'modified') {
+            // eslint-disable-next-line no-console
+            console.log(
+              `change=${change}, modified=${occupant.jid.toString()}, currentUser=${String(
+                isCurrentUser
+              )}`,
+              occupant,
+              occupantChange.oldOccupant
+            );
+          } else {
+            // eslint-disable-next-line no-console
+            console.log(`change=${change}, currentUser=${String(isCurrentUser)}`, occupant);
+          }
+        }
+      });
+
+    occupantChanges$
+      .pipe(
+        filter((occupantChange) => occupantChange !== null),
         filter(
           ({ change, isCurrentUser }) =>
             (change === 'kicked' ||
@@ -134,32 +160,38 @@ export class MucComponent implements OnInit, OnDestroy {
 
   async joinRoom(roomName: string): Promise<void> {
     try {
-      // Check if we're using XMPP (which has disco) or Matrix
-      if (this.chatService.pluginMap?.disco) {
-        // XMPP path
-        const service = await this.chatService.pluginMap.disco.findService('conference', 'text');
-        const fullJid = roomName.includes('@') ? roomName : roomName + '@' + service.jid;
-        await this.chatService.roomService.joinRoom(fullJid);
-      } else {
-        // Matrix path - directly join the room
-        try {
-          await this.chatService.roomService.joinRoom(roomName);
-        } catch (matrixError: unknown) {
-          // Error handling...
+        let joinedRoom: Room | undefined;
+        
+        // Check if we're using XMPP (which has disco) or Matrix
+        if (this.chatService.pluginMap?.disco) {
+            // XMPP path
+            const service = await this.chatService.pluginMap.disco.findService('conference', 'text');
+            const fullJid = roomName.includes('@') ? roomName : roomName + '@' + service.jid;
+            joinedRoom = await this.chatService.roomService.joinRoom(fullJid);
+        } else {
+            // Matrix path - directly join the room
+            try {
+                joinedRoom = await this.chatService.roomService.joinRoom(roomName);
+            } catch (matrixError: unknown) {
+                console.error('Matrix error joining room:', matrixError);
+                throw matrixError;
+            }
         }
-      }
 
-      // Update the rooms list after successfully joining
-      const rooms = await this.chatService.roomService.queryAllRooms();
-      this.roomsSubject.next(rooms);
+        // Update the rooms list after successfully joining
+        const rooms = await this.chatService.roomService.queryAllRooms();
+        this.roomsSubject.next(rooms);
 
-      // If there's only one room, automatically select it
-      if (rooms.length > 0) {
-        this.selectRoom(rooms[0] as Room);
-      }
+        // Select the joined room if available
+        if (joinedRoom && joinedRoom instanceof Room) {
+            this.selectRoom(joinedRoom);
+        } else if (rooms.length > 0 && rooms[0] instanceof Room) {
+            // Fallback: select first room if joined room not available
+            this.selectRoom(rooms[0]);
+        }
     } catch (error) {
-      console.error('Failed to join room:', error);
-      throw error;
+        console.error('Failed to join room:', error);
+        throw error;
     }
   }
 
@@ -319,15 +351,35 @@ export class MucComponent implements OnInit, OnDestroy {
   }
 
   async createRoomOnServer(): Promise<void> {
-    const options = {
-      name: this.newRoomName,
-      subject: this.subject || undefined,
-      roomId: this.newRoomName,
-    };
-    const createdRoom = await this.chatService.roomService.createRoom(options);
-    if (!createdRoom.roomId) {
-      throw new Error(`roomId is undefined in the created room`);
+    if (!this.newRoomName) {
+        throw new Error('Room name is required');
     }
-    await this.queryAllRooms();
+
+    try {
+        const options = {
+            name: this.newRoomName,
+            subject: this.subject || undefined,
+            roomId: this.newRoomName.toLowerCase().replace(/[^a-z0-9]/g, '-') // Create a valid room ID from the name
+        };
+
+        const createdRoom = await this.chatService.roomService.createRoom(options);
+        
+        if (!createdRoom || !createdRoom.jid) {
+            throw new Error('Room creation failed: Invalid room response');
+        }
+
+        // Update the rooms list
+        await this.queryAllRooms();
+
+        // Select the newly created room
+        this.selectRoom(createdRoom);
+
+        // Clear the form
+        this.newRoomName = '';
+        this.subject = '';
+    } catch (error) {
+        console.error('Failed to create room:', error);
+        throw error;
+    }
   }
 }

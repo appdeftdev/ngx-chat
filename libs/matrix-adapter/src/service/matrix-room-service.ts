@@ -8,6 +8,9 @@ import {
   RoomService,
   runInZone,
   XmlSchemaForm,
+  parseJid,
+  Affiliation,
+  Role
 } from '@pazznetwork/ngx-chat-shared';
 import * as sdk from 'matrix-js-sdk';
 
@@ -33,20 +36,101 @@ export class MatrixRoomService implements RoomService {
 
   async createRoom(options: RoomCreationOptions): Promise<Room> {
     if (!this.matrixClient) throw new Error('Not logged in');
+    
+    // Create the room with Matrix
     const response = await this.matrixClient.createRoom({
-      name: options.name,
+      name: options.name || options.roomId,
       topic: options.subject,
+      initial_state: [
+        {
+          type: 'm.room.name',
+          content: {
+            name: options.name || options.roomId
+          }
+        }
+      ]
     });
-    console.log('Matrix createRoom response:', response);
+
     if (!response.room_id) {
-      throw new Error('Matrix createRoom did not return a room_id');
+      throw new Error('Room creation failed: No room ID returned');
     }
 
-    // Create a room object with just the name and ID
-    return {
-      roomId: response.room_id,
-      name: options.name || 'New Room',
-    } as unknown as Room;
+    // Wait for the room to be available in the client's store
+    const maxAttempts = 10;
+    let attempts = 0;
+    let matrixRoom;
+
+    while (attempts < maxAttempts) {
+      matrixRoom = this.matrixClient.getRoom(response.room_id);
+      if (matrixRoom) {
+        break;
+      }
+      await new Promise(resolve => setTimeout(resolve, 500)); // Wait 500ms between attempts
+      attempts++;
+    }
+
+    if (!matrixRoom) {
+      throw new Error('Room creation failed: Unable to get room instance after multiple attempts');
+    }
+
+    // Wait for the room state to be ready
+    await new Promise<void>((resolve, reject) => {
+      const timeout = setTimeout(() => {
+        cleanup();
+        reject(new Error('Room state initialization timed out'));
+      }, 10000); // 10 second timeout
+
+      const onStateEvent = () => {
+        if (matrixRoom.currentState) {
+          cleanup();
+          resolve();
+        }
+      };
+
+      const cleanup = () => {
+        clearTimeout(timeout);
+        matrixRoom.removeListener('Room.timeline', onStateEvent);
+      };
+
+      if (matrixRoom.currentState) {
+        cleanup();
+        resolve();
+      } else {
+        matrixRoom.on('Room.timeline', onStateEvent);
+      }
+    });
+
+    // Create a proper Room instance
+    const room = new Room(
+      {
+        logLevel: 0,
+        writer: console,
+        messagePrefix: () => 'MatrixRoom:',
+        error: console.error,
+        warn: console.warn,
+        info: console.info,
+        debug: console.debug
+      },
+      parseJid(response.room_id),
+      options.name || response.room_id
+    );
+
+    // Set additional room properties
+    room.description = matrixRoom.currentState?.getStateEvents('m.room.topic', '')?.getContent()?.['topic'] || '';
+    room.subject = options.subject || '';
+    room.avatar = matrixRoom.currentState?.getStateEvents('m.room.avatar', '')?.getContent()?.['url'] || '';
+
+    // Set current user's occupant JID
+    room.occupantJid = parseJid(this.matrixClient.getUserId() || '');
+
+    // Wait for the room to be fully synced
+    await this.matrixClient.joinRoom(response.room_id);
+
+    // Update room list
+    const currentRooms = this.roomsSubject.getValue();
+    this.roomsSubject.next([...currentRooms, room]);
+
+    return room;
   }
 
   get matrixClient(): sdk.MatrixClient {
@@ -271,13 +355,70 @@ export class MatrixRoomService implements RoomService {
   }
 
   async joinRoom(roomJid: string): Promise<Room> {
-    await this.matrixClient.joinRoom(roomJid);
-    const room = this.matrixClient.getRoom(roomJid);
+    if (!this.matrixClient) {
+        throw new Error('Matrix client not initialized');
+    }
 
-    return {
-      jid: roomJid,
-      name: room?.name || roomJid,
-    } as unknown as Room;
+    try {
+        // First join the room
+        await this.matrixClient.joinRoom(roomJid);
+        
+        // Get the room after joining
+        const matrixRoom = this.matrixClient.getRoom(roomJid);
+        if (!matrixRoom) {
+            throw new Error('Failed to get room after joining');
+        }
+
+        // Create a proper Room instance
+        const room = new Room(
+            {
+                logLevel: 0,
+                writer: console,
+                messagePrefix: () => 'MatrixRoom:',
+                error: console.error,
+                warn: console.warn,
+                info: console.info,
+                debug: console.debug
+            },
+            parseJid(roomJid),
+            matrixRoom.name || roomJid
+        );
+
+        // Set additional room properties
+        room.description = matrixRoom.currentState?.getStateEvents('m.room.topic', '')?.getContent()?.['topic'] || '';
+        room.subject = '';
+        room.avatar = matrixRoom.currentState?.getStateEvents('m.room.avatar', '')?.getContent()?.['url'] || '';
+
+        // Get room members
+        const members = matrixRoom.getJoinedMembers();
+        members.forEach(member => {
+            const occupant: RoomOccupant = {
+                jid: parseJid(member.userId),
+                nick: member.name || member.userId,
+                affiliation: Affiliation.member,
+                role: Role.participant
+            };
+            room['roomOccupants'].set(member.userId, occupant);
+        });
+
+        // Update room list
+        const currentRooms = this.roomsSubject.getValue();
+        const existingRoomIndex = currentRooms.findIndex(r => r.jid.toString() === roomJid);
+        if (existingRoomIndex >= 0) {
+            currentRooms[existingRoomIndex] = room;
+            this.roomsSubject.next([...currentRooms]);
+        } else {
+            this.roomsSubject.next([...currentRooms, room]);
+        }
+
+        // Set current user's occupant JID
+        room.occupantJid = parseJid(this.matrixClient.getUserId() || '');
+
+        return room;
+    } catch (error) {
+        console.error('Error joining room:', error);
+        throw error;
+    }
   }
 
   // Helper for setting user power levels

@@ -13,10 +13,18 @@
         <div>
           <button data-zid="list-room-leave" (click)="leaveRoom()">Leave</button>
           <button data-zid="list-room-select" (click)="selectRoom(room)">Select</button>
-          <button data-zid="list-room-subscribe" (click)="subscribeWithMucSub(room)">subscribe with MUC/Sub</button>
-          <button data-zid="list-room-unsubscribe" (click)="unsubscribeFromMucSub(room)">unsubscribe from MUC/Sub</button>
-          <button data-zid="list-room-query-user-list" (click)="queryUserList(room)">get user list</button>
-          <button data-zid="list-room-get-room-configuration" (click)="getRoomConfiguration(room)">get room configuration</button>
+          <button data-zid="list-room-subscribe" (click)="subscribeWithMucSub(room)">
+            subscribe with MUC/Sub
+          </button>
+          <button data-zid="list-room-unsubscribe" (click)="unsubscribeFromMucSub(room)">
+            unsubscribe from MUC/Sub
+          </button>
+          <button data-zid="list-room-query-user-list" (click)="queryUserList(room)">
+            get user list
+          </button>
+          <button data-zid="list-room-get-room-configuration" (click)="getRoomConfiguration(room)">
+            get room configuration
+          </button>
           <button data-zid="list-room-destroy-room" (click)="destroyRoom(room)">destroy</button>
         </div>
       </div>
@@ -24,9 +32,7 @@
   </aside>
   <main>
     <div class="form-group">
-      <label for="room-join-id">
-        Room id to join
-      </label>
+      <label for="room-join-id"> Room id to join </label>
       <input
         data-zid="room-join-id"
         id="room-join-id"
@@ -39,64 +45,129 @@
     </div>
     <button data-zid="join-room" (click)="joinRoom(roomIdToJoin)">Join Room</button>
 
-    <form (submit)="createRoomOnServer()">
-      <div class="form-group">
-        <input
-          data-zid="room-id"
-          name="roomId"
-          [(ngModel)]="newRoomConfiguration.roomId"
-          class="form-control"
-          type="text"
-          placeholder="Room id"
-          required="required"
-          #roomId="ngModel"
-        />
-        <div [hidden]="roomId.valid || roomId.pristine" class="alert alert-danger">
-          Room id is required
+    <!-- Unified Room Creation Form -->
+    <form (ngSubmit)="isMatrixServer ? createRoomOnServer() : onCreateRoom()" #roomForm="ngForm">
+      <h4>Create Room</h4>
+      <!-- XMPP-specific fields -->
+      <ng-container *ngIf="!isMatrixServer">
+        <div class="form-group">
+          <label for="room-id">Room ID</label>
+          <input
+            data-zid="room-id"
+            id="room-id"
+            name="roomId"
+            [(ngModel)]="newRoomConfiguration.roomId"
+            class="form-control"
+            type="text"
+            placeholder="Room id"
+            required="required"
+            #roomId="ngModel"
+          />
+          <div [hidden]="roomId.valid || roomId.pristine" class="alert alert-danger">
+            Room id is required
+          </div>
         </div>
-      </div>
-      <div class="form-group">
-        <input
-          data-zid="new-room-name"
-          name="room-name"
-          class="form-control"
-          [(ngModel)]="newRoomConfiguration.name"
-          type="text"
-          placeholder="Room name"
-        />
-      </div>
-      <label>
-        <input data-zid="room-members-only" name="membersOnly" [(ngModel)]="newRoomConfiguration.membersOnly" type="checkbox" />
-        members only
-      </label>
-      <br />
-      <label>
-        <input data-zid="room-non-anon"  name="nonAnonymous" [(ngModel)]="newRoomConfiguration.nonAnonymous" type="checkbox" />
-        non-anonymous
-      </label>
-      <br />
-      <label>
-        <input data-zid="room-persistent" name="persistentRoom" [(ngModel)]="newRoomConfiguration.persistentRoom" type="checkbox" />
-        persistent
-      </label>
-      <br />
-      <label>
-        <input data-zid="room-public" name="public" [(ngModel)]="newRoomConfiguration.public" type="checkbox" />
-        public
-      </label>
-      <br />
-      <label>
-        <input data-zid="room-allow-sub" name="allowSubscription" [(ngModel)]="newRoomConfiguration.allowSubscription" type="checkbox" />
-        allow subscription
-      </label>
-      <br />
-      <button data-zid="room-create-submit" type="submit">Create room</button>
+        <div class="form-group">
+          <label for="room-name">Room Name</label>
+          <input
+            data-zid="new-room-name"
+            id="room-name"
+            name="room-name"
+            class="form-control"
+            [(ngModel)]="newRoomConfiguration.name"
+            type="text"
+            placeholder="Room name"
+          />
+        </div>
+        <label>
+          <input
+            data-zid="room-members-only"
+            name="membersOnly"
+            [(ngModel)]="newRoomConfiguration.membersOnly"
+            type="checkbox"
+          />
+          members only
+        </label>
+        <br />
+        <label>
+          <input
+            data-zid="room-non-anon"
+            name="nonAnonymous"
+            [(ngModel)]="newRoomConfiguration.nonAnonymous"
+            type="checkbox"
+          />
+          non-anonymous
+        </label>
+        <br />
+        <label>
+          <input
+            data-zid="room-persistent"
+            name="persistentRoom"
+            [(ngModel)]="newRoomConfiguration.persistentRoom"
+            type="checkbox"
+          />
+          persistent
+        </label>
+        <br />
+        <label>
+          <input
+            data-zid="room-public"
+            name="public"
+            [(ngModel)]="newRoomConfiguration.public"
+            type="checkbox"
+          />
+          public
+        </label>
+        <br />
+        <label>
+          <input
+            data-zid="room-allow-sub"
+            name="allowSubscription"
+            [(ngModel)]="newRoomConfiguration.allowSubscription"
+            type="checkbox"
+          />
+          allow subscription
+        </label>
+      </ng-container>
+
+      <!-- Matrix-specific fields -->
+      <ng-container *ngIf="isMatrixServer">
+        <div class="form-group">
+          <label for="room-name">Room Name</label>
+          <input
+            id="room-name"
+            data-zid="room-name"
+            name="room-name"
+            [(ngModel)]="newRoomName"
+            class="form-control"
+            type="text"
+            placeholder="Enter room name"
+            required
+            #roomName="ngModel"
+          />
+          <div [hidden]="roomName.valid || roomName.pristine" class="alert alert-danger">
+            Room name is required
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="room-subject">Room Subject (Optional)</label>
+          <input
+            id="room-subject"
+            data-zid="room-subject"
+            name="room-subject"
+            [(ngModel)]="subject"
+            class="form-control"
+            type="text"
+            placeholder="Enter room subject"
+          />
+        </div>
+      </ng-container>
+
+      <button data-zid="room-create-submit" type="submit" [disabled]="!roomForm.form.valid">Create Room</button>
     </form>
 
     <div class="form-group">
-      <label for="room-new-id">
-        Room name
-      </label>
+      <label for="room-new-id"> Room name </label>
       <input
         id="room-new-id"
         data-zid="room-new-id"
@@ -120,27 +191,29 @@
       <h4>Occupants:</h4>
       <table>
         <thead>
-        <tr>
-          <th>JID</th>
-          <th>Nicks</th>
-          <th>Affiliation</th>
-          <th>Role</th>
-          <th>Actions</th>
-        </tr>
+          <tr>
+            <th>JID</th>
+            <th>Nicks</th>
+            <th>Affiliation</th>
+            <th>Role</th>
+            <th>Actions</th>
+          </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let member of roomUserList">
-          <td data-zid="room-member-jid" >{{ displayMemberJid(member) }}</td>
-          <td data-zid="room-member-nick">{{ displayMemberNicks(member) || "[unknown]" }}</td>
-          <td data-zid="room-member-affiliation">{{ member.affiliation }}</td>
-          <td data-zid="room-member-role">{{ member.role }}</td>
-          <td>
-            <button data-zid="room-member-kick" (click)="kick(member)">
-              Kick ({{ member.nick || "[unknown]" }})
-            </button>
-            <button data-zid="room-member-ban-or-unban" (click)="banOrUnban(member, room)">Ban/Unban</button>
-          </td>
-        </tr>
+          <tr *ngFor="let member of roomUserList">
+            <td data-zid="room-member-jid">{{ displayMemberJid(member) }}</td>
+            <td data-zid="room-member-nick">{{ displayMemberNicks(member) || "[unknown]" }}</td>
+            <td data-zid="room-member-affiliation">{{ member.affiliation }}</td>
+            <td data-zid="room-member-role">{{ member.role }}</td>
+            <td>
+              <button data-zid="room-member-kick" (click)="kick(member)">
+                Kick ({{ member.nick || "[unknown]" }})
+              </button>
+              <button data-zid="room-member-ban-or-unban" (click)="banOrUnban(member, room)">
+                Ban/Unban
+              </button>
+            </td>
+          </tr>
         </tbody>
       </table>
 
@@ -148,22 +221,11 @@
 
       <h2>Actions:</h2>
 
-      <button data-zid="room-get-subs" (click)="getSubscriptions()">get MUC/Sub subscriptions</button>
+      <button data-zid="room-get-subs" (click)="getSubscriptions()">
+        get MUC/Sub subscriptions
+      </button>
 
       <form>
-        <div class="form-group">
-          <label for="room-subject">Room subject:</label>
-          <input
-            [(ngModel)]="subject"
-            class="form-control"
-            data-zid="room-subject"
-            id="room-subject"
-            name="room-subject"
-            placeholder="Enter a new room subject"
-            type="text"
-          />
-          <button data-zid="room-subject-change"  type="button" (click)="changeRoomSubject()">Change</button>
-        </div>
         <div class="form-group">
           <label for="change-nick">Change nick:</label>
           <input
@@ -175,7 +237,9 @@
             placeholder="Enter a new nick"
             type="text"
           />
-          <button data-zid="room-member-nick-change" type="button" (click)="changeNick()">Change</button>
+          <button data-zid="room-member-nick-change" type="button" (click)="changeNick()">
+            Change
+          </button>
         </div>
         <div class="form-group">
           <label for="invite-user">Invite user:</label>
@@ -188,7 +252,9 @@
             placeholder="Enter JID of a user to invite"
             type="text"
           />
-          <button data-zid="room-invite-user-action" type="button" (click)="inviteUser()">Invite</button>
+          <button data-zid="room-invite-user-action" type="button" (click)="inviteUser()">
+            Invite
+          </button>
         </div>
         <div class="form-group">
           <label for="member">Grant / Revoke Membership affiliation</label>
@@ -201,8 +267,12 @@
             type="text"
             placeholder="Enter JID of an occupant to grant/revoke membership"
           />
-          <button data-zid="room-membership-revoke" type="button" (click)="revokeMembership()">Revoke</button>
-          <button data-zid="room-membership-grant" type="button" (click)="grantMembership()">Grant</button>
+          <button data-zid="room-membership-revoke" type="button" (click)="revokeMembership()">
+            Revoke
+          </button>
+          <button data-zid="room-membership-grant" type="button" (click)="grantMembership()">
+            Grant
+          </button>
         </div>
         <div class="form-group">
           <label for="moderator">Grant / Revoke moderator role</label>
@@ -215,8 +285,12 @@
             type="text"
             placeholder="Enter nick of an occupant to grant or revoke moderator role"
           />
-          <button data-zid="room-moderator-revoke" type="button" (click)="revokeModeratorStatus()">Revoke</button>
-          <button data-zid="room-moderator-grant" type="button" (click)="grantModeratorStatus()">Grant</button>
+          <button data-zid="room-moderator-revoke" type="button" (click)="revokeModeratorStatus()">
+            Revoke
+          </button>
+          <button data-zid="room-moderator-grant" type="button" (click)="grantModeratorStatus()">
+            Grant
+          </button>
         </div>
         <div class="form-group">
           <label for="admin">Grant / Revoke Admin affiliation</label>
@@ -235,23 +309,26 @@
       </form>
 
       <ng-container *ngIf="(roomConfiguration?.fields?.length || 0) > 0">
-        <p>Configuration of room: {{ typeof room.jid === 'string' ? room.jid : room.jid.bare().toString() }}</p>
+        <p>
+          Configuration of room:
+          {{ typeof room.jid === "string" ? room.jid : room.jid.bare().toString() }}
+        </p>
         <table>
           <thead>
-          <tr>
-            <th>Variable</th>
-            <th>Value</th>
-            <th>Label</th>
-          </tr>
+            <tr>
+              <th>Variable</th>
+              <th>Value</th>
+              <th>Label</th>
+            </tr>
           </thead>
           <tbody>
-          <ng-container *ngFor="let field of roomConfiguration?.fields">
-            <tr *ngIf="field.type !== 'hidden'">
-              <td data-zid="room-config-variable">{{ field.variable }}</td>
-              <td data-zid="room-config-value">{{ field.value }}</td>
-              <td data-zid="room-config-label">{{ field.label }}</td>
-            </tr>
-          </ng-container>
+            <ng-container *ngFor="let field of roomConfiguration?.fields">
+              <tr *ngIf="field.type !== 'hidden'">
+                <td data-zid="room-config-variable">{{ field.variable }}</td>
+                <td data-zid="room-config-value">{{ field.value }}</td>
+                <td data-zid="room-config-label">{{ field.label }}</td>
+              </tr>
+            </ng-container>
           </tbody>
         </table>
       </ng-container>
