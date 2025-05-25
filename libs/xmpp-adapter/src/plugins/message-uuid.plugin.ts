@@ -29,12 +29,12 @@ export class MessageUuidPlugin implements ChatPlugin {
     element.setAttribute('id', generatedId);
     messageStanza.append(element);
     if (message) {
-      message.id = generatedId;
+      message.id = generatedId; // First ID assignment
     }
   }
 
   afterSendMessage(message: Message, messageStanza: Element): void {
-    message.id = MessageUuidPlugin.extractIdFromStanza(messageStanza);
+    message.id = MessageUuidPlugin.extractIdFromStanza(messageStanza); // Second ID assignment
   }
 
   afterReceiveMessage(message: Message, messageStanza: MessageWithBodyStanza): void {

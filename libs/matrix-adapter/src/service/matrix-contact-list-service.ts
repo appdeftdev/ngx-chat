@@ -1,11 +1,14 @@
 import { BehaviorSubject, Observable } from 'rxjs';
-import { NgZone } from '@angular/core';
+import { NgZone, Inject } from '@angular/core'; // Added Inject
 import {
   Contact,
   ContactListService,
   runInZone,
   ContactSubscription,
   Presence,
+  Log, // Added
+  LOG_SERVICE_TOKEN, // Added
+  parseJid, // Added
 } from '@pazznetwork/ngx-chat-shared';
 import * as sdk from 'matrix-js-sdk';
 
@@ -24,56 +27,64 @@ export class MatrixContactListService implements ContactListService {
   readonly contactsBlocked$: Observable<Contact[]>;
   readonly blockedContactJIDs$: Observable<Set<string>>;
 
-  constructor(zone: NgZone) {
-    this.contacts$ = this.contactsSubject.asObservable().pipe(runInZone(zone));
-    this.contactsSubscribed$ = this.contacts$;
-    this.contactRequestsReceived$ = new BehaviorSubject<Contact[]>([]).pipe(runInZone(zone));
-    this.contactRequestsSent$ = new BehaviorSubject<Contact[]>([]).pipe(runInZone(zone));
-    this.contactsUnaffiliated$ = new BehaviorSubject<Contact[]>([]).pipe(runInZone(zone));
-    this.contactsBlocked$ = this.blockedContactsListSubject.asObservable().pipe(runInZone(zone));
-    this.blockedContactJIDs$ = this.blockedContactsSubject.asObservable().pipe(runInZone(zone));
+  constructor(
+    // private zone: NgZone, // zone was unused here, but observables still need it
+    @Inject(LOG_SERVICE_TOKEN) private readonly logService: Log,
+    private readonly ngZone: NgZone // Inject NgZone to use for runInZone
+  ) {
+    this.contacts$ = this.contactsSubject.asObservable().pipe(runInZone(this.ngZone));
+    this.contactsSubscribed$ = this.contacts$; // This should also run in zone if UI binds to it directly
+    this.contactRequestsReceived$ = new BehaviorSubject<Contact[]>([]).pipe(runInZone(this.ngZone));
+    this.contactRequestsSent$ = new BehaviorSubject<Contact[]>([]).pipe(runInZone(this.ngZone));
+    this.contactsUnaffiliated$ = new BehaviorSubject<Contact[]>([]).pipe(runInZone(this.ngZone));
+    this.contactsBlocked$ = this.blockedContactsListSubject
+      .asObservable()
+      .pipe(runInZone(this.ngZone));
+    this.blockedContactJIDs$ = this.blockedContactsSubject
+      .asObservable()
+      .pipe(runInZone(this.ngZone));
   }
 
   setClient(client: sdk.MatrixClient) {
     this.client = client;
-    
+
     // Set up room state event handlers
     this.client.on(sdk.RoomStateEvent.Members, (event: any, state: any, member: any) => {
-      console.log('Room member event:', { 
-        roomId: state.roomId, 
+      console.log('Room member event:', {
+        roomId: state.roomId,
         eventType: event.getType(),
-        memberUserId: member?.userId
+        memberUserId: member?.userId,
       });
-      
+
       // Ensure the room is in the client's store
       if (!this.client.getRoom(state.roomId)) {
         console.log('Attempting to fetch unknown room:', state.roomId);
-        this.client.joinRoom(state.roomId).catch(error => {
+        this.client.joinRoom(state.roomId).catch((error) => {
           console.warn('Could not join room:', error);
         });
       }
-      
+
       this.loadContacts();
     });
 
     // Add sync state listener with better error handling
     this.client.on(sdk.ClientEvent.Sync, (state: string, prevState: string | null, data: any) => {
       console.log('Sync state changed:', { state, prevState, hasData: !!data });
-      
+
       if (state === 'PREPARED' || state === 'SYNCED') {
         // Process rooms in the sync response
         if (data?.rooms?.join) {
-          Object.keys(data.rooms.join).forEach(roomId => {
+          Object.keys(data.rooms.join).forEach((roomId) => {
             if (!this.client.getRoom(roomId)) {
               console.log('Processing new room from sync:', roomId);
               // Force room state update
-              this.client.roomInitialSync(roomId, 20).catch(error => {
+              this.client.roomInitialSync(roomId, 20).catch((error) => {
                 console.warn('Room initial sync failed:', error);
               });
             }
           });
         }
-        
+
         this.loadContacts();
       } else if (state === 'ERROR') {
         console.error('Sync error:', data);
@@ -93,7 +104,7 @@ export class MatrixContactListService implements ContactListService {
       const roomId = event.getRoomId();
       if (roomId && !this.client.getRoom(roomId)) {
         console.log('Processing new room from timeline:', roomId);
-        this.client.roomInitialSync(roomId, 20).catch(error => {
+        this.client.roomInitialSync(roomId, 20).catch((error) => {
           console.warn('Room initial sync failed:', error);
         });
       }
@@ -107,12 +118,14 @@ export class MatrixContactListService implements ContactListService {
     }
 
     // Initial sync to ensure we have all rooms
-    this.client.startClient({
-      initialSyncLimit: 20,
-      includeArchivedRooms: true,
-    }).catch(error => {
-      console.error('Failed to start client:', error);
-    });
+    this.client
+      .startClient({
+        initialSyncLimit: 20,
+        includeArchivedRooms: true,
+      })
+      .catch((error) => {
+        console.error('Failed to start client:', error);
+      });
   }
 
   private mapMatrixPresence(matrixPresence: string): Presence {
@@ -132,7 +145,7 @@ export class MatrixContactListService implements ContactListService {
 
   private updateContacts() {
     const contacts = this.contactsSubject.value;
-    const updatedContacts = contacts.map(contact => {
+    const updatedContacts = contacts.map((contact) => {
       const presence = this.presenceMap.get(contact.jid.toString()) || Presence.unavailable;
       return new Contact(contact.jid.toString(), contact.name, presence);
     });
@@ -155,14 +168,18 @@ export class MatrixContactListService implements ContactListService {
           await this.ensureRoomSynced(roomId);
         }
       }
-      
+
       if (!processedUsers.has(userId)) {
         const user = this.matrixClient.getUser(userId);
         if (user) {
-          console.log('Loading DM contact:', { userId, rawPresence: user.presence, rawAvatarUrl: user.avatarUrl });
+          console.log('Loading DM contact:', {
+            userId,
+            rawPresence: user.presence,
+            rawAvatarUrl: user.avatarUrl,
+          });
           const presence = this.mapMatrixPresence(user.presence);
           this.presenceMap.set(userId, presence);
-          
+
           // Convert MXC URL to HTTP URL for direct media download
           let avatarUrl: string | undefined = undefined;
           if (user.avatarUrl && user.avatarUrl.startsWith('mxc://')) {
@@ -174,14 +191,10 @@ export class MatrixContactListService implements ContactListService {
             }
           }
           console.log('Generated avatar URL for DM contact:', { userId, avatarUrl });
-          
-          const contact = new Contact(
-            userId,
-            user.displayName || userId,
-            avatarUrl
-          );
-          contact.updateResourcePresence(userId, presence);
-          contacts.push(contact);
+
+          const newContact = new Contact(userId, user.displayName || userId, avatarUrl); // Renamed to newContact for clarity
+          newContact.updateResourcePresence(userId, presence);
+          contacts.push(newContact);
           processedUsers.add(userId);
         }
       }
@@ -199,18 +212,18 @@ export class MatrixContactListService implements ContactListService {
           (member.membership === 'join' || member.membership === 'invite')
         ) {
           const user = this.matrixClient.getUser(member.userId);
-          console.log('Loading room member:', { 
-            userId: member.userId, 
+          console.log('Loading room member:', {
+            userId: member.userId,
             rawPresence: user?.presence,
-            rawAvatarUrl: member.getMxcAvatarUrl() || user?.avatarUrl 
+            rawAvatarUrl: member.getMxcAvatarUrl() || user?.avatarUrl,
           });
-          
+
           const presence = user ? this.mapMatrixPresence(user.presence) : Presence.unavailable;
           this.presenceMap.set(member.userId, presence);
-          
+
           // Get avatar URL from member or user
           const avatarMxc = member.getMxcAvatarUrl() || user?.avatarUrl || null;
-          
+
           // Convert MXC URL to HTTP URL for direct media download
           let avatarUrl: string | undefined = undefined;
           if (avatarMxc && avatarMxc.startsWith('mxc://')) {
@@ -221,15 +234,14 @@ export class MatrixContactListService implements ContactListService {
               avatarUrl = `${this.matrixClient.baseUrl}/_matrix/media/v3/download/${serverName}/${mediaId}`;
             }
           }
-          console.log('Generated avatar URL for room member:', { userId: member.userId, avatarUrl });
-          
-          const contact = new Contact(
-            member.userId,
-            member.name || member.userId,
-            avatarUrl
-          );
-          contact.updateResourcePresence(member.userId, presence);
-          contacts.push(contact);
+          console.log('Generated avatar URL for room member:', {
+            userId: member.userId,
+            avatarUrl,
+          });
+
+          const newContact = new Contact(member.userId, member.name || member.userId, avatarUrl); // Renamed to newContact for clarity
+          newContact.updateResourcePresence(member.userId, presence);
+          contacts.push(newContact);
           processedUsers.add(member.userId);
         }
       }
@@ -260,7 +272,7 @@ export class MatrixContactListService implements ContactListService {
       const matrixUserId = jid.startsWith('@') ? jid : `@${jid}`;
 
       // Check if user exists
-      const userProfile = await this.client.getProfileInfo(matrixUserId).catch(error => {
+      const userProfile = await this.client.getProfileInfo(matrixUserId).catch((error) => {
         console.error('Failed to get user profile:', error);
         throw new Error('User not found or not accessible');
       });
@@ -293,17 +305,20 @@ export class MatrixContactListService implements ContactListService {
 
       // Create or update contact
       const user = this.matrixClient.getUser(matrixUserId);
-      const contact = new Contact(
+      const newContact = new Contact( // Renamed to newContact for clarity
         matrixUserId,
         user?.displayName || matrixUserId,
         user?.avatarUrl,
-        'both' as ContactSubscription
+        ContactSubscription.both
       );
 
       // Add to contacts if not already present
-      const contacts = this.contactsSubject.getValue();
-      if (!contacts.some((c) => c.jid.toString() === matrixUserId)) {
-        this.contactsSubject.next([...contacts, contact]);
+      const currentContacts = this.contactsSubject.getValue();
+      // Use string comparison of bare JIDs as a diagnostic step
+      if (
+        !currentContacts.some((c) => c.jid.bare().toString() === newContact.jid.bare().toString())
+      ) {
+        this.contactsSubject.next([...currentContacts, newContact]);
       }
 
       // Force a reload of contacts
@@ -319,24 +334,51 @@ export class MatrixContactListService implements ContactListService {
     return this.client;
   }
 
-  async getContactById(jid: string): Promise<Contact | undefined> {
+  async getContactById(jidString: string): Promise<Contact | undefined> {
+    const inputJid = parseJid(jidString);
     const contacts = this.contactsSubject.getValue();
-    return contacts.find((contact) => contact.jid.toString() === jid);
+    // Use string comparison of bare JIDs as a diagnostic step
+    return contacts.find((contact) => contact.jid.bare().toString() === inputJid.bare().toString());
   }
 
-  async getOrCreateContactById(jid: string): Promise<Contact> {
-    let contact = await this.getContactById(jid);
+  async getOrCreateContactById(jidString: string): Promise<Contact> {
+    const inputJid = parseJid(jidString); // Normalize the input JID
+    const currentContacts = this.contactsSubject.getValue();
+    // Use string comparison of bare JIDs as a diagnostic step
+    let contact = currentContacts.find(
+      (c) => c.jid.bare().toString() === inputJid.bare().toString()
+    );
+
     if (!contact) {
-      // Create a new contact
-      const user = await this.matrixClient.getUser(jid);
-      contact = new Contact(
-        jid,
-        user?.displayName || jid,
-        user?.avatarUrl,
-        'both' as ContactSubscription
+      this.logService.debug(
+        `Contact not found in subject for ${inputJid.bare().toString()} using string comparison, creating new one.`
       );
-      const contacts = this.contactsSubject.getValue();
-      this.contactsSubject.next([...contacts, contact]);
+      const user = await this.matrixClient.getUser(inputJid.toString()); // Use normalized inputJid for fetching
+
+      let avatarUrl: string | undefined = undefined;
+      if (user?.avatarUrl && user.avatarUrl.startsWith('mxc://')) {
+        const mxcParts = user.avatarUrl.split('/');
+        if (mxcParts.length === 4) {
+          const serverName = mxcParts[2];
+          const mediaId = mxcParts[3];
+          avatarUrl = `${this.matrixClient.baseUrl}/_matrix/media/v3/download/${serverName}/${mediaId}`;
+        }
+      } else {
+        avatarUrl = user?.avatarUrl;
+      }
+
+      contact = new Contact(
+        inputJid.toString(),
+        user?.displayName || inputJid.local || inputJid.bare().toString(),
+        avatarUrl,
+        ContactSubscription.both // Corrected casing
+      );
+      this.contactsSubject.next([...currentContacts, contact]);
+      this.logService.debug(
+        `New contact ${contact.jid.bare().toString()} added to contactsSubject.`
+      );
+    } else {
+      this.logService.debug(`Found existing contact in subject for ${inputJid.bare().toString()}`);
     }
     return contact;
   }

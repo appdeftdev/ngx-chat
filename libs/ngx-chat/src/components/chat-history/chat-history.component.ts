@@ -1,5 +1,13 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-import { ChangeDetectionStrategy, Component, Inject, Input, OnDestroy, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Inject,
+  Input,
+  OnDestroy,
+  OnInit,
+  NgZone, // Import NgZone
+} from '@angular/core';
 import { distinctUntilChanged, map, Observable } from 'rxjs';
 import {
   ChatService,
@@ -8,7 +16,9 @@ import {
   Recipient,
   Room,
   Log,
-  LOG_SERVICE_TOKEN
+  LOG_SERVICE_TOKEN,
+  runInZone, // Import runInZone
+  Message, // Import Message for strong typing
 } from '@pazznetwork/ngx-chat-shared';
 import { CommonModule } from '@angular/common';
 import { ChatMessageEmptyComponent } from '../chat-message-empty';
@@ -19,22 +29,22 @@ import { ChatHistoryMessagesContactComponent } from '../chat-history-messages-co
 import { ChatHistoryMessagesRoomComponent } from '../chat-history-messages-room';
 
 @Component({
-    imports: [
-        CommonModule,
-        ChatMessageEmptyComponent,
-        ChatMessageContactRequestComponent,
-        ChatHistoryAutoScrollComponent,
-        ChatHistoryMessagesContactComponent,
-        ChatHistoryMessagesRoomComponent,
-    ],
-    selector: 'ngx-chat-history',
-    templateUrl: './chat-history.component.html',
-    styleUrls: ['./chat-history.component.less'],
-    changeDetection: ChangeDetectionStrategy.OnPush
+  imports: [
+    CommonModule,
+    ChatMessageEmptyComponent,
+    ChatMessageContactRequestComponent,
+    ChatHistoryAutoScrollComponent,
+    ChatHistoryMessagesContactComponent,
+    ChatHistoryMessagesRoomComponent,
+  ],
+  selector: 'ngx-chat-history',
+  templateUrl: './chat-history.component.html',
+  styleUrls: ['./chat-history.component.less'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ChatHistoryComponent implements OnDestroy, OnInit {
   currentRecipient?: Recipient;
-  
+
   ngOnInit() {
     this.logService.debug('ChatHistoryComponent initialized');
   }
@@ -44,7 +54,8 @@ export class ChatHistoryComponent implements OnDestroy, OnInit {
     this.logService.debug('Setting recipient in ChatHistory:', {
       recipientId: value?.jid?.toString(),
       recipientType: value?.recipientType,
-      hasMessageStore: !!value?.messageStore
+      hasMessageStore: !!value?.messageStore,
+      messageStoreId: (value as any)?.messageStore?.storeId, // Log storeId
     });
 
     if (!value) {
@@ -52,44 +63,40 @@ export class ChatHistoryComponent implements OnDestroy, OnInit {
     }
 
     this.currentRecipient = value;
-    
+
     // Ensure message store exists
     if (!value.messageStore) {
       this.logService.error('Recipient has no message store:', {
         recipientId: value.jid.toString(),
-        recipientType: value.recipientType
+        recipientType: value.recipientType,
       });
       return;
     }
 
     // Log initial message count
-    value.messageStore.messages$.subscribe(messages => {
+    value.messageStore.messages$.subscribe((messages) => {
       this.logService.debug('Initial message store state:', {
         recipientId: value.jid.toString(),
         messageCount: messages.length,
-        messages: messages.map(m => ({
+        messages: messages.map((m) => ({
           id: m.id,
           body: m.body?.substring(0, 50), // Only log first 50 chars
           direction: m.direction,
           datetime: m.datetime,
-          from: m.from?.toString()
-        }))
+          from: m.from?.toString(),
+        })),
       });
     });
 
     // Subscribe to messages
     this.noMessages$ = value.messageStore.messages$.pipe(
-      map((messages) => {
-        this.logService.debug('Messages updated in chat history:', {
+      runInZone(this.ngZone), // Ensure emissions run in Angular's zone
+      map((messages: Message[]) => {
+        // Add strong type for messages
+        this.logService.debug('Messages updated in chat history (in zone):', {
           count: messages.length,
           recipientId: value.jid.toString(),
-          messages: messages.map(m => ({
-            id: m.id,
-            body: m.body?.substring(0, 50), // Only log first 50 chars
-            direction: m.direction,
-            datetime: m.datetime,
-            from: m.from?.toString()
-          }))
+          messageIds: messages.map((m) => m.id), // Log only IDs for brevity
         });
         return messages.length === 0;
       }),
@@ -122,7 +129,8 @@ export class ChatHistoryComponent implements OnDestroy, OnInit {
   constructor(
     @Inject(CHAT_SERVICE_TOKEN) private readonly chatService: ChatService,
     @Inject(OPEN_CHAT_SERVICE_TOKEN) private readonly openChatsService: OpenChatsService,
-    @Inject(LOG_SERVICE_TOKEN) private readonly logService: Log
+    @Inject(LOG_SERVICE_TOKEN) private readonly logService: Log,
+    private readonly ngZone: NgZone // Inject NgZone
   ) {
     this.logService.debug('ChatHistoryComponent created');
   }
@@ -142,7 +150,7 @@ export class ChatHistoryComponent implements OnDestroy, OnInit {
     this.logService.debug('Checking if recipient is contact:', {
       recipientId: recipient.jid.toString(),
       recipientType: recipient.recipientType,
-      isContact
+      isContact,
     });
     return isContact;
   }
@@ -151,7 +159,7 @@ export class ChatHistoryComponent implements OnDestroy, OnInit {
     if (this.currentRecipient) {
       this.logService.debug('Loading more messages for recipient:', {
         recipientId: this.currentRecipient.jid.toString(),
-        recipientType: this.currentRecipient.recipientType
+        recipientType: this.currentRecipient.recipientType,
       });
       void this.chatService.messageService.loadMessagesBeforeOldestMessage(this.currentRecipient);
     }
@@ -161,7 +169,7 @@ export class ChatHistoryComponent implements OnDestroy, OnInit {
     if (this.currentRecipient) {
       this.logService.debug('Loading most recent messages for recipient:', {
         recipientId: this.currentRecipient.jid.toString(),
-        recipientType: this.currentRecipient.recipientType
+        recipientType: this.currentRecipient.recipientType,
       });
       void this.chatService.messageService.loadMostRecentMessages(this.currentRecipient);
     }
@@ -171,7 +179,7 @@ export class ChatHistoryComponent implements OnDestroy, OnInit {
     const contact = recipient instanceof Contact ? recipient : undefined;
     this.logService.debug('Converting recipient to contact:', {
       recipientId: recipient?.jid.toString(),
-      isContact: !!contact
+      isContact: !!contact,
     });
     return contact;
   }

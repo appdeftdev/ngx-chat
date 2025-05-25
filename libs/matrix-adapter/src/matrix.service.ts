@@ -51,8 +51,8 @@ export class MatrixService implements ChatService {
     @Inject(OPEN_CHAT_SERVICE_TOKEN) readonly openChatsService: OpenChatsService
   ) {
     // Initialize services
-    this.contactListService = new MatrixContactListService(zone);
-    this.messageService = new MatrixMessageService(zone, log);
+    this.contactListService = new MatrixContactListService(log, zone); // Corrected order: log, then zone
+    this.messageService = new MatrixMessageService(zone, log, this.contactListService);
     this.roomService = new MatrixRoomService(zone);
     this.chatConnectionService = new MatrixConnectionService(
       log,

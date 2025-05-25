@@ -5,12 +5,19 @@
       <div class="chat-messages-date-group">
         {{
           entry.date
-            | date: chatService.translations.dateFormat : undefined : chatService.translations.locale
+            | date
+              : chatService.translations.dateFormat
+              : undefined
+              : chatService.translations.locale
         }}
       </div>
       <div class="chat-messages-group">
         <ng-container *ngFor="let message of entry.messages; trackBy: trackByMessage">
-          <div class="chat-message-wrapper" [class.incoming]="isIncomingMessage(message)" [class.outgoing]="isOutgoingMessage(message)">
+          <div
+            class="chat-message-wrapper"
+            [class.incoming]="isIncomingMessage(message)"
+            [class.outgoing]="isOutgoingMessage(message)"
+          >
             <ngx-chat-message-in
               *ngIf="isIncomingMessage(message)"
               [showAvatar]="showAvatars"
@@ -30,16 +37,19 @@
   </ng-container>
 
   <!-- Debug info -->
-  <div *ngIf="messagesGroupedByDate$ | async as messages" style="display: none;">
+  <!--
+  <div
+    *ngIf="messagesGroupedByDate$ | async as messages"
+    style="display: none;"
+  >
     Debug info:
     <div *ngFor="let entry of messages">
-      Date: {{entry.date | date}}
+      Date: {{ entry.date | date }}
       <div *ngFor="let message of entry.messages">
-        Message: {{message.body}} 
-        Direction: {{message.direction}}
-        From: {{message.from}}
-        DateTime: {{message.datetime | date:'medium'}}
+        Message: {{ message.body }} Direction: {{ message.direction }} From:
+        {{ message.from }} DateTime: {{ message.datetime | date: "medium" }}
       </div>
     </div>
   </div>
+  -->
 </div>

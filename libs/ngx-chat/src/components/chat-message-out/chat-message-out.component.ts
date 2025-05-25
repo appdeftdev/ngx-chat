@@ -1,7 +1,21 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Inject, Input, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  Inject,
+  Input,
+  OnInit,
+} from '@angular/core';
 import type { ChatService } from '@pazznetwork/ngx-chat-shared';
-import { Contact, Message, MessageState, parseJid, Log, LOG_SERVICE_TOKEN } from '@pazznetwork/ngx-chat-shared';
+import {
+  Contact,
+  Message,
+  MessageState,
+  parseJid,
+  Log,
+  LOG_SERVICE_TOKEN,
+} from '@pazznetwork/ngx-chat-shared';
 import { CommonModule } from '@angular/common';
 import { ChatBubbleComponent } from '../chat-bubble';
 import { ChatBubbleAvatarComponent } from '../chat-bubble-avatar';
@@ -14,19 +28,19 @@ import { map, switchMap } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 
 @Component({
-    imports: [
-        CommonModule,
-        ChatBubbleComponent,
-        ChatBubbleAvatarComponent,
-        ChatMessageTextAreaComponent,
-        ChatMessageImageComponent,
-        ChatBubbleFooterComponent,
-        ChatMessageStateIconComponent,
-    ],
-    selector: 'ngx-chat-message-out',
-    templateUrl: './chat-message-out.component.html',
-    styleUrls: ['./chat-message-out.component.less'],
-    changeDetection: ChangeDetectionStrategy.OnPush
+  imports: [
+    CommonModule,
+    ChatBubbleComponent,
+    ChatBubbleAvatarComponent,
+    ChatMessageTextAreaComponent,
+    ChatMessageImageComponent,
+    ChatBubbleFooterComponent,
+    ChatMessageStateIconComponent,
+  ],
+  selector: 'ngx-chat-message-out',
+  templateUrl: './chat-message-out.component.html',
+  styleUrls: ['./chat-message-out.component.less'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ChatMessageOutComponent implements OnInit {
   private _message?: Message;
@@ -37,20 +51,18 @@ export class ChatMessageOutComponent implements OnInit {
 
   @Input()
   set message(value: Message | undefined) {
-    if (this._message?.id !== value?.id || 
-        this._message?.datetime?.getTime() !== value?.datetime?.getTime() ||
-        this._message?.body !== value?.body) {
-      this.logService.debug('Message updated in ChatMessageOut:', { 
-        old: {
-          id: this._message?.id,
-          body: this._message?.body?.substring(0, 50),
-          datetime: this._message?.datetime
-        }, 
-        new: {
-          id: value?.id,
-          body: value?.body?.substring(0, 50),
-          datetime: value?.datetime
-        }
+    if (
+      this._message?.id !== value?.id ||
+      this._message?.datetime?.getTime() !== value?.datetime?.getTime() ||
+      this._message?.body !== value?.body
+    ) {
+      this.logService.debug('Message updated in ChatMessageOut:', {
+        oldId: this._message?.id,
+        oldBodySample: this._message?.body?.substring(0, 50),
+        newId: value?.id,
+        newBodySample: value?.body?.substring(0, 50),
+        // Log the full new body to inspect for unexpected characters
+        fullNewBodyForCharPerLineDebug: value?.body,
       });
       this._message = value ? { ...value } : undefined;
       this.cdr.markForCheck();
@@ -63,9 +75,9 @@ export class ChatMessageOutComponent implements OnInit {
   @Input()
   set contact(value: Contact | undefined) {
     if (this._contact?.jid?.toString() !== value?.jid?.toString()) {
-      this.logService.debug('Contact updated in ChatMessageOut:', { 
-        old: this._contact?.jid?.toString(), 
-        new: value?.jid?.toString() 
+      this.logService.debug('Contact updated in ChatMessageOut:', {
+        old: this._contact?.jid?.toString(),
+        new: value?.jid?.toString(),
       });
       this._contact = value;
       this.cdr.markForCheck();
@@ -97,7 +109,7 @@ export class ChatMessageOutComponent implements OnInit {
     );
 
     // Log nick updates
-    this.nick$.subscribe(nick => {
+    this.nick$.subscribe((nick) => {
       this.logService.debug('Nick updated in ChatMessageOut:', { nick });
     });
   }
@@ -107,7 +119,7 @@ export class ChatMessageOutComponent implements OnInit {
     const state = MessageState.UNKNOWN;
     this.logService.debug('Message state:', {
       messageId: this._message?.id,
-      state
+      state,
     });
     return state;
   }
