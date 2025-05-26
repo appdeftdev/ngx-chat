@@ -5,6 +5,7 @@ import * as sdk from 'matrix-js-sdk';
 import { MatrixRoomService } from './matrix-room-service';
 import { MatrixMessageService } from './matrix-message-service';
 import { MatrixContactListService } from './matrix-contact-list-service';
+import { MatrixFileUploadHandler } from './matrix-file-upload-handler';
 
 export class MatrixConnectionService {
   private readonly isOnlineSubject = new BehaviorSubject<boolean>(false);
@@ -30,7 +31,8 @@ export class MatrixConnectionService {
     private readonly logService: Log,
     private matrixRoomService: MatrixRoomService,
     private matrixMessageService: MatrixMessageService,
-    private matrixContactListService: MatrixContactListService
+    private matrixContactListService: MatrixContactListService,
+    private matrixFileUploadService: MatrixFileUploadHandler
   ) {}
 
   async logIn(authRequest: AuthRequest): Promise<void> {
@@ -56,13 +58,15 @@ export class MatrixConnectionService {
         accessToken: loginResponse.access_token,
         userId: loginResponse.user_id,
         useAuthorizationHeader: true,
-        timelineSupport: true
+        timelineSupport: true,
       });
 
       // Initialize all services with the client
       this.matrixRoomService.setClient(this.matrixClient);
       this.matrixMessageService.setClient(this.matrixClient);
       this.matrixContactListService.setClient(this.matrixClient);
+      this.matrixContactListService.setClient(this.matrixClient);
+      this.matrixFileUploadService.setClient(this.matrixClient);
 
       // Wait for initial sync before marking as online
       await new Promise<void>((resolve) => {
@@ -70,18 +74,20 @@ export class MatrixConnectionService {
           if (state === 'PREPARED') {
             this.matrixClient.removeListener('sync', onSync);
             // Set presence after sync is prepared
-            this.matrixClient.setPresence({
-              presence: 'online',
-              status_msg: ''
-            }).catch((err: Error) => this.logService.error('Error setting presence:', err));
+            this.matrixClient
+              .setPresence({
+                presence: 'online',
+                status_msg: '',
+              })
+              .catch((err: Error) => this.logService.error('Error setting presence:', err));
             resolve();
           }
         };
         this.matrixClient.on('sync', onSync);
         // Enable presence syncing when starting the client
-        this.matrixClient.startClient({ 
+        this.matrixClient.startClient({
           initialSyncLimit: 20,
-          disablePresence: false  // Explicitly enable presence
+          disablePresence: false, // Explicitly enable presence
         });
       });
 
@@ -162,5 +168,9 @@ export class MatrixConnectionService {
       this.logService.error('Matrix registration error', error);
       throw error;
     }
+  }
+
+  public getMatrixClient() {
+    return this.matrixClient;
   }
 }

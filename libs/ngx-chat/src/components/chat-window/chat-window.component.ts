@@ -3,7 +3,6 @@ import { Component, Inject, Input, OnDestroy, OnInit } from '@angular/core';
 import { merge, Observable, scan, startWith, Subject } from 'rxjs';
 import {
   type ChatService,
-  Direction,
   OpenChatsService,
   OpenChatStateService,
   Recipient,
@@ -17,18 +16,18 @@ import { CommonModule } from '@angular/common';
 import { ChatWindowFrameComponent } from '../chat-window-frame';
 import { ChatWindowHeaderComponent } from '../chat-window-header';
 import { ChatWindowContentComponent } from '../chat-window-content';
-import { filter, map } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 @Component({
-    imports: [
-        CommonModule,
-        ChatWindowFrameComponent,
-        ChatWindowHeaderComponent,
-        ChatWindowContentComponent,
-    ],
-    selector: 'ngx-chat-window',
-    templateUrl: './chat-window.component.html',
-    styleUrls: ['./chat-window.component.less']
+  imports: [
+    CommonModule,
+    ChatWindowFrameComponent,
+    ChatWindowHeaderComponent,
+    ChatWindowContentComponent,
+  ],
+  selector: 'ngx-chat-window',
+  templateUrl: './chat-window.component.html',
+  styleUrls: ['./chat-window.component.less'],
 })
 export class ChatWindowComponent implements OnInit, OnDestroy {
   currentRecipient!: Recipient;
@@ -36,9 +35,7 @@ export class ChatWindowComponent implements OnInit, OnDestroy {
   @Input()
   set recipient(value: Recipient) {
     const openOnInit$ = value.messageStore.messages$.pipe(
-      filter(
-        (messages) => messages.findIndex((message) => message.direction === Direction.in) > -1
-      ),
+      // Remove the direction filter to observe all messages
       map(() => true)
     );
 

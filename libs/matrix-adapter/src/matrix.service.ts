@@ -2,7 +2,6 @@ import { Injectable, NgZone, Inject } from '@angular/core';
 import {
   AuthRequest,
   ChatService,
-  FileUploadHandler,
   Log,
   OpenChatsService,
   Translations,
@@ -35,13 +34,12 @@ export class MatrixService implements ChatService {
 
   translations: Translations = defaultTranslations();
 
-  readonly fileUploadHandler: FileUploadHandler;
-
   private lastLogInRequest?: AuthRequest;
 
   messageService: MatrixMessageService;
   roomService: MatrixRoomService;
   contactListService: MatrixContactListService;
+  fileUploadHandler: MatrixFileUploadHandler;
 
   private constructor(
     readonly zone: NgZone,
@@ -54,11 +52,14 @@ export class MatrixService implements ChatService {
     this.contactListService = new MatrixContactListService(log, zone); // Corrected order: log, then zone
     this.messageService = new MatrixMessageService(zone, log, this.contactListService);
     this.roomService = new MatrixRoomService(zone);
+    this.fileUploadHandler = new MatrixFileUploadHandler();
+
     this.chatConnectionService = new MatrixConnectionService(
       log,
       this.roomService,
       this.messageService,
-      this.contactListService
+      this.contactListService,
+      this.fileUploadHandler
     );
 
     this.onAuthenticating$ = this.chatConnectionService.onAuthenticating$.pipe(runInZone(zone));

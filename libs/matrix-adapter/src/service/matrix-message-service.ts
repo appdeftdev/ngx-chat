@@ -426,18 +426,17 @@ export class MatrixMessageService implements MessageService {
       return;
     }
 
-    const messageStore = this.getOrCreateMessageStore(targetRecipient);
-    messageStore.addMessage(message);
-
-    this.logService.debug('Message added to store:', {
-      recipientId: targetRecipient.jid.toString(),
-      recipientType: targetRecipient.recipientType,
-      messageStoreId: (targetRecipient as any).messageStore?.storeId, // Log storeId
-      messageId: message.id,
-      storeSize: messageStore.messages.length,
-    });
-
     if (message.direction === Direction.in) {
+      const messageStore = this.getOrCreateMessageStore(targetRecipient);
+      messageStore.addMessage(message);
+
+      this.logService.debug('Message added to store:', {
+        recipientId: targetRecipient.jid.toString(),
+        recipientType: targetRecipient.recipientType,
+        messageStoreId: (targetRecipient as any).messageStore?.storeId, // Log storeId
+        messageId: message.id,
+        storeSize: messageStore.messages.length,
+      });
       this.logService.debug(
         `Incoming message for ${targetRecipient.jid.toString()}, storeId: ${(targetRecipient as any).messageStore?.storeId}`
       ); // Log storeId

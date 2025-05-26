@@ -30,115 +30,1099 @@
   "fileMap": {
     "nonProjectFiles": [
       {
-        "file": ".browserslistrc",
-        "hash": "1902285438656713636"
-      },
-      {
-        "file": ".editorconfig",
-        "hash": "6241920771766725635"
-      },
-      {
-        "file": ".eslintignore",
-        "hash": "5429286831782066385"
-      },
-      {
-        "file": ".eslintrc.json",
-        "hash": "2854587531723027414"
-      },
-      {
         "file": ".github/PULL_REQUEST_TEMPLATE.md",
         "hash": "12247188416508396488"
       },
       {
-        "file": ".gitignore",
-        "hash": "6617867808540873079"
-      },
-      {
-        "file": ".prettierignore",
-        "hash": "12364733385721038389"
-      },
-      {
-        "file": ".prettierrc.json",
-        "hash": "108136334469914560"
-      },
-      {
-        "file": ".vscode/launch.json",
-        "hash": "11748525213876176822"
-      },
-      {
-        "file": ".vscode/settings.json",
-        "hash": "7787183180972103083"
-      },
-      {
-        "file": ".vscode/tasks.json",
-        "hash": "3605831122426454312"
-      },
-      {
-        "file": "CLA.md",
-        "hash": "1241894298671029137"
+        "file": "tsconfig.base.json",
+        "hash": "1362493377404893846"
       },
       {
         "file": "CONTRIBUTING.md",
         "hash": "3762395095796111305"
       },
       {
-        "file": "LICENSE",
-        "hash": "11156066484968330881"
-      },
-      {
-        "file": "README.md",
-        "hash": "2719002448619183721"
-      },
-      {
-        "file": "decorate-angular-cli.js",
-        "hash": "5497964575948282965"
-      },
-      {
-        "file": "jest.config.ts",
-        "hash": "6870352021923392442"
-      },
-      {
-        "file": "jest.preset.js",
-        "hash": "9430166341120122740"
-      },
-      {
-        "file": "karma.conf.js",
-        "hash": "18210313455902602087"
+        "file": "projects/ngx-chat/src/lib/services/matrix/matrix.service.ts",
+        "hash": "15385083969490437046"
       },
       {
         "file": "migrations.json",
         "hash": "515286254796242874"
       },
       {
-        "file": "nx.json",
-        "hash": "17950160423946213490"
-      },
-      {
-        "file": "package-lock.json",
-        "hash": "3926516362091667777"
-      },
-      {
         "file": "package.json",
         "hash": "15280824850434679658"
+      },
+      {
+        "file": "LICENSE",
+        "hash": "11156066484968330881"
+      },
+      {
+        "file": ".prettierrc.json",
+        "hash": "108136334469914560"
+      },
+      {
+        "file": "karma.conf.js",
+        "hash": "18210313455902602087"
+      },
+      {
+        "file": ".vscode/tasks.json",
+        "hash": "3605831122426454312"
+      },
+      {
+        "file": ".eslintrc.json",
+        "hash": "2854587531723027414"
       },
       {
         "file": "playwright.config.base.ts",
         "hash": "10752083547022499977"
       },
       {
+        "file": ".vscode/settings.json",
+        "hash": "7787183180972103083"
+      },
+      {
+        "file": ".vscode/launch.json",
+        "hash": "11748525213876176822"
+      },
+      {
         "file": "push-documentation.sh",
         "hash": "8005294023629874674"
+      },
+      {
+        "file": ".eslintignore",
+        "hash": "5429286831782066385"
+      },
+      {
+        "file": ".editorconfig",
+        "hash": "6241920771766725635"
+      },
+      {
+        "file": ".browserslistrc",
+        "hash": "1902285438656713636"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "6617867808540873079"
+      },
+      {
+        "file": "jest.preset.js",
+        "hash": "9430166341120122740"
+      },
+      {
+        "file": "CLA.md",
+        "hash": "1241894298671029137"
+      },
+      {
+        "file": "nx.json",
+        "hash": "17950160423946213490"
       },
       {
         "file": "push-release.sh",
         "hash": "6665995741692047246"
       },
       {
-        "file": "tsconfig.base.json",
-        "hash": "1362493377404893846"
+        "file": "package-lock.json",
+        "hash": "3926516362091667777"
+      },
+      {
+        "file": "README.md",
+        "hash": "2719002448619183721"
+      },
+      {
+        "file": "jest.config.ts",
+        "hash": "6870352021923392442"
+      },
+      {
+        "file": "decorate-angular-cli.js",
+        "hash": "5497964575948282965"
+      },
+      {
+        "file": ".prettierignore",
+        "hash": "12364733385721038389"
       }
     ],
     "projectFileMap": {
+      "xmpp-adapter": [
+        {
+          "file": "libs/xmpp-adapter/CHANGELOG.md",
+          "hash": "12184635128936516008"
+        },
+        {
+          "file": "libs/xmpp-adapter/LICENSE",
+          "hash": "1312385381652807761"
+        },
+        {
+          "file": "libs/xmpp-adapter/README.md",
+          "hash": "4054938918562861625"
+        },
+        {
+          "file": "libs/xmpp-adapter/package.json",
+          "hash": "16810134054560031655",
+          "deps": [
+            "npm:@angular/common",
+            "npm:@angular/core",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "libs/xmpp-adapter/project.json",
+          "hash": "9994225758871410808"
+        },
+        {
+          "file": "libs/xmpp-adapter/src/core/chat-plugin.ts",
+          "hash": "14431469359362103979"
+        },
+        {
+          "file": "libs/xmpp-adapter/src/core/default-contact-factory.ts",
+          "hash": "9507303379438066285",
+          "deps": [
+            "ngx-chat-shared"
+          ]
+        },
+        {
+          "file": "libs/xmpp-adapter/src/core/default-room-factory.ts",
+          "hash": "7374237595947196321",
+          "deps": [
+            "ngx-chat-shared"
+          ]
+        },
+        {
+          "file": "libs/xmpp-adapter/src/core/finder.ts",
+          "hash": "8750404829090990952"
+        },
+        {
+          "file": "libs/xmpp-adapter/src/core/form.ts",
+          "hash": "11252608905768270668",
+          "deps": [
+            "ngx-chat-shared"
+          ]
+        },
+        {
+          "file": "libs/xmpp-adapter/src/core/index.ts",
+          "hash": "13980239355444650282"
+        },
+        {
+          "file": "libs/xmpp-adapter/src/core/plugin-map-create.ts",
+          "hash": "15558950228018419575",
+          "deps": [
+            "npm:@angular/common",
+            "ngx-chat-shared"
+          ]
+        },
+        {
+          "file": "libs/xmpp-adapter/src/core/plugin-map.ts",
+          "hash": "3732561190872403814"
+        },
+        {
+          "file": "libs/xmpp-adapter/src/core/stanza-handler-chat-plugin.ts",
+          "hash": "11587703993309047810"
+        },
+        {
+          "file": "libs/xmpp-adapter/src/core/stanza.ts",
+          "hash": "12642687135795946906"
+        },
+        {
+          "file": "libs/xmpp-adapter/src/core/xmpp-response.error.ts",
+          "hash": "17456892218447811495"
+        },
+        {
+          "file": "libs/xmpp-adapter/src/index.ts",
+          "hash": "13927030827238273323"
+        },
+        {
+          "file": "libs/xmpp-adapter/src/plugins/block.plugin.ts",
+          "hash": "15023072192601283227",
+          "deps": [
+            "npm:rxjs",
+            "strophe-ts",
+            "ngx-chat-shared"
+          ]
+        },
+        {
+          "file": "libs/xmpp-adapter/src/plugins/bookmark.plugin.ts",
+          "hash": "15869247781659492681",
+          "deps": [
+            "ngx-chat-shared",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "libs/xmpp-adapter/src/plugins/entity-time.plugin.ts",
+          "hash": "12717028300972385787",
+          "deps": [
+            "npm:rxjs",
+            "ngx-chat-shared"
+          ]
+        },
+        {
+          "file": "libs/xmpp-adapter/src/plugins/index.ts",
+          "hash": "14208333026287626586"
+        },
+        {
+          "file": "libs/xmpp-adapter/src/plugins/message-archive.plugin.ts",
+          "hash": "4216126499739242911",
+          "deps": [
+            "ngx-chat-shared"
+          ]
+        },
+        {
+          "file": "libs/xmpp-adapter/src/plugins/message-carbons.plugin.ts",
+          "hash": "7757177859357831277",
+          "deps": [
+            "ngx-chat-shared",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "libs/xmpp-adapter/src/plugins/message-state.plugin.ts",
+          "hash": "11072724501728847911",
+          "deps": [
+            "npm:rxjs",
+            "ngx-chat-shared"
+          ]
+        },
+        {
+          "file": "libs/xmpp-adapter/src/plugins/message-uuid.plugin.ts",
+          "hash": "13252470433137889293",
+          "deps": [
+            "ngx-chat-shared"
+          ]
+        },
+        {
+          "file": "libs/xmpp-adapter/src/plugins/muc-sub.plugin.ts",
+          "hash": "13616177028606972638",
+          "deps": [
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "libs/xmpp-adapter/src/plugins/multi-user-chat/configuration-change-status-code.ts",
+          "hash": "4742476471101856649"
+        },
+        {
+          "file": "libs/xmpp-adapter/src/plugins/multi-user-chat/entering-room-status-code.ts",
+          "hash": "16208704125538531019"
+        },
+        {
+          "file": "libs/xmpp-adapter/src/plugins/multi-user-chat/exiting-room-status-code.ts",
+          "hash": "7184695837177241124"
+        },
+        {
+          "file": "libs/xmpp-adapter/src/plugins/multi-user-chat/index.ts",
+          "hash": "2406444552993915854"
+        },
+        {
+          "file": "libs/xmpp-adapter/src/plugins/multi-user-chat/muc-sub-event-type.ts",
+          "hash": "18226720377513075221"
+        },
+        {
+          "file": "libs/xmpp-adapter/src/plugins/multi-user-chat/multi-user-chat-constants.ts",
+          "hash": "6916343303976207083"
+        },
+        {
+          "file": "libs/xmpp-adapter/src/plugins/multi-user-chat/multi-user-chat.plugin.ts",
+          "hash": "9999037496879062872",
+          "deps": [
+            "npm:rxjs",
+            "ngx-chat-shared",
+            "strophe-ts"
+          ]
+        },
+        {
+          "file": "libs/xmpp-adapter/src/plugins/multi-user-chat/other-status-code.ts",
+          "hash": "10399368604841168438"
+        },
+        {
+          "file": "libs/xmpp-adapter/src/plugins/ping.plugin.ts",
+          "hash": "1494119336958546000",
+          "deps": [
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "libs/xmpp-adapter/src/plugins/publish-subscribe.plugin.ts",
+          "hash": "12823448472635507760",
+          "deps": [
+            "npm:rxjs",
+            "ngx-chat-shared"
+          ]
+        },
+        {
+          "file": "libs/xmpp-adapter/src/plugins/push.plugin.ts",
+          "hash": "4940179612369057723"
+        },
+        {
+          "file": "libs/xmpp-adapter/src/plugins/roster.plugin.ts",
+          "hash": "1305011751502369422",
+          "deps": [
+            "ngx-chat-shared",
+            "npm:rxjs",
+            "strophe-ts"
+          ]
+        },
+        {
+          "file": "libs/xmpp-adapter/src/plugins/service-discovery.plugin.ts",
+          "hash": "8857288026656011835",
+          "deps": [
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "libs/xmpp-adapter/src/plugins/xmpp-http-file-upload.handler.ts",
+          "hash": "12722998144569682955",
+          "deps": [
+            "npm:@angular/common",
+            "ngx-chat-shared",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "libs/xmpp-adapter/src/service/index.ts",
+          "hash": "15228081768239346065"
+        },
+        {
+          "file": "libs/xmpp-adapter/src/service/unread-message-count.service.ts",
+          "hash": "1712399078315057347",
+          "deps": [
+            "npm:rxjs",
+            "ngx-chat-shared"
+          ]
+        },
+        {
+          "file": "libs/xmpp-adapter/src/service/xmpp-connection-service.ts",
+          "hash": "7796731856088972380",
+          "deps": [
+            "npm:rxjs",
+            "ngx-chat-shared",
+            "strophe-ts"
+          ]
+        },
+        {
+          "file": "libs/xmpp-adapter/src/service/xmpp-contact-list.service.ts",
+          "hash": "11370898946413896481",
+          "deps": [
+            "ngx-chat-shared",
+            "npm:rxjs",
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "libs/xmpp-adapter/src/service/xmpp-message.service.ts",
+          "hash": "8812253863426522396",
+          "deps": [
+            "ngx-chat-shared",
+            "npm:rxjs",
+            "strophe-ts"
+          ]
+        },
+        {
+          "file": "libs/xmpp-adapter/src/service/xmpp-room.service.ts",
+          "hash": "9478550369598920143",
+          "deps": [
+            "ngx-chat-shared",
+            "npm:rxjs",
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "libs/xmpp-adapter/src/stanza-builder.ts",
+          "hash": "16509515577615326910",
+          "deps": [
+            "strophe-ts"
+          ]
+        },
+        {
+          "file": "libs/xmpp-adapter/src/xmpp.service.ts",
+          "hash": "8306563315336005623",
+          "deps": [
+            "npm:rxjs",
+            "ngx-chat-shared",
+            "npm:@angular/common",
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "libs/xmpp-adapter/tsconfig.json",
+          "hash": "7546437939659082705"
+        },
+        {
+          "file": "libs/xmpp-adapter/tsconfig.lib.json",
+          "hash": "8184738766725909087"
+        },
+        {
+          "file": "libs/xmpp-adapter/tsconfig.spec.json",
+          "hash": "657665477955702367"
+        }
+      ],
+      "matrix-adapter": [
+        {
+          "file": "libs/.eslintrc.json",
+          "hash": "10757071654933456057"
+        },
+        {
+          "file": "libs/README.md",
+          "hash": "14735449327048975503"
+        },
+        {
+          "file": "libs/jest.config.ts",
+          "hash": "2157983790767562674"
+        },
+        {
+          "file": "libs/matrix-adapter/src/core/matrix-adapter.component.css",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "libs/matrix-adapter/src/core/matrix-adapter.component.html",
+          "hash": "1125480664911961888"
+        },
+        {
+          "file": "libs/matrix-adapter/src/core/matrix-adapter.component.spec.ts",
+          "hash": "18176302802604716134",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "libs/matrix-adapter/src/core/matrix-adapter.component.ts",
+          "hash": "17284996202186908619",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common"
+          ]
+        },
+        {
+          "file": "libs/matrix-adapter/src/core/matrix-adapter.module.ts",
+          "hash": "6802731092070841003",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common",
+            "ngx-xmpp",
+            "ngx-chat-shared",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "libs/matrix-adapter/src/core/matrix.service.spec.ts",
+          "hash": "8386536010751849979",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common"
+          ]
+        },
+        {
+          "file": "libs/matrix-adapter/src/index.ts",
+          "hash": "9950161218248193970"
+        },
+        {
+          "file": "libs/matrix-adapter/src/matrix.service.ts",
+          "hash": "1128290572523971904",
+          "deps": [
+            "npm:@angular/core",
+            "ngx-chat-shared",
+            "npm:@angular/common",
+            "npm:rxjs",
+            "ngx-xmpp"
+          ]
+        },
+        {
+          "file": "libs/matrix-adapter/src/service/matrix-connection-service.ts",
+          "hash": "10128725122550800425",
+          "deps": [
+            "npm:rxjs",
+            "ngx-chat-shared",
+            "npm:matrix-js-sdk"
+          ]
+        },
+        {
+          "file": "libs/matrix-adapter/src/service/matrix-contact-factory.ts",
+          "hash": "10305216681188859505",
+          "deps": [
+            "ngx-chat-shared"
+          ]
+        },
+        {
+          "file": "libs/matrix-adapter/src/service/matrix-contact-list-service.ts",
+          "hash": "3872220877077543342",
+          "deps": [
+            "npm:rxjs",
+            "npm:@angular/core",
+            "ngx-chat-shared",
+            "npm:matrix-js-sdk"
+          ]
+        },
+        {
+          "file": "libs/matrix-adapter/src/service/matrix-file-upload-handler.ts",
+          "hash": "12396519043277502082",
+          "deps": [
+            "npm:rxjs",
+            "ngx-chat-shared",
+            "npm:matrix-js-sdk"
+          ]
+        },
+        {
+          "file": "libs/matrix-adapter/src/service/matrix-message-service.ts",
+          "hash": "7408486320368631964",
+          "deps": [
+            "npm:rxjs",
+            "npm:@angular/core",
+            "ngx-chat-shared",
+            "npm:matrix-js-sdk"
+          ]
+        },
+        {
+          "file": "libs/matrix-adapter/src/service/matrix-room-factory.ts",
+          "hash": "16272469995668839538",
+          "deps": [
+            "ngx-chat-shared"
+          ]
+        },
+        {
+          "file": "libs/matrix-adapter/src/service/matrix-room-service.ts",
+          "hash": "2530604407323797384",
+          "deps": [
+            "npm:rxjs",
+            "npm:@angular/core",
+            "ngx-chat-shared",
+            "npm:matrix-js-sdk"
+          ]
+        },
+        {
+          "file": "libs/matrix-adapter/src/test-setup.ts",
+          "hash": "1917999429567095215",
+          "deps": [
+            "npm:jest-preset-angular"
+          ]
+        },
+        {
+          "file": "libs/project.json",
+          "hash": "9947510096315517166"
+        },
+        {
+          "file": "libs/tsconfig.json",
+          "hash": "14532299958370693979"
+        },
+        {
+          "file": "libs/tsconfig.lib.json",
+          "hash": "5056593939568173766"
+        },
+        {
+          "file": "libs/tsconfig.spec.json",
+          "hash": "3130711559605666574"
+        }
+      ],
+      "ngx-xmpp": [
+        {
+          "file": "libs/ngx-xmpp/CHANGELOG.md",
+          "hash": "6171944629735797094"
+        },
+        {
+          "file": "libs/ngx-xmpp/LICENSE",
+          "hash": "5063357314449241554"
+        },
+        {
+          "file": "libs/ngx-xmpp/karma.conf.js",
+          "hash": "3700240008240821431"
+        },
+        {
+          "file": "libs/ngx-xmpp/ng-package.json",
+          "hash": "15426136223502041930"
+        },
+        {
+          "file": "libs/ngx-xmpp/package.json",
+          "hash": "6477669025896883493",
+          "deps": [
+            "npm:@angular/common",
+            "npm:@angular/core",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "libs/ngx-xmpp/project.json",
+          "hash": "2282270055923544426"
+        },
+        {
+          "file": "libs/ngx-xmpp/src/empty-service.component.ts",
+          "hash": "4505529561492382551",
+          "deps": [
+            "npm:@angular/core",
+            "ngx-chat-shared"
+          ]
+        },
+        {
+          "file": "libs/ngx-xmpp/src/index.ts",
+          "hash": "3360325008613816043"
+        },
+        {
+          "file": "libs/ngx-xmpp/src/injection-token/chat-background-notification-service.token.ts",
+          "hash": "17273212236656666735",
+          "deps": [
+            "npm:@angular/core",
+            "ngx-chat-shared"
+          ]
+        },
+        {
+          "file": "libs/ngx-xmpp/src/injection-token/chat-contact-click-handler.token.ts",
+          "hash": "514119861322668780",
+          "deps": [
+            "npm:@angular/core",
+            "ngx-chat-shared"
+          ]
+        },
+        {
+          "file": "libs/ngx-xmpp/src/injection-token/chat-list-state-service.token.ts",
+          "hash": "98502989178525739",
+          "deps": [
+            "npm:@angular/core",
+            "ngx-chat-shared"
+          ]
+        },
+        {
+          "file": "libs/ngx-xmpp/src/injection-token/chat-style.ts",
+          "hash": "9753892205744147128",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "libs/ngx-xmpp/src/injection-token/chat.service.token.ts",
+          "hash": "10022065135967140067",
+          "deps": [
+            "npm:@angular/core",
+            "ngx-chat-shared"
+          ]
+        },
+        {
+          "file": "libs/ngx-xmpp/src/injection-token/custom-contact-factory.token.ts",
+          "hash": "10533006353800884557",
+          "deps": [
+            "npm:@angular/core",
+            "ngx-chat-shared"
+          ]
+        },
+        {
+          "file": "libs/ngx-xmpp/src/injection-token/custom-room-factory.token.ts",
+          "hash": "3308254255597589891",
+          "deps": [
+            "npm:@angular/core",
+            "ngx-chat-shared"
+          ]
+        },
+        {
+          "file": "libs/ngx-xmpp/src/injection-token/file-upload-handler.token.ts",
+          "hash": "16998262464423486546",
+          "deps": [
+            "npm:@angular/core",
+            "ngx-chat-shared"
+          ]
+        },
+        {
+          "file": "libs/ngx-xmpp/src/injection-token/index.ts",
+          "hash": "12837957503335168207"
+        },
+        {
+          "file": "libs/ngx-xmpp/src/injection-token/open-chats-service.token.ts",
+          "hash": "11753630924090502531",
+          "deps": [
+            "npm:@angular/core",
+            "ngx-chat-shared"
+          ]
+        },
+        {
+          "file": "libs/ngx-xmpp/src/injection-token/report-user-service.token.ts",
+          "hash": "9876135291830025433",
+          "deps": [
+            "npm:@angular/core",
+            "ngx-chat-shared"
+          ]
+        },
+        {
+          "file": "libs/ngx-xmpp/src/injection-token/user-avatar.token.ts",
+          "hash": "5809293612720578326",
+          "deps": [
+            "npm:@angular/core",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "libs/ngx-xmpp/src/injection-token/user-name.token.ts",
+          "hash": "6899400694194259310",
+          "deps": [
+            "npm:@angular/core",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "libs/ngx-xmpp/src/lib/services/xmpp-message.service.ts",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "libs/ngx-xmpp/src/main.karma.ts",
+          "hash": "13142313185031557927",
+          "deps": [
+            "npm:zone.js",
+            "npm:@angular/core",
+            "npm:@angular/platform-browser-dynamic"
+          ]
+        },
+        {
+          "file": "libs/ngx-xmpp/src/package.json",
+          "hash": "5816774682069074198"
+        },
+        {
+          "file": "libs/ngx-xmpp/src/polyfills.ts",
+          "hash": "3353519910343723719",
+          "deps": [
+            "npm:zone.js"
+          ]
+        },
+        {
+          "file": "libs/ngx-xmpp/src/services/chat-background-notification.service.ts",
+          "hash": "7062020842858060423",
+          "deps": [
+            "npm:@angular/core",
+            "ngx-chat-shared"
+          ]
+        },
+        {
+          "file": "libs/ngx-xmpp/src/services/chat-list-state.service.ts",
+          "hash": "5955821344050142239",
+          "deps": [
+            "npm:@angular/core",
+            "npm:rxjs",
+            "ngx-chat-shared"
+          ]
+        },
+        {
+          "file": "libs/ngx-xmpp/src/services/chat-message-list-registry.service.ts",
+          "hash": "18279127473169621217",
+          "deps": [
+            "npm:rxjs",
+            "ngx-chat-shared",
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "libs/ngx-xmpp/src/services/index.ts",
+          "hash": "16213385811946581539"
+        },
+        {
+          "file": "libs/ngx-xmpp/src/services/log.service.ts",
+          "hash": "10768184294018037842",
+          "deps": [
+            "ngx-chat-shared"
+          ]
+        },
+        {
+          "file": "libs/ngx-xmpp/src/test/block.plugin.spec.ts",
+          "hash": "5438903974108396225",
+          "deps": [
+            "xmpp-adapter",
+            "npm:@angular/core",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "libs/ngx-xmpp/src/test/contact-list-relogin.plugin.spec.ts",
+          "hash": "7610355199016511542",
+          "deps": [
+            "npm:rxjs",
+            "xmpp-adapter",
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "libs/ngx-xmpp/src/test/contact-messages.spec.ts",
+          "hash": "15173612870733158",
+          "deps": [
+            "ngx-chat-shared"
+          ]
+        },
+        {
+          "file": "libs/ngx-xmpp/src/test/handler.spec.ts",
+          "hash": "12135524201124394025",
+          "deps": [
+            "strophe-ts"
+          ]
+        },
+        {
+          "file": "libs/ngx-xmpp/src/test/helpers/admin-actions.ts",
+          "hash": "6326863748595576762",
+          "deps": [
+            "ngx-chat-shared"
+          ]
+        },
+        {
+          "file": "libs/ngx-xmpp/src/test/helpers/ejabberd-client.ts",
+          "hash": "9093998523528348093",
+          "deps": [
+            "ngx-chat-shared"
+          ]
+        },
+        {
+          "file": "libs/ngx-xmpp/src/test/helpers/room-options.ts",
+          "hash": "2928525406798895550"
+        },
+        {
+          "file": "libs/ngx-xmpp/src/test/helpers/test-utils.ts",
+          "hash": "9141230467953759131",
+          "deps": [
+            "npm:rxjs",
+            "ngx-chat-shared",
+            "xmpp-adapter",
+            "strophe-ts"
+          ]
+        },
+        {
+          "file": "libs/ngx-xmpp/src/test/log.service.spec.ts",
+          "hash": "10363901551165513907",
+          "deps": [
+            "ngx-chat-shared"
+          ]
+        },
+        {
+          "file": "libs/ngx-xmpp/src/test/login.spec.ts",
+          "hash": "16427871029375702626",
+          "deps": [
+            "npm:@angular/core",
+            "xmpp-adapter",
+            "npm:rxjs",
+            "ngx-chat-shared"
+          ]
+        },
+        {
+          "file": "libs/ngx-xmpp/src/test/message-archive.plugin.spec.ts",
+          "hash": "3128234918772073247",
+          "deps": [
+            "npm:@angular/core",
+            "xmpp-adapter",
+            "strophe-ts",
+            "ngx-chat-shared",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "libs/ngx-xmpp/src/test/message-carbons.plugin.spec.ts",
+          "hash": "4274309405265623627",
+          "deps": [
+            "npm:@angular/core",
+            "xmpp-adapter",
+            "npm:rxjs",
+            "ngx-chat-shared"
+          ]
+        },
+        {
+          "file": "libs/ngx-xmpp/src/test/multi-user-chat.plugin.spec.ts",
+          "hash": "6551474728615319939",
+          "deps": [
+            "npm:rxjs",
+            "ngx-chat-shared",
+            "npm:@angular/core",
+            "xmpp-adapter"
+          ]
+        },
+        {
+          "file": "libs/ngx-xmpp/src/test/register.spec.ts",
+          "hash": "1512491147289303536",
+          "deps": [
+            "npm:@angular/core",
+            "xmpp-adapter"
+          ]
+        },
+        {
+          "file": "libs/ngx-xmpp/src/test/roster.plugin.spec.ts",
+          "hash": "9339168354861656193",
+          "deps": [
+            "ngx-chat-shared",
+            "npm:rxjs",
+            "xmpp-adapter",
+            "strophe-ts",
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "libs/ngx-xmpp/src/test/service-discovery.plugin.spec.ts",
+          "hash": "9215659661259219584",
+          "deps": [
+            "npm:@angular/core",
+            "xmpp-adapter"
+          ]
+        },
+        {
+          "file": "libs/ngx-xmpp/src/test/stanza-builder.spec.ts",
+          "hash": "2809740457799423645",
+          "deps": [
+            "strophe-ts",
+            "npm:@angular/core",
+            "xmpp-adapter"
+          ]
+        },
+        {
+          "file": "libs/ngx-xmpp/src/test/stanza.spec.ts",
+          "hash": "17523283583871819415",
+          "deps": [
+            "strophe-ts"
+          ]
+        },
+        {
+          "file": "libs/ngx-xmpp/src/test/xmpp-message.spec.ts",
+          "hash": "1942867747996386755",
+          "deps": [
+            "npm:rxjs",
+            "ngx-chat-shared",
+            "npm:@angular/core",
+            "xmpp-adapter"
+          ]
+        },
+        {
+          "file": "libs/ngx-xmpp/src/test/xmpp.spec.ts",
+          "hash": "873152090370956519",
+          "deps": [
+            "npm:rxjs",
+            "npm:@angular/core",
+            "xmpp-adapter"
+          ]
+        },
+        {
+          "file": "libs/ngx-xmpp/src/xmpp-adapter-test.module.ts",
+          "hash": "599646957386928695",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/platform-browser"
+          ]
+        },
+        {
+          "file": "libs/ngx-xmpp/src/xmpp-adapter.module.ts",
+          "hash": "16961897341221922902",
+          "deps": [
+            "npm:@angular/core",
+            "ngx-chat-shared",
+            "npm:@angular/common",
+            "xmpp-adapter",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "libs/ngx-xmpp/tsconfig.json",
+          "hash": "7477734205769864937"
+        },
+        {
+          "file": "libs/ngx-xmpp/tsconfig.lib.json",
+          "hash": "5372219918782699172"
+        },
+        {
+          "file": "libs/ngx-xmpp/tsconfig.lib.prod.json",
+          "hash": "16605914761603085674"
+        },
+        {
+          "file": "libs/ngx-xmpp/tsconfig.spec.json",
+          "hash": "7309197400698594868"
+        }
+      ],
+      "demo-e2e": [
+        {
+          "file": "apps/demo-e2e/.eslintrc.json",
+          "hash": "2453998619382638884"
+        },
+        {
+          "file": "apps/demo-e2e/LICENSE",
+          "hash": "5063357314449241554"
+        },
+        {
+          "file": "apps/demo-e2e/playwright.config.ts",
+          "hash": "17779899918238635848",
+          "deps": [
+            "npm:@playwright/test",
+            "npm:puppeteer"
+          ]
+        },
+        {
+          "file": "apps/demo-e2e/project.json",
+          "hash": "12813851597733036211"
+        },
+        {
+          "file": "apps/demo-e2e/src/app.spec.ts",
+          "hash": "13056955685429848047",
+          "deps": [
+            "npm:@playwright/test",
+            "ngx-xmpp"
+          ]
+        },
+        {
+          "file": "apps/demo-e2e/src/blocking.spec.ts",
+          "hash": "10832026227440509764",
+          "deps": [
+            "npm:@playwright/test",
+            "ngx-xmpp"
+          ]
+        },
+        {
+          "file": "apps/demo-e2e/src/chatbox.spec.ts",
+          "hash": "12255739244594358170",
+          "deps": [
+            "npm:@playwright/test",
+            "ngx-xmpp"
+          ]
+        },
+        {
+          "file": "apps/demo-e2e/src/muc-messages.spec.ts",
+          "hash": "10108681213655847240",
+          "deps": [
+            "npm:@playwright/test",
+            "ngx-xmpp"
+          ]
+        },
+        {
+          "file": "apps/demo-e2e/src/one-to-one-messages.spec.ts",
+          "hash": "4443709639225444826",
+          "deps": [
+            "npm:@playwright/test",
+            "ngx-xmpp"
+          ]
+        },
+        {
+          "file": "apps/demo-e2e/src/page-objects/app.po.ts",
+          "hash": "2851654976249724887",
+          "deps": [
+            "npm:playwright",
+            "ngx-chat-shared",
+            "ngx-xmpp",
+            "npm:@playwright/test"
+          ]
+        },
+        {
+          "file": "apps/demo-e2e/src/page-objects/chat-window.po.ts",
+          "hash": "3005313628109946912",
+          "deps": [
+            "npm:playwright",
+            "npm:@playwright/test"
+          ]
+        },
+        {
+          "file": "apps/demo-e2e/src/page-objects/ejabberd-admin.po.ts",
+          "hash": "15073463440739519674",
+          "deps": [
+            "npm:@playwright/test",
+            "ngx-xmpp",
+            "npm:playwright"
+          ]
+        },
+        {
+          "file": "apps/demo-e2e/src/page-objects/muc.po.ts",
+          "hash": "12288031760410729540",
+          "deps": [
+            "npm:playwright"
+          ]
+        },
+        {
+          "file": "apps/demo-e2e/tsconfig.e2e.json",
+          "hash": "9473148075180473997"
+        },
+        {
+          "file": "apps/demo-e2e/tsconfig.json",
+          "hash": "4500232260948002331"
+        }
+      ],
       "ngx-chat": [
         {
           "file": "libs/ngx-chat/CHANGELOG.md",
@@ -724,7 +1708,7 @@
         },
         {
           "file": "libs/ngx-chat/src/components/chat-window/chat-window.component.ts",
-          "hash": "16206300514186941998",
+          "hash": "2752271287069128733",
           "deps": [
             "npm:@angular/core",
             "npm:rxjs",
@@ -1365,981 +2349,6 @@
         {
           "file": "libs/strophe-ts/tsconfig.spec.json",
           "hash": "9269166270777843352"
-        }
-      ],
-      "matrix-adapter": [
-        {
-          "file": "libs/.eslintrc.json",
-          "hash": "10757071654933456057"
-        },
-        {
-          "file": "libs/README.md",
-          "hash": "14735449327048975503"
-        },
-        {
-          "file": "libs/jest.config.ts",
-          "hash": "2157983790767562674"
-        },
-        {
-          "file": "libs/matrix-adapter/src/core/matrix-adapter.component.css",
-          "hash": "3244421341483603138"
-        },
-        {
-          "file": "libs/matrix-adapter/src/core/matrix-adapter.component.html",
-          "hash": "1125480664911961888"
-        },
-        {
-          "file": "libs/matrix-adapter/src/core/matrix-adapter.component.spec.ts",
-          "hash": "18176302802604716134",
-          "deps": [
-            "npm:@angular/core"
-          ]
-        },
-        {
-          "file": "libs/matrix-adapter/src/core/matrix-adapter.component.ts",
-          "hash": "17284996202186908619",
-          "deps": [
-            "npm:@angular/core",
-            "npm:@angular/common"
-          ]
-        },
-        {
-          "file": "libs/matrix-adapter/src/core/matrix-adapter.module.ts",
-          "hash": "6802731092070841003",
-          "deps": [
-            "npm:@angular/core",
-            "npm:@angular/common",
-            "ngx-xmpp",
-            "ngx-chat-shared",
-            "npm:rxjs"
-          ]
-        },
-        {
-          "file": "libs/matrix-adapter/src/core/matrix.service.spec.ts",
-          "hash": "8386536010751849979",
-          "deps": [
-            "npm:@angular/core",
-            "npm:@angular/common"
-          ]
-        },
-        {
-          "file": "libs/matrix-adapter/src/index.ts",
-          "hash": "9950161218248193970"
-        },
-        {
-          "file": "libs/matrix-adapter/src/matrix.service.ts",
-          "hash": "11184148807127579863",
-          "deps": [
-            "npm:@angular/core",
-            "ngx-chat-shared",
-            "npm:@angular/common",
-            "npm:rxjs",
-            "ngx-xmpp"
-          ]
-        },
-        {
-          "file": "libs/matrix-adapter/src/service/matrix-connection-service.ts",
-          "hash": "4108757766498675251",
-          "deps": [
-            "npm:rxjs",
-            "ngx-chat-shared",
-            "npm:matrix-js-sdk"
-          ]
-        },
-        {
-          "file": "libs/matrix-adapter/src/service/matrix-contact-factory.ts",
-          "hash": "10305216681188859505",
-          "deps": [
-            "ngx-chat-shared"
-          ]
-        },
-        {
-          "file": "libs/matrix-adapter/src/service/matrix-contact-list-service.ts",
-          "hash": "3872220877077543342",
-          "deps": [
-            "npm:rxjs",
-            "npm:@angular/core",
-            "ngx-chat-shared",
-            "npm:matrix-js-sdk"
-          ]
-        },
-        {
-          "file": "libs/matrix-adapter/src/service/matrix-file-upload-handler.ts",
-          "hash": "7474771183097011906",
-          "deps": [
-            "npm:rxjs",
-            "ngx-chat-shared"
-          ]
-        },
-        {
-          "file": "libs/matrix-adapter/src/service/matrix-message-service.ts",
-          "hash": "5591930046408763734",
-          "deps": [
-            "npm:rxjs",
-            "npm:@angular/core",
-            "ngx-chat-shared",
-            "npm:matrix-js-sdk"
-          ]
-        },
-        {
-          "file": "libs/matrix-adapter/src/service/matrix-room-factory.ts",
-          "hash": "16272469995668839538",
-          "deps": [
-            "ngx-chat-shared"
-          ]
-        },
-        {
-          "file": "libs/matrix-adapter/src/service/matrix-room-service.ts",
-          "hash": "2530604407323797384",
-          "deps": [
-            "npm:rxjs",
-            "npm:@angular/core",
-            "ngx-chat-shared",
-            "npm:matrix-js-sdk"
-          ]
-        },
-        {
-          "file": "libs/matrix-adapter/src/test-setup.ts",
-          "hash": "1917999429567095215",
-          "deps": [
-            "npm:jest-preset-angular"
-          ]
-        },
-        {
-          "file": "libs/project.json",
-          "hash": "9947510096315517166"
-        },
-        {
-          "file": "libs/tsconfig.json",
-          "hash": "14532299958370693979"
-        },
-        {
-          "file": "libs/tsconfig.lib.json",
-          "hash": "5056593939568173766"
-        },
-        {
-          "file": "libs/tsconfig.spec.json",
-          "hash": "3130711559605666574"
-        }
-      ],
-      "demo-e2e": [
-        {
-          "file": "apps/demo-e2e/.eslintrc.json",
-          "hash": "2453998619382638884"
-        },
-        {
-          "file": "apps/demo-e2e/LICENSE",
-          "hash": "5063357314449241554"
-        },
-        {
-          "file": "apps/demo-e2e/playwright.config.ts",
-          "hash": "17779899918238635848",
-          "deps": [
-            "npm:@playwright/test",
-            "npm:puppeteer"
-          ]
-        },
-        {
-          "file": "apps/demo-e2e/project.json",
-          "hash": "12813851597733036211"
-        },
-        {
-          "file": "apps/demo-e2e/src/app.spec.ts",
-          "hash": "13056955685429848047",
-          "deps": [
-            "npm:@playwright/test",
-            "ngx-xmpp"
-          ]
-        },
-        {
-          "file": "apps/demo-e2e/src/blocking.spec.ts",
-          "hash": "10832026227440509764",
-          "deps": [
-            "npm:@playwright/test",
-            "ngx-xmpp"
-          ]
-        },
-        {
-          "file": "apps/demo-e2e/src/chatbox.spec.ts",
-          "hash": "12255739244594358170",
-          "deps": [
-            "npm:@playwright/test",
-            "ngx-xmpp"
-          ]
-        },
-        {
-          "file": "apps/demo-e2e/src/muc-messages.spec.ts",
-          "hash": "10108681213655847240",
-          "deps": [
-            "npm:@playwright/test",
-            "ngx-xmpp"
-          ]
-        },
-        {
-          "file": "apps/demo-e2e/src/one-to-one-messages.spec.ts",
-          "hash": "4443709639225444826",
-          "deps": [
-            "npm:@playwright/test",
-            "ngx-xmpp"
-          ]
-        },
-        {
-          "file": "apps/demo-e2e/src/page-objects/app.po.ts",
-          "hash": "2851654976249724887",
-          "deps": [
-            "npm:playwright",
-            "ngx-chat-shared",
-            "ngx-xmpp",
-            "npm:@playwright/test"
-          ]
-        },
-        {
-          "file": "apps/demo-e2e/src/page-objects/chat-window.po.ts",
-          "hash": "3005313628109946912",
-          "deps": [
-            "npm:playwright",
-            "npm:@playwright/test"
-          ]
-        },
-        {
-          "file": "apps/demo-e2e/src/page-objects/ejabberd-admin.po.ts",
-          "hash": "15073463440739519674",
-          "deps": [
-            "npm:@playwright/test",
-            "ngx-xmpp",
-            "npm:playwright"
-          ]
-        },
-        {
-          "file": "apps/demo-e2e/src/page-objects/muc.po.ts",
-          "hash": "12288031760410729540",
-          "deps": [
-            "npm:playwright"
-          ]
-        },
-        {
-          "file": "apps/demo-e2e/tsconfig.e2e.json",
-          "hash": "9473148075180473997"
-        },
-        {
-          "file": "apps/demo-e2e/tsconfig.json",
-          "hash": "4500232260948002331"
-        }
-      ],
-      "xmpp-adapter": [
-        {
-          "file": "libs/xmpp-adapter/CHANGELOG.md",
-          "hash": "12184635128936516008"
-        },
-        {
-          "file": "libs/xmpp-adapter/LICENSE",
-          "hash": "1312385381652807761"
-        },
-        {
-          "file": "libs/xmpp-adapter/README.md",
-          "hash": "4054938918562861625"
-        },
-        {
-          "file": "libs/xmpp-adapter/package.json",
-          "hash": "16810134054560031655",
-          "deps": [
-            "npm:@angular/common",
-            "npm:@angular/core",
-            "npm:rxjs"
-          ]
-        },
-        {
-          "file": "libs/xmpp-adapter/project.json",
-          "hash": "9994225758871410808"
-        },
-        {
-          "file": "libs/xmpp-adapter/src/core/chat-plugin.ts",
-          "hash": "14431469359362103979"
-        },
-        {
-          "file": "libs/xmpp-adapter/src/core/default-contact-factory.ts",
-          "hash": "9507303379438066285",
-          "deps": [
-            "ngx-chat-shared"
-          ]
-        },
-        {
-          "file": "libs/xmpp-adapter/src/core/default-room-factory.ts",
-          "hash": "7374237595947196321",
-          "deps": [
-            "ngx-chat-shared"
-          ]
-        },
-        {
-          "file": "libs/xmpp-adapter/src/core/finder.ts",
-          "hash": "8750404829090990952"
-        },
-        {
-          "file": "libs/xmpp-adapter/src/core/form.ts",
-          "hash": "11252608905768270668",
-          "deps": [
-            "ngx-chat-shared"
-          ]
-        },
-        {
-          "file": "libs/xmpp-adapter/src/core/index.ts",
-          "hash": "13980239355444650282"
-        },
-        {
-          "file": "libs/xmpp-adapter/src/core/plugin-map-create.ts",
-          "hash": "15558950228018419575",
-          "deps": [
-            "npm:@angular/common",
-            "ngx-chat-shared"
-          ]
-        },
-        {
-          "file": "libs/xmpp-adapter/src/core/plugin-map.ts",
-          "hash": "3732561190872403814"
-        },
-        {
-          "file": "libs/xmpp-adapter/src/core/stanza-handler-chat-plugin.ts",
-          "hash": "11587703993309047810"
-        },
-        {
-          "file": "libs/xmpp-adapter/src/core/stanza.ts",
-          "hash": "12642687135795946906"
-        },
-        {
-          "file": "libs/xmpp-adapter/src/core/xmpp-response.error.ts",
-          "hash": "17456892218447811495"
-        },
-        {
-          "file": "libs/xmpp-adapter/src/index.ts",
-          "hash": "13927030827238273323"
-        },
-        {
-          "file": "libs/xmpp-adapter/src/plugins/block.plugin.ts",
-          "hash": "15023072192601283227",
-          "deps": [
-            "npm:rxjs",
-            "strophe-ts",
-            "ngx-chat-shared"
-          ]
-        },
-        {
-          "file": "libs/xmpp-adapter/src/plugins/bookmark.plugin.ts",
-          "hash": "15869247781659492681",
-          "deps": [
-            "ngx-chat-shared",
-            "npm:rxjs"
-          ]
-        },
-        {
-          "file": "libs/xmpp-adapter/src/plugins/entity-time.plugin.ts",
-          "hash": "12717028300972385787",
-          "deps": [
-            "npm:rxjs",
-            "ngx-chat-shared"
-          ]
-        },
-        {
-          "file": "libs/xmpp-adapter/src/plugins/index.ts",
-          "hash": "14208333026287626586"
-        },
-        {
-          "file": "libs/xmpp-adapter/src/plugins/message-archive.plugin.ts",
-          "hash": "4216126499739242911",
-          "deps": [
-            "ngx-chat-shared"
-          ]
-        },
-        {
-          "file": "libs/xmpp-adapter/src/plugins/message-carbons.plugin.ts",
-          "hash": "7757177859357831277",
-          "deps": [
-            "ngx-chat-shared",
-            "npm:rxjs"
-          ]
-        },
-        {
-          "file": "libs/xmpp-adapter/src/plugins/message-state.plugin.ts",
-          "hash": "11072724501728847911",
-          "deps": [
-            "npm:rxjs",
-            "ngx-chat-shared"
-          ]
-        },
-        {
-          "file": "libs/xmpp-adapter/src/plugins/message-uuid.plugin.ts",
-          "hash": "13252470433137889293",
-          "deps": [
-            "ngx-chat-shared"
-          ]
-        },
-        {
-          "file": "libs/xmpp-adapter/src/plugins/muc-sub.plugin.ts",
-          "hash": "13616177028606972638",
-          "deps": [
-            "npm:rxjs"
-          ]
-        },
-        {
-          "file": "libs/xmpp-adapter/src/plugins/multi-user-chat/configuration-change-status-code.ts",
-          "hash": "4742476471101856649"
-        },
-        {
-          "file": "libs/xmpp-adapter/src/plugins/multi-user-chat/entering-room-status-code.ts",
-          "hash": "16208704125538531019"
-        },
-        {
-          "file": "libs/xmpp-adapter/src/plugins/multi-user-chat/exiting-room-status-code.ts",
-          "hash": "7184695837177241124"
-        },
-        {
-          "file": "libs/xmpp-adapter/src/plugins/multi-user-chat/index.ts",
-          "hash": "2406444552993915854"
-        },
-        {
-          "file": "libs/xmpp-adapter/src/plugins/multi-user-chat/muc-sub-event-type.ts",
-          "hash": "18226720377513075221"
-        },
-        {
-          "file": "libs/xmpp-adapter/src/plugins/multi-user-chat/multi-user-chat-constants.ts",
-          "hash": "6916343303976207083"
-        },
-        {
-          "file": "libs/xmpp-adapter/src/plugins/multi-user-chat/multi-user-chat.plugin.ts",
-          "hash": "9999037496879062872",
-          "deps": [
-            "npm:rxjs",
-            "ngx-chat-shared",
-            "strophe-ts"
-          ]
-        },
-        {
-          "file": "libs/xmpp-adapter/src/plugins/multi-user-chat/other-status-code.ts",
-          "hash": "10399368604841168438"
-        },
-        {
-          "file": "libs/xmpp-adapter/src/plugins/ping.plugin.ts",
-          "hash": "1494119336958546000",
-          "deps": [
-            "npm:rxjs"
-          ]
-        },
-        {
-          "file": "libs/xmpp-adapter/src/plugins/publish-subscribe.plugin.ts",
-          "hash": "12823448472635507760",
-          "deps": [
-            "npm:rxjs",
-            "ngx-chat-shared"
-          ]
-        },
-        {
-          "file": "libs/xmpp-adapter/src/plugins/push.plugin.ts",
-          "hash": "4940179612369057723"
-        },
-        {
-          "file": "libs/xmpp-adapter/src/plugins/roster.plugin.ts",
-          "hash": "1305011751502369422",
-          "deps": [
-            "ngx-chat-shared",
-            "npm:rxjs",
-            "strophe-ts"
-          ]
-        },
-        {
-          "file": "libs/xmpp-adapter/src/plugins/service-discovery.plugin.ts",
-          "hash": "8857288026656011835",
-          "deps": [
-            "npm:rxjs"
-          ]
-        },
-        {
-          "file": "libs/xmpp-adapter/src/plugins/xmpp-http-file-upload.handler.ts",
-          "hash": "12722998144569682955",
-          "deps": [
-            "npm:@angular/common",
-            "ngx-chat-shared",
-            "npm:rxjs"
-          ]
-        },
-        {
-          "file": "libs/xmpp-adapter/src/service/index.ts",
-          "hash": "15228081768239346065"
-        },
-        {
-          "file": "libs/xmpp-adapter/src/service/unread-message-count.service.ts",
-          "hash": "1712399078315057347",
-          "deps": [
-            "npm:rxjs",
-            "ngx-chat-shared"
-          ]
-        },
-        {
-          "file": "libs/xmpp-adapter/src/service/xmpp-connection-service.ts",
-          "hash": "7796731856088972380",
-          "deps": [
-            "npm:rxjs",
-            "ngx-chat-shared",
-            "strophe-ts"
-          ]
-        },
-        {
-          "file": "libs/xmpp-adapter/src/service/xmpp-contact-list.service.ts",
-          "hash": "11370898946413896481",
-          "deps": [
-            "ngx-chat-shared",
-            "npm:rxjs",
-            "npm:@angular/core"
-          ]
-        },
-        {
-          "file": "libs/xmpp-adapter/src/service/xmpp-message.service.ts",
-          "hash": "8812253863426522396",
-          "deps": [
-            "ngx-chat-shared",
-            "npm:rxjs",
-            "strophe-ts"
-          ]
-        },
-        {
-          "file": "libs/xmpp-adapter/src/service/xmpp-room.service.ts",
-          "hash": "9478550369598920143",
-          "deps": [
-            "ngx-chat-shared",
-            "npm:rxjs",
-            "npm:@angular/core"
-          ]
-        },
-        {
-          "file": "libs/xmpp-adapter/src/stanza-builder.ts",
-          "hash": "16509515577615326910",
-          "deps": [
-            "strophe-ts"
-          ]
-        },
-        {
-          "file": "libs/xmpp-adapter/src/xmpp.service.ts",
-          "hash": "8306563315336005623",
-          "deps": [
-            "npm:rxjs",
-            "ngx-chat-shared",
-            "npm:@angular/common",
-            "npm:@angular/core"
-          ]
-        },
-        {
-          "file": "libs/xmpp-adapter/tsconfig.json",
-          "hash": "7546437939659082705"
-        },
-        {
-          "file": "libs/xmpp-adapter/tsconfig.lib.json",
-          "hash": "8184738766725909087"
-        },
-        {
-          "file": "libs/xmpp-adapter/tsconfig.spec.json",
-          "hash": "657665477955702367"
-        }
-      ],
-      "ngx-xmpp": [
-        {
-          "file": "libs/ngx-xmpp/CHANGELOG.md",
-          "hash": "6171944629735797094"
-        },
-        {
-          "file": "libs/ngx-xmpp/LICENSE",
-          "hash": "5063357314449241554"
-        },
-        {
-          "file": "libs/ngx-xmpp/karma.conf.js",
-          "hash": "3700240008240821431"
-        },
-        {
-          "file": "libs/ngx-xmpp/ng-package.json",
-          "hash": "15426136223502041930"
-        },
-        {
-          "file": "libs/ngx-xmpp/package.json",
-          "hash": "6477669025896883493",
-          "deps": [
-            "npm:@angular/common",
-            "npm:@angular/core",
-            "npm:rxjs"
-          ]
-        },
-        {
-          "file": "libs/ngx-xmpp/project.json",
-          "hash": "2282270055923544426"
-        },
-        {
-          "file": "libs/ngx-xmpp/src/empty-service.component.ts",
-          "hash": "4505529561492382551",
-          "deps": [
-            "npm:@angular/core",
-            "ngx-chat-shared"
-          ]
-        },
-        {
-          "file": "libs/ngx-xmpp/src/index.ts",
-          "hash": "3360325008613816043"
-        },
-        {
-          "file": "libs/ngx-xmpp/src/injection-token/chat-background-notification-service.token.ts",
-          "hash": "17273212236656666735",
-          "deps": [
-            "npm:@angular/core",
-            "ngx-chat-shared"
-          ]
-        },
-        {
-          "file": "libs/ngx-xmpp/src/injection-token/chat-contact-click-handler.token.ts",
-          "hash": "514119861322668780",
-          "deps": [
-            "npm:@angular/core",
-            "ngx-chat-shared"
-          ]
-        },
-        {
-          "file": "libs/ngx-xmpp/src/injection-token/chat-list-state-service.token.ts",
-          "hash": "98502989178525739",
-          "deps": [
-            "npm:@angular/core",
-            "ngx-chat-shared"
-          ]
-        },
-        {
-          "file": "libs/ngx-xmpp/src/injection-token/chat-style.ts",
-          "hash": "9753892205744147128",
-          "deps": [
-            "npm:@angular/core"
-          ]
-        },
-        {
-          "file": "libs/ngx-xmpp/src/injection-token/chat.service.token.ts",
-          "hash": "10022065135967140067",
-          "deps": [
-            "npm:@angular/core",
-            "ngx-chat-shared"
-          ]
-        },
-        {
-          "file": "libs/ngx-xmpp/src/injection-token/custom-contact-factory.token.ts",
-          "hash": "10533006353800884557",
-          "deps": [
-            "npm:@angular/core",
-            "ngx-chat-shared"
-          ]
-        },
-        {
-          "file": "libs/ngx-xmpp/src/injection-token/custom-room-factory.token.ts",
-          "hash": "3308254255597589891",
-          "deps": [
-            "npm:@angular/core",
-            "ngx-chat-shared"
-          ]
-        },
-        {
-          "file": "libs/ngx-xmpp/src/injection-token/file-upload-handler.token.ts",
-          "hash": "16998262464423486546",
-          "deps": [
-            "npm:@angular/core",
-            "ngx-chat-shared"
-          ]
-        },
-        {
-          "file": "libs/ngx-xmpp/src/injection-token/index.ts",
-          "hash": "12837957503335168207"
-        },
-        {
-          "file": "libs/ngx-xmpp/src/injection-token/open-chats-service.token.ts",
-          "hash": "11753630924090502531",
-          "deps": [
-            "npm:@angular/core",
-            "ngx-chat-shared"
-          ]
-        },
-        {
-          "file": "libs/ngx-xmpp/src/injection-token/report-user-service.token.ts",
-          "hash": "9876135291830025433",
-          "deps": [
-            "npm:@angular/core",
-            "ngx-chat-shared"
-          ]
-        },
-        {
-          "file": "libs/ngx-xmpp/src/injection-token/user-avatar.token.ts",
-          "hash": "5809293612720578326",
-          "deps": [
-            "npm:@angular/core",
-            "npm:rxjs"
-          ]
-        },
-        {
-          "file": "libs/ngx-xmpp/src/injection-token/user-name.token.ts",
-          "hash": "6899400694194259310",
-          "deps": [
-            "npm:@angular/core",
-            "npm:rxjs"
-          ]
-        },
-        {
-          "file": "libs/ngx-xmpp/src/main.karma.ts",
-          "hash": "13142313185031557927",
-          "deps": [
-            "npm:zone.js",
-            "npm:@angular/core",
-            "npm:@angular/platform-browser-dynamic"
-          ]
-        },
-        {
-          "file": "libs/ngx-xmpp/src/package.json",
-          "hash": "5816774682069074198"
-        },
-        {
-          "file": "libs/ngx-xmpp/src/polyfills.ts",
-          "hash": "3353519910343723719",
-          "deps": [
-            "npm:zone.js"
-          ]
-        },
-        {
-          "file": "libs/ngx-xmpp/src/services/chat-background-notification.service.ts",
-          "hash": "7062020842858060423",
-          "deps": [
-            "npm:@angular/core",
-            "ngx-chat-shared"
-          ]
-        },
-        {
-          "file": "libs/ngx-xmpp/src/services/chat-list-state.service.ts",
-          "hash": "5955821344050142239",
-          "deps": [
-            "npm:@angular/core",
-            "npm:rxjs",
-            "ngx-chat-shared"
-          ]
-        },
-        {
-          "file": "libs/ngx-xmpp/src/services/chat-message-list-registry.service.ts",
-          "hash": "18279127473169621217",
-          "deps": [
-            "npm:rxjs",
-            "ngx-chat-shared",
-            "npm:@angular/core"
-          ]
-        },
-        {
-          "file": "libs/ngx-xmpp/src/services/index.ts",
-          "hash": "16213385811946581539"
-        },
-        {
-          "file": "libs/ngx-xmpp/src/services/log.service.ts",
-          "hash": "10768184294018037842",
-          "deps": [
-            "ngx-chat-shared"
-          ]
-        },
-        {
-          "file": "libs/ngx-xmpp/src/test/block.plugin.spec.ts",
-          "hash": "5438903974108396225",
-          "deps": [
-            "xmpp-adapter",
-            "npm:@angular/core",
-            "npm:rxjs"
-          ]
-        },
-        {
-          "file": "libs/ngx-xmpp/src/test/contact-list-relogin.plugin.spec.ts",
-          "hash": "7610355199016511542",
-          "deps": [
-            "npm:rxjs",
-            "xmpp-adapter",
-            "npm:@angular/core"
-          ]
-        },
-        {
-          "file": "libs/ngx-xmpp/src/test/contact-messages.spec.ts",
-          "hash": "15173612870733158",
-          "deps": [
-            "ngx-chat-shared"
-          ]
-        },
-        {
-          "file": "libs/ngx-xmpp/src/test/handler.spec.ts",
-          "hash": "12135524201124394025",
-          "deps": [
-            "strophe-ts"
-          ]
-        },
-        {
-          "file": "libs/ngx-xmpp/src/test/helpers/admin-actions.ts",
-          "hash": "6326863748595576762",
-          "deps": [
-            "ngx-chat-shared"
-          ]
-        },
-        {
-          "file": "libs/ngx-xmpp/src/test/helpers/ejabberd-client.ts",
-          "hash": "9093998523528348093",
-          "deps": [
-            "ngx-chat-shared"
-          ]
-        },
-        {
-          "file": "libs/ngx-xmpp/src/test/helpers/room-options.ts",
-          "hash": "2928525406798895550"
-        },
-        {
-          "file": "libs/ngx-xmpp/src/test/helpers/test-utils.ts",
-          "hash": "9141230467953759131",
-          "deps": [
-            "npm:rxjs",
-            "ngx-chat-shared",
-            "xmpp-adapter",
-            "strophe-ts"
-          ]
-        },
-        {
-          "file": "libs/ngx-xmpp/src/test/log.service.spec.ts",
-          "hash": "10363901551165513907",
-          "deps": [
-            "ngx-chat-shared"
-          ]
-        },
-        {
-          "file": "libs/ngx-xmpp/src/test/login.spec.ts",
-          "hash": "16427871029375702626",
-          "deps": [
-            "npm:@angular/core",
-            "xmpp-adapter",
-            "npm:rxjs",
-            "ngx-chat-shared"
-          ]
-        },
-        {
-          "file": "libs/ngx-xmpp/src/test/message-archive.plugin.spec.ts",
-          "hash": "3128234918772073247",
-          "deps": [
-            "npm:@angular/core",
-            "xmpp-adapter",
-            "strophe-ts",
-            "ngx-chat-shared",
-            "npm:rxjs"
-          ]
-        },
-        {
-          "file": "libs/ngx-xmpp/src/test/message-carbons.plugin.spec.ts",
-          "hash": "4274309405265623627",
-          "deps": [
-            "npm:@angular/core",
-            "xmpp-adapter",
-            "npm:rxjs",
-            "ngx-chat-shared"
-          ]
-        },
-        {
-          "file": "libs/ngx-xmpp/src/test/multi-user-chat.plugin.spec.ts",
-          "hash": "6551474728615319939",
-          "deps": [
-            "npm:rxjs",
-            "ngx-chat-shared",
-            "npm:@angular/core",
-            "xmpp-adapter"
-          ]
-        },
-        {
-          "file": "libs/ngx-xmpp/src/test/register.spec.ts",
-          "hash": "1512491147289303536",
-          "deps": [
-            "npm:@angular/core",
-            "xmpp-adapter"
-          ]
-        },
-        {
-          "file": "libs/ngx-xmpp/src/test/roster.plugin.spec.ts",
-          "hash": "9339168354861656193",
-          "deps": [
-            "ngx-chat-shared",
-            "npm:rxjs",
-            "xmpp-adapter",
-            "strophe-ts",
-            "npm:@angular/core"
-          ]
-        },
-        {
-          "file": "libs/ngx-xmpp/src/test/service-discovery.plugin.spec.ts",
-          "hash": "9215659661259219584",
-          "deps": [
-            "npm:@angular/core",
-            "xmpp-adapter"
-          ]
-        },
-        {
-          "file": "libs/ngx-xmpp/src/test/stanza-builder.spec.ts",
-          "hash": "2809740457799423645",
-          "deps": [
-            "strophe-ts",
-            "npm:@angular/core",
-            "xmpp-adapter"
-          ]
-        },
-        {
-          "file": "libs/ngx-xmpp/src/test/stanza.spec.ts",
-          "hash": "17523283583871819415",
-          "deps": [
-            "strophe-ts"
-          ]
-        },
-        {
-          "file": "libs/ngx-xmpp/src/test/xmpp-message.spec.ts",
-          "hash": "1942867747996386755",
-          "deps": [
-            "npm:rxjs",
-            "ngx-chat-shared",
-            "npm:@angular/core",
-            "xmpp-adapter"
-          ]
-        },
-        {
-          "file": "libs/ngx-xmpp/src/test/xmpp.spec.ts",
-          "hash": "873152090370956519",
-          "deps": [
-            "npm:rxjs",
-            "npm:@angular/core",
-            "xmpp-adapter"
-          ]
-        },
-        {
-          "file": "libs/ngx-xmpp/src/xmpp-adapter-test.module.ts",
-          "hash": "599646957386928695",
-          "deps": [
-            "npm:@angular/core",
-            "npm:@angular/platform-browser"
-          ]
-        },
-        {
-          "file": "libs/ngx-xmpp/src/xmpp-adapter.module.ts",
-          "hash": "16961897341221922902",
-          "deps": [
-            "npm:@angular/core",
-            "ngx-chat-shared",
-            "npm:@angular/common",
-            "xmpp-adapter",
-            "npm:rxjs"
-          ]
-        },
-        {
-          "file": "libs/ngx-xmpp/tsconfig.json",
-          "hash": "7477734205769864937"
-        },
-        {
-          "file": "libs/ngx-xmpp/tsconfig.lib.json",
-          "hash": "5372219918782699172"
-        },
-        {
-          "file": "libs/ngx-xmpp/tsconfig.lib.prod.json",
-          "hash": "16605914761603085674"
-        },
-        {
-          "file": "libs/ngx-xmpp/tsconfig.spec.json",
-          "hash": "7309197400698594868"
         }
       ],
       "demo": [

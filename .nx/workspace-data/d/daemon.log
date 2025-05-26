@@ -7720,3 +7720,1546 @@ Error: This workspace is more than three days old and is not connected. Workspac
 Error: This workspace is more than three days old and is not connected. Workspaces must be connected within 3 days of creation. Claim your workspace at https://cloud.nx.app
     at Timeout._onTimeout (/Users/ravindersingh/Documents/Projects/Angular/ngx-chat/.nx/cache/cloud/2505.22.1.hotfix3/lib/daemon/process-run-end.js:1:908548)
     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+[NX v21.0.0 Daemon Server] - 2025-05-25T20:20:07.787Z - [WATCHER]: Stopping the watcher for /Users/ravindersingh/Documents/Projects/Angular/ngx-chat (sources)
+[NX v21.0.0 Daemon Server] - 2025-05-26T05:40:44.676Z - Started listening on: /var/folders/k9/gz9wxxxd4x528w6j_brl00440000gn/T/37ff5204727e6dc30f97/d.sock
+[NX v21.0.0 Daemon Server] - 2025-05-26T05:40:44.678Z - [WATCHER]: Subscribed to changes within: /Users/ravindersingh/Documents/Projects/Angular/ngx-chat (native)
+[NX v21.0.0 Daemon Server] - 2025-05-26T05:40:44.684Z - Established a connection. Number of open connections: 1
+[NX v21.0.0 Daemon Server] - 2025-05-26T05:40:44.685Z - Established a connection. Number of open connections: 2
+[NX v21.0.0 Daemon Server] - 2025-05-26T05:40:44.686Z - Closed a connection. Number of open connections: 1
+[NX v21.0.0 Daemon Server] - 2025-05-26T05:40:44.686Z - [REQUEST]: Client Request for Project Graph Received
+[NX v21.0.0 Daemon Server] - 2025-05-26T05:40:44.689Z - Time taken for 'loadSpecifiedNxPlugins' 0.8719590000000039ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T05:40:44.738Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T05:40:44.800Z - Time taken for 'Load Nx Plugin: /Users/ravindersingh/Documents/Projects/Angular/ngx-chat/node_modules/nx/src/plugins/project-json/build-nodes/project-json' 112.497209ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T05:40:44.801Z - Time taken for 'Load Nx Plugin: /Users/ravindersingh/Documents/Projects/Angular/ngx-chat/node_modules/nx/src/plugins/package-json' 113.96808300000001ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T05:40:44.813Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T05:40:44.813Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T05:40:44.813Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T05:40:44.817Z - Time taken for 'loadDefaultNxPlugins' 125.60829100000001ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T05:40:44.854Z - Time taken for 'build-project-configs' 25.357665999999995ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T05:40:44.881Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T05:40:44.882Z - [REQUEST]: Responding to the client. project-graph
+[NX v21.0.0 Daemon Server] - 2025-05-26T05:40:44.882Z - Time taken for 'total for creating and serializing project graph' 195.245917ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T05:40:44.884Z - Done responding to the client project-graph
+[NX v21.0.0 Daemon Server] - 2025-05-26T05:40:44.884Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 196. Response time: 2.
+[NX v21.0.0 Daemon Server] - 2025-05-26T05:40:44.889Z - [REQUEST]: Responding to the client. handleRunPreTasksExecution
+[NX v21.0.0 Daemon Server] - 2025-05-26T05:40:44.889Z - Done responding to the client handleRunPreTasksExecution
+[NX v21.0.0 Daemon Server] - 2025-05-26T05:40:44.889Z - Handled PRE_TASKS_EXECUTION. Handling time: 1. Response time: 0.
+[NX v21.0.0 Daemon Server] - 2025-05-26T05:40:44.889Z - Time taken for 'preTasksExecution' 0.19954199999995126ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T05:40:44.948Z - [REQUEST]: Responding to the client. handleHashTasks
+[NX v21.0.0 Daemon Server] - 2025-05-26T05:40:44.948Z - Done responding to the client handleHashTasks
+[NX v21.0.0 Daemon Server] - 2025-05-26T05:40:44.949Z - Handled HASH_TASKS. Handling time: 12. Response time: 1.
+[NX v21.0.0 Daemon Server] - 2025-05-26T05:40:47.349Z - [REQUEST]: Responding to the client. handleGetEstimatedTaskTimings
+[NX v21.0.0 Daemon Server] - 2025-05-26T05:40:47.349Z - Done responding to the client handleGetEstimatedTaskTimings
+[NX v21.0.0 Daemon Server] - 2025-05-26T05:40:47.349Z - Handled GET_ESTIMATED_TASK_TIMINGS. Handling time: 17. Response time: 0.
+[NX v21.0.0 Daemon Server] - 2025-05-26T05:40:47.937Z - Established a connection. Number of open connections: 2
+[NX v21.0.0 Daemon Server] - 2025-05-26T05:40:47.938Z - Closed a connection. Number of open connections: 1
+[NX v21.0.0 Daemon Server] - 2025-05-26T05:40:47.939Z - Established a connection. Number of open connections: 2
+[NX v21.0.0 Daemon Server] - 2025-05-26T05:40:47.941Z - [REQUEST]: Client Request for Project Graph Received
+[NX v21.0.0 Daemon Server] - 2025-05-26T05:40:47.941Z - [REQUEST]: Responding to the client. project-graph
+[NX v21.0.0 Daemon Server] - 2025-05-26T05:40:47.941Z - Time taken for 'total for creating and serializing project graph' 0.20833399999992253ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T05:40:47.943Z - Done responding to the client project-graph
+[NX v21.0.0 Daemon Server] - 2025-05-26T05:40:47.943Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 1. Response time: 2.
+[NX v21.0.0 Daemon Server] - 2025-05-26T05:40:56.465Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T05:40:56.534Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T06:51:56.952Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T06:51:56.983Z - [WATCHER]: libs/ngx-xmpp/src/lib/services/xmpp-message.service.ts was created or restored
+[NX v21.0.0 Daemon Server] - 2025-05-26T06:51:57.103Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T06:51:57.104Z - [REQUEST]: libs/ngx-xmpp/src/lib/services/xmpp-message.service.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T06:51:57.104Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T06:51:57.142Z - Time taken for 'hash changed files from watcher' 8.110292000696063ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T06:51:57.414Z - Time taken for 'build-project-configs' 258.54812499973923ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T06:51:57.583Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T06:51:57.584Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T06:51:57.584Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T06:51:57.584Z - Time taken for 'total execution time for createProjectGraph()' 179.51675000041723ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:05:45.798Z - [WATCHER]: libs/matrix-adapter/src/service/matrix-message-service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:05:45.799Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:05:46.002Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:05:46.002Z - [REQUEST]: libs/matrix-adapter/src/service/matrix-message-service.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:05:46.002Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:05:46.014Z - Time taken for 'hash changed files from watcher' 2.389666000381112ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:05:46.069Z - Time taken for 'build-project-configs' 53.20608399994671ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:05:46.165Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:05:46.165Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:05:46.165Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:05:46.166Z - Time taken for 'total execution time for createProjectGraph()' 73.68645799998194ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:05:49.636Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:05:49.760Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:05:49.818Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:08:16.759Z - [WATCHER]: libs/matrix-adapter/src/service/matrix-message-service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:08:16.760Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:08:17.175Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:08:17.175Z - [REQUEST]: libs/matrix-adapter/src/service/matrix-message-service.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:08:17.176Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:08:17.192Z - Time taken for 'hash changed files from watcher' 5.125416999682784ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:08:17.323Z - Time taken for 'build-project-configs' 127.90920799970627ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:08:17.434Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:08:17.435Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:08:17.435Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:08:17.435Z - Time taken for 'total execution time for createProjectGraph()' 96.26408400014043ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:08:19.409Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:08:19.476Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:08:19.543Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:08:25.313Z - [WATCHER]: libs/matrix-adapter/src/service/matrix-message-service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:08:25.314Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:08:25.357Z - [WATCHER]: libs/matrix-adapter/src/service/matrix-message-service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:08:25.359Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:08:26.115Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:08:26.116Z - [REQUEST]: libs/matrix-adapter/src/service/matrix-message-service.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:08:26.116Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:08:26.125Z - Time taken for 'hash changed files from watcher' 1.034791000187397ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:08:26.202Z - Time taken for 'build-project-configs' 65.90133399982005ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:08:26.355Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:08:26.356Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:08:26.356Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:08:26.356Z - Time taken for 'total execution time for createProjectGraph()' 134.83200000040233ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:08:26.717Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:08:28.118Z - [WATCHER]: libs/matrix-adapter/src/service/matrix-message-service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:08:28.118Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:08:29.725Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:08:29.725Z - [REQUEST]: libs/matrix-adapter/src/service/matrix-message-service.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:08:29.726Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:08:29.738Z - Time taken for 'hash changed files from watcher' 2.252749999985099ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:08:29.904Z - Time taken for 'build-project-configs' 166.07508399989456ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:08:29.970Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:08:29.971Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:08:29.971Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:08:29.971Z - Time taken for 'total execution time for createProjectGraph()' 46.03533399943262ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:08:31.219Z - [WATCHER]: libs/matrix-adapter/src/service/matrix-message-service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:08:31.229Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:08:31.281Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:08:32.216Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:08:34.422Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:08:34.423Z - [REQUEST]: libs/matrix-adapter/src/service/matrix-message-service.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:08:34.423Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:08:34.425Z - Time taken for 'hash changed files from watcher' 0.64504100009799ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:08:34.445Z - Time taken for 'build-project-configs' 16.55220799986273ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:08:34.484Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:08:34.485Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:08:34.485Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:08:34.485Z - Time taken for 'total execution time for createProjectGraph()' 25.782332999631763ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:09:33.131Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:09:33.215Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:21:29.720Z - [WATCHER]: libs/matrix-adapter/src/service/matrix-message-service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:21:29.732Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:21:30.748Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:21:35.968Z - [WATCHER]: libs/matrix-adapter/src/service/matrix-message-service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:21:35.969Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:21:36.136Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:21:36.136Z - [REQUEST]: libs/matrix-adapter/src/service/matrix-message-service.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:21:36.136Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:21:36.147Z - Time taken for 'hash changed files from watcher' 2.5171670001000166ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:21:36.235Z - Time taken for 'build-project-configs' 68.22216700017452ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:21:36.363Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:21:36.363Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:21:36.363Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:21:36.363Z - Time taken for 'total execution time for createProjectGraph()' 110.06041700020432ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:21:36.939Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:21:38.628Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:21:38.896Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:22:36.936Z - [WATCHER]: libs/matrix-adapter/src/service/matrix-message-service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:22:36.949Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:22:43.339Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:22:43.339Z - [REQUEST]: libs/matrix-adapter/src/service/matrix-message-service.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:22:43.339Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:22:43.343Z - Time taken for 'hash changed files from watcher' 0.589499999769032ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:22:43.390Z - Time taken for 'build-project-configs' 41.54041599947959ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:22:43.429Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:22:43.430Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:22:43.430Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:22:43.430Z - Time taken for 'total execution time for createProjectGraph()' 31.52270899992436ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:23:38.498Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:23:38.549Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:23:43.227Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:23:43.230Z - [WATCHER]: libs/matrix-adapter/src/service/matrix-message-service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:23:43.872Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:23:49.634Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:23:49.635Z - [REQUEST]: libs/matrix-adapter/src/service/matrix-message-service.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:23:49.636Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:23:49.642Z - Time taken for 'hash changed files from watcher' 1.1487500006332994ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:23:49.709Z - Time taken for 'build-project-configs' 62.84520900063217ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:23:49.768Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:23:49.769Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:23:49.769Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:23:49.769Z - Time taken for 'total execution time for createProjectGraph()' 50.30133299995214ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:24:44.591Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:25:11.904Z - [WATCHER]: libs/matrix-adapter/src/service/matrix-message-service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:25:11.905Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:25:13.014Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:25:18.306Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:25:18.306Z - [REQUEST]: libs/matrix-adapter/src/service/matrix-message-service.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:25:18.306Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:25:18.309Z - Time taken for 'hash changed files from watcher' 0.46483399998396635ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:25:18.339Z - Time taken for 'build-project-configs' 27.61337499972433ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:25:18.372Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:25:18.373Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:25:18.373Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:25:18.373Z - Time taken for 'total execution time for createProjectGraph()' 26.848291999660432ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:26:13.724Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:26:13.783Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:32:58.624Z - [WATCHER]: libs/ngx-chat/src/components/chat-window/chat-window.component.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:32:58.630Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:33:00.208Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:33:01.999Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:33:02.237Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:33:05.033Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:33:05.033Z - [REQUEST]: libs/ngx-chat/src/components/chat-window/chat-window.component.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:33:05.033Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:33:05.038Z - Time taken for 'hash changed files from watcher' 0.632999999448657ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:33:05.155Z - Time taken for 'build-project-configs' 112.31820799969137ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:33:05.318Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:33:05.319Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:33:05.319Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:33:05.319Z - Time taken for 'total execution time for createProjectGraph()' 154.16995800007135ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:33:19.975Z - [WATCHER]: libs/ngx-chat/src/components/chat-window/chat-window.component.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:33:19.989Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:33:21.377Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:33:23.190Z - [WATCHER]: libs/ngx-chat/src/components/chat-window/chat-window.component.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:33:23.198Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:33:25.758Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:33:25.831Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:33:25.905Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:33:26.916Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:33:26.917Z - [REQUEST]: libs/ngx-chat/src/components/chat-window/chat-window.component.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:33:26.917Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:33:26.931Z - Time taken for 'hash changed files from watcher' 11.440375000238419ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:33:27.996Z - Time taken for 'build-project-configs' 1044.604790999554ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:33:28.188Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:33:28.189Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:33:28.190Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:33:28.190Z - Time taken for 'total execution time for createProjectGraph()' 167.4655829994008ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:33:31.272Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:35:30.243Z - [WATCHER]: libs/ngx-chat/src/components/chat-window/chat-window.component.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:35:30.244Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:35:31.270Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:35:36.647Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:35:36.647Z - [REQUEST]: libs/ngx-chat/src/components/chat-window/chat-window.component.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:35:36.647Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:35:36.651Z - Time taken for 'hash changed files from watcher' 0.5894170003011823ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:35:36.689Z - Time taken for 'build-project-configs' 34.780958000570536ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:35:36.731Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:35:36.731Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:35:36.731Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:35:36.731Z - Time taken for 'total execution time for createProjectGraph()' 31.535959000699222ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:36:32.038Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:36:32.092Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:39:45.111Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:39:45.122Z - [WATCHER]: libs/matrix-adapter/src/service/matrix-file-upload-handler.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:39:46.321Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:39:51.527Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:39:51.528Z - [REQUEST]: libs/matrix-adapter/src/service/matrix-file-upload-handler.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:39:51.528Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:39:51.536Z - Time taken for 'hash changed files from watcher' 2.0789169995114207ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:39:51.620Z - Time taken for 'build-project-configs' 74.00062500033528ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:39:51.685Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:39:51.685Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:39:51.685Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:39:51.686Z - Time taken for 'total execution time for createProjectGraph()' 61.59495799988508ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:40:01.502Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:40:01.505Z - [WATCHER]: libs/matrix-adapter/src/service/matrix-message-service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:40:02.307Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:40:07.908Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:40:07.908Z - [REQUEST]: libs/matrix-adapter/src/service/matrix-message-service.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:40:07.908Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:40:07.910Z - Time taken for 'hash changed files from watcher' 0.4555829996243119ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:40:07.933Z - Time taken for 'build-project-configs' 20.947708999738097ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:40:07.968Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:40:07.969Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:40:07.969Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:40:07.969Z - Time taken for 'total execution time for createProjectGraph()' 29.72774999961257ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:41:02.932Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:41:03.160Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:41:03.347Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:41:03.558Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:41:03.624Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:42:04.379Z - [WATCHER]: libs/matrix-adapter/src/matrix.service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:42:04.382Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:42:05.360Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:42:10.785Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:42:10.786Z - [REQUEST]: libs/matrix-adapter/src/matrix.service.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:42:10.786Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:42:10.789Z - Time taken for 'hash changed files from watcher' 0.5845420006662607ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:42:10.828Z - Time taken for 'build-project-configs' 29.22950000036508ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:42:10.867Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:42:10.867Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:42:10.867Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:42:10.867Z - Time taken for 'total execution time for createProjectGraph()' 38.63200000021607ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:42:46.219Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:42:46.226Z - [WATCHER]: libs/matrix-adapter/src/service/matrix-message-service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:42:47.565Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:42:52.628Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:42:52.628Z - [REQUEST]: libs/matrix-adapter/src/service/matrix-message-service.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:42:52.628Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:42:52.630Z - Time taken for 'hash changed files from watcher' 0.5050419997423887ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:42:52.674Z - Time taken for 'build-project-configs' 35.00033299997449ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:42:52.714Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:42:52.715Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:42:52.715Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:42:52.715Z - Time taken for 'total execution time for createProjectGraph()' 32.849750000052154ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:43:48.074Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:43:48.130Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:43:55.458Z - [WATCHER]: libs/matrix-adapter/src/matrix.service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:43:55.459Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:43:56.195Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:44:01.862Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:44:01.862Z - [REQUEST]: libs/matrix-adapter/src/matrix.service.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:44:01.862Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:44:01.865Z - Time taken for 'hash changed files from watcher' 0.5442919991910458ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:44:01.892Z - Time taken for 'build-project-configs' 24.491457999683917ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:44:01.925Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:44:01.925Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:44:01.925Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:44:01.925Z - Time taken for 'total execution time for createProjectGraph()' 26.475624999962747ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:44:56.830Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:44:56.984Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:45:24.824Z - [WATCHER]: libs/matrix-adapter/src/matrix.service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:45:24.826Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:45:26.292Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:45:31.228Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:45:31.229Z - [REQUEST]: libs/matrix-adapter/src/matrix.service.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:45:31.229Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:45:31.232Z - Time taken for 'hash changed files from watcher' 1.0274999998509884ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:45:31.279Z - Time taken for 'build-project-configs' 36.19687500037253ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:45:31.341Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:45:31.342Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:45:31.342Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:45:31.342Z - Time taken for 'total execution time for createProjectGraph()' 52.79933399986476ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:46:26.829Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:46:26.881Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:46:30.243Z - [WATCHER]: libs/matrix-adapter/src/matrix.service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:46:30.243Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:46:30.900Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:46:36.645Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:46:36.646Z - [REQUEST]: libs/matrix-adapter/src/matrix.service.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:46:36.646Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:46:36.648Z - Time taken for 'hash changed files from watcher' 0.574040999636054ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:46:36.695Z - Time taken for 'build-project-configs' 41.92391599994153ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:46:36.739Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:46:36.739Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:46:36.739Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:46:36.739Z - Time taken for 'total execution time for createProjectGraph()' 37.575125000439584ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:47:31.391Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:47:31.454Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:48:47.224Z - [WATCHER]: libs/matrix-adapter/src/matrix.service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:48:47.226Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:48:47.966Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:48:53.628Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:48:53.629Z - [REQUEST]: libs/matrix-adapter/src/matrix.service.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:48:53.629Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:48:53.631Z - Time taken for 'hash changed files from watcher' 0.4940839996561408ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:48:53.654Z - Time taken for 'build-project-configs' 21.611166999675333ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:48:53.683Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:48:53.683Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:48:53.683Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:48:53.683Z - Time taken for 'total execution time for createProjectGraph()' 22.660666999407113ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:49:37.592Z - [WATCHER]: libs/matrix-adapter/src/matrix.service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:49:37.593Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:49:38.450Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:49:43.996Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:49:43.996Z - [REQUEST]: libs/matrix-adapter/src/matrix.service.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:49:43.996Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:49:44.000Z - Time taken for 'hash changed files from watcher' 0.5752499997615814ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:49:44.029Z - Time taken for 'build-project-configs' 26.781417000107467ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:49:44.067Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:49:44.067Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:49:44.067Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:49:44.067Z - Time taken for 'total execution time for createProjectGraph()' 30.941541000269353ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:50:39.060Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T07:50:39.110Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T08:59:17.948Z - [REQUEST]: Responding to the client. PROCESS_IN_BACKGROUND
+[NX v21.0.0 Daemon Server] - 2025-05-26T08:59:17.949Z - Done responding to the client PROCESS_IN_BACKGROUND
+[NX v21.0.0 Daemon Server] - 2025-05-26T08:59:17.949Z - Handled PROCESS_IN_BACKGROUND. Handling time: 214. Response time: 1.
+[NX v21.0.0 Daemon Server] - 2025-05-26T08:59:17.949Z - Uploading file artifacts
+[NX v21.0.0 Daemon Server] - 2025-05-26T08:59:17.949Z - Done uploading file artifacts
+[NX v21.0.0 Daemon Server] - 2025-05-26T08:59:17.950Z - Sending EndRun request
+[NX v21.0.0 Daemon Server] - 2025-05-26T08:59:17.954Z - [REQUEST]: Responding to the client. handleRunPostTasksExecution
+[NX v21.0.0 Daemon Server] - 2025-05-26T08:59:17.954Z - Done responding to the client handleRunPostTasksExecution
+[NX v21.0.0 Daemon Server] - 2025-05-26T08:59:17.954Z - Handled POST_TASKS_EXECUTION. Handling time: 0. Response time: 0.
+[NX v21.0.0 Daemon Server] - 2025-05-26T08:59:17.954Z - Time taken for 'postTasksExecution' 0.24300000071525574ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T08:59:18.036Z - Closed a connection. Number of open connections: 1
+[NX v21.0.0 Daemon Server] - 2025-05-26T08:59:18.507Z - Error when sending EndRun
+Error: This workspace is more than three days old and is not connected. Workspaces must be connected within 3 days of creation. Claim your workspace at https://cloud.nx.app
+    at Timeout._onTimeout (/Users/ravindersingh/Documents/Projects/Angular/ngx-chat/.nx/cache/cloud/2505.22.1.hotfix3/lib/daemon/process-run-end.js:1:908548)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+[NX v21.0.0 Daemon Server] - 2025-05-26T09:33:17.503Z - Closed a connection. Number of open connections: 0
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:19:06.228Z - Established a connection. Number of open connections: 1
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:19:06.235Z - Established a connection. Number of open connections: 2
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:19:06.238Z - Closed a connection. Number of open connections: 1
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:19:06.248Z - [REQUEST]: Client Request for Project Graph Received
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:19:06.251Z - [REQUEST]: Responding to the client. project-graph
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:19:06.256Z - Time taken for 'total for creating and serializing project graph' 3.048666998744011ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:19:06.258Z - Done responding to the client project-graph
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:19:06.258Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 4. Response time: 7.
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:19:06.267Z - [REQUEST]: Responding to the client. handleRunPreTasksExecution
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:19:06.267Z - Done responding to the client handleRunPreTasksExecution
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:19:06.267Z - Handled PRE_TASKS_EXECUTION. Handling time: 1. Response time: 0.
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:19:06.267Z - Time taken for 'preTasksExecution' 0.23499999940395355ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:19:06.353Z - [REQUEST]: Responding to the client. handleHashTasks
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:19:06.353Z - Done responding to the client handleHashTasks
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:19:06.353Z - Handled HASH_TASKS. Handling time: 25. Response time: 0.
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:19:08.075Z - [REQUEST]: Responding to the client. handleGetEstimatedTaskTimings
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:19:08.075Z - Done responding to the client handleGetEstimatedTaskTimings
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:19:08.075Z - Handled GET_ESTIMATED_TASK_TIMINGS. Handling time: 2. Response time: 0.
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:19:08.681Z - Established a connection. Number of open connections: 2
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:19:08.683Z - Closed a connection. Number of open connections: 1
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:19:08.683Z - Established a connection. Number of open connections: 2
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:19:08.685Z - [REQUEST]: Client Request for Project Graph Received
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:19:08.685Z - [REQUEST]: Responding to the client. project-graph
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:19:08.686Z - Time taken for 'total for creating and serializing project graph' 0.3890410028398037ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:19:08.690Z - Done responding to the client project-graph
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:19:08.690Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 0. Response time: 5.
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:19:15.042Z - [WATCHER]: libs/matrix-adapter/src/matrix.service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:19:15.047Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:19:15.153Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:19:15.153Z - [REQUEST]: libs/matrix-adapter/src/matrix.service.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:19:15.153Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:19:15.182Z - Time taken for 'hash changed files from watcher' 3.9059579968452454ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:19:15.365Z - Time taken for 'build-project-configs' 169.37449999898672ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:19:15.476Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:19:15.476Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:19:15.476Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:19:15.476Z - Time taken for 'total execution time for createProjectGraph()' 109.7010000012815ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:19:17.717Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:19:19.142Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:19:19.205Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:44:30.163Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:44:30.178Z - [WATCHER]: libs/matrix-adapter/src/matrix.service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:44:30.383Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:44:30.383Z - [REQUEST]: libs/matrix-adapter/src/matrix.service.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:44:30.383Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:44:30.396Z - Time taken for 'hash changed files from watcher' 2.06708300113678ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:44:30.473Z - Time taken for 'build-project-configs' 77.0122499987483ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:44:30.519Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:44:30.520Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:44:30.520Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:44:30.520Z - Time taken for 'total execution time for createProjectGraph()' 41.21366599947214ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:44:30.916Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:44:32.500Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:44:32.553Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:45:26.603Z - [WATCHER]: libs/matrix-adapter/src/matrix.service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:45:26.604Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:45:27.006Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:45:27.007Z - [REQUEST]: libs/matrix-adapter/src/matrix.service.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:45:27.007Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:45:27.012Z - Time taken for 'hash changed files from watcher' 1.1809169985353947ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:45:27.068Z - Time taken for 'build-project-configs' 52.8158750012517ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:45:27.079Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:45:27.108Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:45:27.108Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:45:27.108Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:45:27.108Z - Time taken for 'total execution time for createProjectGraph()' 36.81808299943805ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:45:28.506Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:46:22.026Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:46:22.032Z - [WATCHER]: libs/matrix-adapter/src/matrix.service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:46:22.720Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:46:22.839Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:46:22.840Z - [REQUEST]: libs/matrix-adapter/src/matrix.service.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:46:22.840Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:46:22.846Z - Time taken for 'hash changed files from watcher' 3.708916999399662ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:46:22.898Z - Time taken for 'build-project-configs' 48.330209001898766ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:46:22.959Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:46:22.959Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:46:22.959Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:46:22.959Z - Time taken for 'total execution time for createProjectGraph()' 49.88170899823308ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:46:24.114Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:46:24.170Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T11:46:27.952Z - Closed a connection. Number of open connections: 1
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:41:11.536Z - Established a connection. Number of open connections: 2
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:41:11.546Z - Established a connection. Number of open connections: 3
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:41:11.548Z - Closed a connection. Number of open connections: 2
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:41:11.558Z - [REQUEST]: Client Request for Project Graph Received
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:41:11.563Z - [REQUEST]: Responding to the client. project-graph
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:41:11.568Z - Time taken for 'total for creating and serializing project graph' 4.447916999459267ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:41:11.570Z - Done responding to the client project-graph
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:41:11.571Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 6. Response time: 7.
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:41:11.584Z - [REQUEST]: Responding to the client. handleRunPreTasksExecution
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:41:11.584Z - Done responding to the client handleRunPreTasksExecution
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:41:11.584Z - Handled PRE_TASKS_EXECUTION. Handling time: 1. Response time: 0.
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:41:11.584Z - Time taken for 'preTasksExecution' 0.36675000190734863ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:41:11.673Z - [REQUEST]: Responding to the client. handleHashTasks
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:41:11.673Z - Done responding to the client handleHashTasks
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:41:11.673Z - Handled HASH_TASKS. Handling time: 31. Response time: 0.
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:41:12.814Z - [REQUEST]: Responding to the client. handleGetEstimatedTaskTimings
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:41:12.814Z - Done responding to the client handleGetEstimatedTaskTimings
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:41:12.815Z - Handled GET_ESTIMATED_TASK_TIMINGS. Handling time: 1. Response time: 1.
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:41:13.552Z - Established a connection. Number of open connections: 3
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:41:13.554Z - Closed a connection. Number of open connections: 2
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:41:13.555Z - Established a connection. Number of open connections: 3
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:41:13.556Z - [REQUEST]: Client Request for Project Graph Received
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:41:13.556Z - [REQUEST]: Responding to the client. project-graph
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:41:13.557Z - Time taken for 'total for creating and serializing project graph' 0.3447909988462925ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:41:13.559Z - Done responding to the client project-graph
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:41:13.559Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 0. Response time: 3.
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:42:59.358Z - [REQUEST]: Responding to the client. PROCESS_IN_BACKGROUND
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:42:59.359Z - Done responding to the client PROCESS_IN_BACKGROUND
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:42:59.359Z - Handled PROCESS_IN_BACKGROUND. Handling time: 29. Response time: 1.
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:42:59.359Z - Uploading file artifacts
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:42:59.359Z - Done uploading file artifacts
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:42:59.359Z - Sending EndRun request
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:42:59.381Z - [REQUEST]: Responding to the client. handleRunPostTasksExecution
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:42:59.381Z - Done responding to the client handleRunPostTasksExecution
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:42:59.381Z - Handled POST_TASKS_EXECUTION. Handling time: 0. Response time: 0.
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:42:59.381Z - Time taken for 'postTasksExecution' 0.29250000044703484ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:42:59.392Z - Closed a connection. Number of open connections: 2
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:42:59.812Z - Error when sending EndRun
+Error: This workspace is more than three days old and is not connected. Workspaces must be connected within 3 days of creation. Claim your workspace at https://cloud.nx.app
+    at Timeout._onTimeout (/Users/ravindersingh/Documents/Projects/Angular/ngx-chat/.nx/cache/cloud/2505.22.1.hotfix3/lib/daemon/process-run-end.js:1:908548)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:43:04.502Z - [WATCHER]: libs/matrix-adapter/src/matrix.service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:43:04.503Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:43:04.606Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:43:04.606Z - [REQUEST]: libs/matrix-adapter/src/matrix.service.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:43:04.606Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:43:04.616Z - Time taken for 'hash changed files from watcher' 2.1787910014390945ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:43:04.825Z - Time taken for 'build-project-configs' 199.09975000098348ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:43:05.016Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:43:05.017Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:43:05.017Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:43:05.017Z - Time taken for 'total execution time for createProjectGraph()' 142.96941599994898ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:43:05.168Z - Closed a connection. Number of open connections: 1
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:43:16.423Z - Established a connection. Number of open connections: 2
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:43:16.427Z - Established a connection. Number of open connections: 3
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:43:16.434Z - Closed a connection. Number of open connections: 2
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:43:16.437Z - [REQUEST]: Client Request for Project Graph Received
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:43:16.440Z - [REQUEST]: Responding to the client. project-graph
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:43:16.441Z - Time taken for 'total for creating and serializing project graph' 1.7746669985353947ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:43:16.444Z - Done responding to the client project-graph
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:43:16.444Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 2. Response time: 5.
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:43:16.450Z - [REQUEST]: Responding to the client. handleRunPreTasksExecution
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:43:16.450Z - Done responding to the client handleRunPreTasksExecution
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:43:16.450Z - Handled PRE_TASKS_EXECUTION. Handling time: 0. Response time: 0.
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:43:16.451Z - Time taken for 'preTasksExecution' 0.27824999764561653ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:43:16.530Z - [REQUEST]: Responding to the client. handleHashTasks
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:43:16.531Z - Done responding to the client handleHashTasks
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:43:16.531Z - Handled HASH_TASKS. Handling time: 31. Response time: 1.
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:43:16.739Z - [REQUEST]: Responding to the client. handleGetEstimatedTaskTimings
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:43:16.739Z - Done responding to the client handleGetEstimatedTaskTimings
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:43:16.739Z - Handled GET_ESTIMATED_TASK_TIMINGS. Handling time: 1. Response time: 0.
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:43:17.247Z - Established a connection. Number of open connections: 3
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:43:17.247Z - Closed a connection. Number of open connections: 2
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:43:17.247Z - Established a connection. Number of open connections: 3
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:43:17.248Z - [REQUEST]: Client Request for Project Graph Received
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:43:17.249Z - [REQUEST]: Responding to the client. project-graph
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:43:17.249Z - Time taken for 'total for creating and serializing project graph' 0.26145900040864944ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:43:17.251Z - Done responding to the client project-graph
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:43:17.251Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 1. Response time: 2.
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:43:23.242Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:43:26.588Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:43:26.642Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:20.134Z - [WATCHER]: libs/matrix-adapter/src/matrix.service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:20.138Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:20.243Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:20.243Z - [REQUEST]: libs/matrix-adapter/src/matrix.service.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:20.243Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:20.252Z - Time taken for 'hash changed files from watcher' 2.442832998931408ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:20.317Z - Time taken for 'build-project-configs' 61.06345800310373ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:20.425Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:20.425Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:20.426Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:20.426Z - Time taken for 'total execution time for createProjectGraph()' 93.84329200163484ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:20.986Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:22.427Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:28.478Z - [WATCHER]: libs/matrix-adapter/src/matrix.service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:28.478Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:28.680Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:28.680Z - [REQUEST]: libs/matrix-adapter/src/matrix.service.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:28.680Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:28.696Z - Time taken for 'hash changed files from watcher' 0.9608330018818378ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:28.754Z - Time taken for 'build-project-configs' 59.54629199951887ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:28.802Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:28.802Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:28.802Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:28.802Z - Time taken for 'total execution time for createProjectGraph()' 45.162582997232676ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:30.203Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:33.678Z - [WATCHER]: libs/matrix-adapter/src/matrix.service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:33.679Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:34.092Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:34.092Z - [REQUEST]: libs/matrix-adapter/src/matrix.service.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:34.092Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:34.097Z - Time taken for 'hash changed files from watcher' 1.4990829974412918ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:34.148Z - Time taken for 'build-project-configs' 49.43562500178814ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:34.194Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:34.194Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:34.194Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:34.195Z - Time taken for 'total execution time for createProjectGraph()' 40.152208000421524ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:35.271Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:36.804Z - [WATCHER]: libs/matrix-adapter/src/matrix.service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:36.804Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:37.606Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:37.606Z - [REQUEST]: libs/matrix-adapter/src/matrix.service.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:37.606Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:37.610Z - Time taken for 'hash changed files from watcher' 0.8978749997913837ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:37.646Z - Time taken for 'build-project-configs' 35.473207999020815ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:37.688Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:37.689Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:37.689Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:37.689Z - Time taken for 'total execution time for createProjectGraph()' 30.79924999922514ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:38.326Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:38.484Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:40.751Z - [WATCHER]: libs/matrix-adapter/src/matrix.service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:40.752Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:41.044Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:42.355Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:42.355Z - [REQUEST]: libs/matrix-adapter/src/matrix.service.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:42.355Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:42.359Z - Time taken for 'hash changed files from watcher' 1.8131249994039536ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:42.365Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:42.386Z - Time taken for 'build-project-configs' 26.1052910014987ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:42.419Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:42.419Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:42.419Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:42.419Z - Time taken for 'total execution time for createProjectGraph()' 27.828166000545025ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:44.199Z - [WATCHER]: libs/matrix-adapter/src/matrix.service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:44.200Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:45.958Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:46.052Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:47.402Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:47.402Z - [REQUEST]: libs/matrix-adapter/src/matrix.service.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:47.402Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:47.407Z - Time taken for 'hash changed files from watcher' 0.7689590007066727ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:47.430Z - Time taken for 'build-project-configs' 23.610791999846697ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:47.459Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:47.460Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:47.460Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:47.460Z - Time taken for 'total execution time for createProjectGraph()' 24.391084000468254ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:48.066Z - [WATCHER]: libs/matrix-adapter/src/matrix.service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:48.067Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:48.431Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:49.735Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:51.974Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:51.976Z - [WATCHER]: libs/matrix-adapter/src/matrix.service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:53.534Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:53.607Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:54.469Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:54.469Z - [REQUEST]: libs/matrix-adapter/src/matrix.service.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:54.469Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:54.474Z - Time taken for 'hash changed files from watcher' 1.0930829979479313ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:54.502Z - Time taken for 'build-project-configs' 27.19700000062585ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:54.586Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:54.586Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:54.586Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:54.586Z - Time taken for 'total execution time for createProjectGraph()' 72.02583400160074ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:55.873Z - [WATCHER]: libs/matrix-adapter/src/matrix.service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:55.873Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:57.469Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:58.769Z - [WATCHER]: libs/matrix-adapter/src/matrix.service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:44:58.769Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:45:00.245Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:45:01.951Z - [WATCHER]: libs/matrix-adapter/src/matrix.service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:45:01.951Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:45:02.274Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:45:02.274Z - [REQUEST]: libs/matrix-adapter/src/matrix.service.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:45:02.274Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:45:02.279Z - Time taken for 'hash changed files from watcher' 1.1815840005874634ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:45:02.308Z - Time taken for 'build-project-configs' 27.597458001226187ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:45:02.348Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:45:02.349Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:45:02.349Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:45:02.349Z - Time taken for 'total execution time for createProjectGraph()' 33.606874998658895ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:45:02.381Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:45:03.849Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:45:05.315Z - [WATCHER]: libs/matrix-adapter/src/matrix.service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:45:05.317Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:45:06.059Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:45:07.381Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:45:09.692Z - [WATCHER]: libs/matrix-adapter/src/matrix.service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:45:09.693Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:45:09.994Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:45:11.246Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:45:11.717Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:45:11.718Z - [REQUEST]: libs/matrix-adapter/src/matrix.service.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:45:11.718Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:45:11.722Z - Time taken for 'hash changed files from watcher' 0.8192499987781048ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:45:11.749Z - Time taken for 'build-project-configs' 26.184041000902653ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:45:11.796Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:45:11.796Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:45:11.796Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:45:11.796Z - Time taken for 'total execution time for createProjectGraph()' 42.053125001490116ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:45:22.968Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:45:22.972Z - [WATCHER]: libs/matrix-adapter/src/matrix.service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:45:24.735Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:45:29.376Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:45:29.376Z - [REQUEST]: libs/matrix-adapter/src/matrix.service.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:45:29.376Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:45:29.384Z - Time taken for 'hash changed files from watcher' 1.3287920020520687ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:45:29.435Z - Time taken for 'build-project-configs' 46.84424999728799ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:45:29.486Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:45:29.487Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:45:29.487Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:45:29.487Z - Time taken for 'total execution time for createProjectGraph()' 49.21499999985099ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:59:21.314Z - [WATCHER]: libs/matrix-adapter/src/matrix.service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:59:21.320Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:59:22.081Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:59:23.527Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:59:23.588Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:59:26.952Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:59:26.955Z - [WATCHER]: libs/matrix-adapter/src/matrix.service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:59:27.365Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:59:27.723Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:59:27.723Z - [REQUEST]: libs/matrix-adapter/src/matrix.service.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:59:27.723Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:59:27.733Z - Time taken for 'hash changed files from watcher' 2.3820420019328594ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:59:27.766Z - Time taken for 'build-project-configs' 27.972166996449232ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:59:27.820Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:59:27.820Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:59:27.820Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:59:27.820Z - Time taken for 'total execution time for createProjectGraph()' 47.04341600090265ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:59:28.754Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:59:28.814Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:59:36.551Z - [WATCHER]: libs/matrix-adapter/src/matrix.service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:59:36.553Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:59:36.964Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:59:38.289Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:59:42.855Z - [WATCHER]: libs/matrix-adapter/src/matrix.service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:59:42.856Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:59:42.955Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:59:42.955Z - [REQUEST]: libs/matrix-adapter/src/matrix.service.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:59:42.955Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:59:42.961Z - Time taken for 'hash changed files from watcher' 0.8612079992890358ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:59:43.013Z - Time taken for 'build-project-configs' 48.17349999770522ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:59:43.070Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:59:43.072Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:59:43.072Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:59:43.072Z - Time taken for 'total execution time for createProjectGraph()' 46.63958299905062ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:59:43.339Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:59:44.669Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T13:59:44.726Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:00:03.564Z - [WATCHER]: libs/matrix-adapter/src/matrix.service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:00:03.566Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:00:04.152Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:00:05.622Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:00:09.970Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:00:09.970Z - [REQUEST]: libs/matrix-adapter/src/matrix.service.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:00:09.970Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:00:09.975Z - Time taken for 'hash changed files from watcher' 1.2255409993231297ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:00:10.006Z - Time taken for 'build-project-configs' 30.34750000014901ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:00:10.037Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:00:10.037Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:00:10.037Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:00:10.038Z - Time taken for 'total execution time for createProjectGraph()' 26.07820799946785ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:00:16.493Z - [WATCHER]: libs/matrix-adapter/src/matrix.service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:00:16.493Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:00:18.494Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:00:22.896Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:00:22.896Z - [REQUEST]: libs/matrix-adapter/src/matrix.service.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:00:22.896Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:00:22.905Z - Time taken for 'hash changed files from watcher' 1.0189170017838478ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:00:22.931Z - Time taken for 'build-project-configs' 29.277040999382734ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:00:22.986Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:00:22.987Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:00:22.987Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:00:22.987Z - Time taken for 'total execution time for createProjectGraph()' 46.4767500013113ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:00:25.298Z - [WATCHER]: libs/matrix-adapter/src/matrix.service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:00:25.298Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:00:25.837Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:00:27.267Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:00:31.701Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:00:31.702Z - [REQUEST]: libs/matrix-adapter/src/matrix.service.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:00:31.702Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:00:31.708Z - Time taken for 'hash changed files from watcher' 1.1497920006513596ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:00:31.734Z - Time taken for 'build-project-configs' 27.579957999289036ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:00:31.774Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:00:31.774Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:00:31.774Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:00:31.774Z - Time taken for 'total execution time for createProjectGraph()' 28.270957998931408ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:00:53.782Z - [WATCHER]: libs/matrix-adapter/src/matrix.service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:00:53.783Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:00:55.689Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:01:00.187Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:01:00.187Z - [REQUEST]: libs/matrix-adapter/src/matrix.service.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:01:00.187Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:01:00.193Z - Time taken for 'hash changed files from watcher' 1.2158330008387566ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:01:00.220Z - Time taken for 'build-project-configs' 27.40558400005102ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:01:00.250Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:01:00.251Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:01:00.251Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:01:00.251Z - Time taken for 'total execution time for createProjectGraph()' 23.73133299872279ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:01:05.303Z - [WATCHER]: 0 file(s) created or restored, 3 file(s) modified, 0 file(s) deleted
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:01:05.306Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:01:05.374Z - [WATCHER]: libs/matrix-adapter/src/matrix.service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:01:05.374Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:01:08.432Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:01:11.713Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:01:11.714Z - [REQUEST]: libs/matrix-adapter/src/service/matrix-file-upload-handler.ts,libs/ngx-chat/src/components/chat-window/chat-window.component.ts,libs/matrix-adapter/src/service/matrix-message-service.ts,libs/matrix-adapter/src/matrix.service.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:01:11.714Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:01:11.725Z - Time taken for 'hash changed files from watcher' 6.085792001336813ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:01:11.762Z - Time taken for 'build-project-configs' 41.24399999901652ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:01:11.805Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:01:11.805Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:01:11.805Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:01:11.805Z - Time taken for 'total execution time for createProjectGraph()' 37.53491599857807ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:01:41.718Z - [WATCHER]: libs/matrix-adapter/src/matrix.service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:01:41.719Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:01:43.388Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:01:43.452Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:01:48.125Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:01:48.126Z - [REQUEST]: libs/matrix-adapter/src/matrix.service.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:01:48.126Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:01:48.135Z - Time taken for 'hash changed files from watcher' 1.621874999254942ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:01:48.165Z - Time taken for 'build-project-configs' 34.015750002115965ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:01:48.190Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:01:48.191Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:01:48.191Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:01:48.191Z - Time taken for 'total execution time for createProjectGraph()' 20.572792001068592ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:22:48.443Z - [WATCHER]: libs/matrix-adapter/src/matrix.service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:22:48.449Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:22:49.072Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:22:50.545Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:22:50.622Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:22:54.852Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:22:54.853Z - [REQUEST]: libs/matrix-adapter/src/matrix.service.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:22:54.853Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:22:54.862Z - Time taken for 'hash changed files from watcher' 2.4689579978585243ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:22:54.915Z - Time taken for 'build-project-configs' 50.533583000302315ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:22:54.969Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:22:54.969Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:22:54.969Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:22:54.969Z - Time taken for 'total execution time for createProjectGraph()' 49.43666699901223ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:24:27.193Z - [WATCHER]: libs/matrix-adapter/src/service/matrix-file-upload-handler.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:24:27.198Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:24:27.827Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:24:29.131Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:24:29.210Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:24:33.602Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:24:33.602Z - [REQUEST]: libs/matrix-adapter/src/service/matrix-file-upload-handler.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:24:33.602Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:24:33.607Z - Time taken for 'hash changed files from watcher' 1.0032499991357327ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:24:33.646Z - Time taken for 'build-project-configs' 37.75320800021291ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:24:33.680Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:24:33.681Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:24:33.681Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:24:33.681Z - Time taken for 'total execution time for createProjectGraph()' 28.803041998296976ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:25:00.069Z - [WATCHER]: libs/matrix-adapter/src/service/matrix-file-upload-handler.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:25:00.071Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:25:02.031Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:25:06.474Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:25:06.475Z - [REQUEST]: libs/matrix-adapter/src/service/matrix-file-upload-handler.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:25:06.475Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:25:06.479Z - Time taken for 'hash changed files from watcher' 1.0179580003023148ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:25:06.514Z - Time taken for 'build-project-configs' 32.22929099947214ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:25:06.550Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:25:06.551Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:25:06.551Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:25:06.552Z - Time taken for 'total execution time for createProjectGraph()' 30.713542003184557ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:25:08.148Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:25:08.151Z - [WATCHER]: libs/matrix-adapter/src/matrix.service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:25:08.899Z - [WATCHER]: libs/matrix-adapter/src/matrix.service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:25:08.900Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:25:11.342Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:25:11.831Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:25:14.557Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:25:14.557Z - [REQUEST]: libs/matrix-adapter/src/matrix.service.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:25:14.558Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:25:14.566Z - Time taken for 'hash changed files from watcher' 2.188916999846697ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:25:14.606Z - Time taken for 'build-project-configs' 41.77562499791384ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:25:14.663Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:25:14.663Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:25:14.663Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:25:14.663Z - Time taken for 'total execution time for createProjectGraph()' 50.345499999821186ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:28:08.590Z - [WATCHER]: libs/matrix-adapter/src/service/matrix-file-upload-handler.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:28:08.592Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:28:09.392Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:28:14.995Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:28:14.996Z - [REQUEST]: libs/matrix-adapter/src/service/matrix-file-upload-handler.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:28:14.996Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:28:15.003Z - Time taken for 'hash changed files from watcher' 1.429542001336813ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:28:15.043Z - Time taken for 'build-project-configs' 38.73541700094938ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:28:15.083Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:28:15.083Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:28:15.083Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:28:15.083Z - Time taken for 'total execution time for createProjectGraph()' 33.09170800074935ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:29:05.869Z - [WATCHER]: libs/matrix-adapter/src/matrix.service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:29:05.872Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:29:12.275Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:29:12.276Z - [REQUEST]: libs/matrix-adapter/src/matrix.service.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:29:12.276Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:29:12.281Z - Time taken for 'hash changed files from watcher' 0.9296250008046627ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:29:12.311Z - Time taken for 'build-project-configs' 27.769124999642372ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:29:12.353Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:29:12.353Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:29:12.354Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:29:12.354Z - Time taken for 'total execution time for createProjectGraph()' 34.69995800033212ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:29:33.980Z - [WATCHER]: 0 file(s) created or restored, 2 file(s) modified, 0 file(s) deleted
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:29:33.981Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:29:34.064Z - [WATCHER]: libs/matrix-adapter/src/service/matrix-file-upload-handler.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:29:34.064Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:29:34.877Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:29:36.958Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:29:37.013Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:29:40.386Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:29:40.386Z - [REQUEST]: libs/matrix-adapter/src/service/matrix-file-upload-handler.ts,libs/matrix-adapter/src/matrix.service.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:29:40.386Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:29:40.393Z - Time taken for 'hash changed files from watcher' 1.2431670017540455ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:29:40.422Z - Time taken for 'build-project-configs' 30.45387500151992ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:29:40.461Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:29:40.461Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:29:40.461Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:29:40.461Z - Time taken for 'total execution time for createProjectGraph()' 31.59891699999571ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:32:52.723Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:32:52.812Z - [WATCHER]: projects/ngx-chat/src/lib/services/matrix/matrix.service.ts was created or restored
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:32:52.926Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:32:52.927Z - [REQUEST]: projects/ngx-chat/src/lib/services/matrix/matrix.service.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:32:52.927Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:32:52.945Z - Time taken for 'hash changed files from watcher' 4.2632090002298355ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:32:53.034Z - Time taken for 'build-project-configs' 80.80270799994469ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:32:53.095Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:32:53.095Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:32:53.095Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:32:53.096Z - Time taken for 'total execution time for createProjectGraph()' 57.30333299934864ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:32:56.045Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:32:56.050Z - [WATCHER]: projects/ngx-chat/src/lib/services/matrix/matrix.service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:32:56.254Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:32:56.254Z - [REQUEST]: projects/ngx-chat/src/lib/services/matrix/matrix.service.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:32:56.254Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:32:56.267Z - Time taken for 'hash changed files from watcher' 2.105000000447035ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:32:56.319Z - Time taken for 'build-project-configs' 47.86795800179243ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:32:56.388Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:32:56.388Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:32:56.389Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:32:56.389Z - Time taken for 'total execution time for createProjectGraph()' 56.58091600239277ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:33:01.293Z - [WATCHER]: projects was deleted
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:33:01.294Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:33:01.695Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:33:01.696Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:33:01.696Z - [REQUEST]: projects
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:33:01.706Z - Time taken for 'hash changed files from watcher' 0.8981670029461384ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:33:01.732Z - Time taken for 'build-project-configs' 31.262125000357628ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:33:01.760Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:33:01.760Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:33:01.761Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:33:01.761Z - Time taken for 'total execution time for createProjectGraph()' 23.625208999961615ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:33:24.294Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:33:24.307Z - [WATCHER]: libs/ngx-xmpp/src/lib was deleted
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:33:25.109Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:33:25.109Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:33:25.109Z - [REQUEST]: libs/ngx-xmpp/src/lib
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:33:25.114Z - Time taken for 'hash changed files from watcher' 1.1570000015199184ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:33:25.143Z - Time taken for 'build-project-configs' 28.045624997466803ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:33:25.189Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:33:25.189Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:33:25.189Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:33:25.189Z - Time taken for 'total execution time for createProjectGraph()' 39.834541000425816ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:35:20.213Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:35:20.225Z - [WATCHER]: libs/matrix-adapter/src/service/matrix-file-upload-handler.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:35:21.448Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:35:21.833Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:35:21.833Z - [REQUEST]: libs/matrix-adapter/src/service/matrix-file-upload-handler.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:35:21.833Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:35:21.848Z - Time taken for 'hash changed files from watcher' 4.451416000723839ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:35:21.893Z - Time taken for 'build-project-configs' 43.28787500038743ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:35:22.009Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:35:22.009Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:35:22.009Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:35:22.009Z - Time taken for 'total execution time for createProjectGraph()' 65.25158400088549ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:36:22.191Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:36:22.242Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:37:56.795Z - [WATCHER]: libs/matrix-adapter/src/service/matrix-connection-service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:37:56.798Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:37:57.575Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:37:58.605Z - [WATCHER]: libs/matrix-adapter/src/matrix.service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:37:58.606Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:37:59.512Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:38:00.025Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:38:00.026Z - [REQUEST]: libs/matrix-adapter/src/service/matrix-connection-service.ts,libs/matrix-adapter/src/matrix.service.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:38:00.026Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:38:00.067Z - Time taken for 'hash changed files from watcher' 18.160041999071836ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:38:00.214Z - Time taken for 'build-project-configs' 143.1235830001533ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:38:00.376Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:38:00.378Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:38:00.378Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:38:00.379Z - Time taken for 'total execution time for createProjectGraph()' 107.71354199945927ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:38:00.960Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:38:01.371Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:38:01.430Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:41:19.817Z - [WATCHER]: libs/matrix-adapter/src/service/matrix-file-upload-handler.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:41:19.822Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:41:21.171Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:41:22.657Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:41:22.759Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:41:26.229Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:41:26.230Z - [REQUEST]: libs/matrix-adapter/src/service/matrix-file-upload-handler.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:41:26.230Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:41:26.251Z - Time taken for 'hash changed files from watcher' 3.1858329996466637ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:41:26.301Z - Time taken for 'build-project-configs' 46.513041999191046ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:41:26.336Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:41:26.337Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:41:26.337Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:41:26.337Z - Time taken for 'total execution time for createProjectGraph()' 30.712167002260685ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:41:41.262Z - [WATCHER]: libs/matrix-adapter/src/service/matrix-file-upload-handler.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:41:41.263Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:41:47.666Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:41:47.666Z - [REQUEST]: libs/matrix-adapter/src/service/matrix-file-upload-handler.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:41:47.666Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:41:47.673Z - Time taken for 'hash changed files from watcher' 1.0931250005960464ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:41:47.716Z - Time taken for 'build-project-configs' 42.46733299642801ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:41:47.747Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:41:47.747Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:41:47.747Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:41:47.748Z - Time taken for 'total execution time for createProjectGraph()' 23.68250000104308ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:42:42.503Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:43:45.925Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:43:46.010Z - [WATCHER]: libs/matrix-adapter/src/service/matrix-file-upload-handler.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:43:47.321Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:43:52.421Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:43:52.423Z - [REQUEST]: libs/matrix-adapter/src/service/matrix-file-upload-handler.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:43:52.423Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:43:52.444Z - Time taken for 'hash changed files from watcher' 1.3981250002980232ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:43:52.483Z - Time taken for 'build-project-configs' 51.758375000208616ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:43:52.524Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:43:52.524Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:43:52.524Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:43:52.524Z - Time taken for 'total execution time for createProjectGraph()' 33.513291999697685ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:44:47.883Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:44:47.937Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:45:01.744Z - [WATCHER]: libs/matrix-adapter/src/service/matrix-connection-service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:45:01.751Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:45:04.326Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:45:04.977Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:45:08.155Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:45:08.155Z - [REQUEST]: libs/matrix-adapter/src/service/matrix-connection-service.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:45:08.155Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:45:08.164Z - Time taken for 'hash changed files from watcher' 2.3885000012815ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:45:08.222Z - Time taken for 'build-project-configs' 53.053082998842ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:45:08.267Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:45:08.267Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:45:08.267Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:45:08.267Z - Time taken for 'total execution time for createProjectGraph()' 38.43487500026822ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:45:52.146Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:45:52.152Z - [WATCHER]: libs/matrix-adapter/src/service/matrix-file-upload-handler.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:45:53.236Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:45:58.556Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:45:58.556Z - [REQUEST]: libs/matrix-adapter/src/service/matrix-file-upload-handler.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:45:58.556Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:45:58.564Z - Time taken for 'hash changed files from watcher' 1.3681659996509552ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:45:58.607Z - Time taken for 'build-project-configs' 35.728042002767324ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:45:58.651Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:45:58.651Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:45:58.651Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:45:58.651Z - Time taken for 'total execution time for createProjectGraph()' 43.705624997615814ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:46:12.712Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:46:12.718Z - [WATCHER]: libs/matrix-adapter/src/service/matrix-file-upload-handler.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:46:13.462Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:46:15.045Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:46:15.178Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:46:19.123Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:46:19.124Z - [REQUEST]: libs/matrix-adapter/src/service/matrix-file-upload-handler.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:46:19.124Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:46:19.131Z - Time taken for 'hash changed files from watcher' 1.451249998062849ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:46:19.172Z - Time taken for 'build-project-configs' 32.89316599816084ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:46:19.221Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:46:19.221Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:46:19.221Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:46:19.221Z - Time taken for 'total execution time for createProjectGraph()' 48.93604100123048ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:46:19.664Z - [WATCHER]: libs/matrix-adapter/src/service/matrix-file-upload-handler.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:46:19.665Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:46:20.181Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:46:26.068Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:46:26.069Z - [REQUEST]: libs/matrix-adapter/src/service/matrix-file-upload-handler.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:46:26.069Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:46:26.078Z - Time taken for 'hash changed files from watcher' 1.3766250014305115ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:46:26.108Z - Time taken for 'build-project-configs' 32.20804199948907ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:46:26.141Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:46:26.142Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:46:26.142Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:46:26.142Z - Time taken for 'total execution time for createProjectGraph()' 28.3867079988122ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:47:07.619Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:47:07.635Z - [WATCHER]: libs/matrix-adapter/src/service/matrix-file-upload-handler.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:47:10.432Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:47:10.505Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:47:14.038Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:47:14.039Z - [REQUEST]: libs/matrix-adapter/src/service/matrix-file-upload-handler.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:47:14.039Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:47:14.049Z - Time taken for 'hash changed files from watcher' 0.9241669997572899ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:47:14.089Z - Time taken for 'build-project-configs' 42.99100000038743ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:47:14.133Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:47:14.134Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:47:14.134Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:47:14.134Z - Time taken for 'total execution time for createProjectGraph()' 39.076292000710964ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:52:53.467Z - [WATCHER]: libs/matrix-adapter/src/service/matrix-file-upload-handler.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:52:53.472Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:52:54.899Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:52:56.532Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:52:56.723Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:52:59.879Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:52:59.880Z - [REQUEST]: libs/matrix-adapter/src/service/matrix-file-upload-handler.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:52:59.880Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:52:59.893Z - Time taken for 'hash changed files from watcher' 2.4675830006599426ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:52:59.927Z - Time taken for 'build-project-configs' 35.57158300280571ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:52:59.975Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:52:59.975Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:52:59.976Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:52:59.976Z - Time taken for 'total execution time for createProjectGraph()' 40.77991700172424ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:55:29.420Z - [WATCHER]: libs/matrix-adapter/src/service/matrix-connection-service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:55:29.426Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:55:30.116Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:55:30.123Z - [WATCHER]: libs/matrix-adapter/src/service/matrix-connection-service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:55:30.375Z - [WATCHER]: libs/matrix-adapter/src/service/matrix-connection-service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:55:30.375Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:55:30.710Z - [WATCHER]: libs/matrix-adapter/src/service/matrix-connection-service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:55:30.710Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:55:30.861Z - [WATCHER]: libs/matrix-adapter/src/service/matrix-connection-service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:55:30.861Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:55:31.080Z - [WATCHER]: libs/matrix-adapter/src/service/matrix-connection-service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:55:31.080Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:55:31.253Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:55:31.257Z - [WATCHER]: libs/matrix-adapter/src/service/matrix-connection-service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:55:32.386Z - [WATCHER]: libs/matrix-adapter/src/service/matrix-connection-service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:55:32.387Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:55:34.045Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:55:34.136Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:55:34.188Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:55:35.278Z - [WATCHER]: libs/matrix-adapter/src/service/matrix-connection-service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:55:35.292Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:55:35.827Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:55:35.827Z - [REQUEST]: libs/matrix-adapter/src/service/matrix-connection-service.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:55:35.827Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:55:35.834Z - Time taken for 'hash changed files from watcher' 1.0206249989569187ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:55:35.835Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:55:35.897Z - Time taken for 'build-project-configs' 61.4809999987483ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:55:35.956Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:55:35.957Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:55:35.957Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:55:35.957Z - Time taken for 'total execution time for createProjectGraph()' 46.7159170024097ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:55:48.294Z - [WATCHER]: libs/matrix-adapter/src/service/matrix-connection-service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:55:48.297Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:55:48.849Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:55:50.211Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:55:52.184Z - [WATCHER]: libs/matrix-adapter/src/service/matrix-connection-service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:55:52.185Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:55:54.709Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:55:54.710Z - [REQUEST]: libs/matrix-adapter/src/service/matrix-connection-service.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:55:54.711Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:55:54.720Z - Time taken for 'hash changed files from watcher' 2.0604170002043247ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:55:54.752Z - Time taken for 'build-project-configs' 32.9142500013113ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:55:54.788Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:55:54.789Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:55:54.789Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:55:54.789Z - Time taken for 'total execution time for createProjectGraph()' 30.46808299794793ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:55:54.941Z - [WATCHER]: libs/matrix-adapter/src/service/matrix-connection-service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:55:54.945Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:55:55.563Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:55:56.871Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:56:01.231Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:56:01.265Z - [WATCHER]: libs/matrix-adapter/src/matrix.service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:56:01.357Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:56:01.357Z - [REQUEST]: libs/matrix-adapter/src/service/matrix-connection-service.ts,libs/matrix-adapter/src/matrix.service.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:56:01.357Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:56:01.385Z - Time taken for 'hash changed files from watcher' 8.599708002060652ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:56:01.490Z - Time taken for 'build-project-configs' 111.78233300149441ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:56:01.587Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:56:01.587Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:56:01.587Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:56:01.588Z - Time taken for 'total execution time for createProjectGraph()' 87.84829200059175ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:56:02.296Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:56:03.712Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:56:03.760Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:56:04.527Z - [WATCHER]: libs/matrix-adapter/src/matrix.service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:56:04.527Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:56:10.930Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:56:10.931Z - [REQUEST]: libs/matrix-adapter/src/matrix.service.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:56:10.931Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:56:10.946Z - Time taken for 'hash changed files from watcher' 0.9241660013794899ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:56:10.991Z - Time taken for 'build-project-configs' 53.152209002524614ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:56:11.032Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:56:11.032Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:56:11.032Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:56:11.032Z - Time taken for 'total execution time for createProjectGraph()' 33.96516700088978ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:57:05.459Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:57:05.512Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:58:01.179Z - [WATCHER]: libs/matrix-adapter/src/matrix.service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:58:01.186Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:58:02.121Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:58:03.524Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:58:03.575Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:58:07.589Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:58:07.590Z - [REQUEST]: libs/matrix-adapter/src/matrix.service.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:58:07.590Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:58:07.597Z - Time taken for 'hash changed files from watcher' 1.5613749995827675ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:58:07.629Z - Time taken for 'build-project-configs' 32.33162499964237ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:58:07.685Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:58:07.685Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:58:07.685Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:58:07.685Z - Time taken for 'total execution time for createProjectGraph()' 45.26300000026822ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:59:04.125Z - [WATCHER]: libs/matrix-adapter/src/matrix.service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:59:04.127Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:59:05.287Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:59:06.920Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:59:07.008Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:59:07.074Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:59:07.300Z - [WATCHER]: libs/matrix-adapter/src/matrix.service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:59:07.300Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:59:08.453Z - [WATCHER]: libs/matrix-adapter/src/matrix.service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:59:08.454Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:59:10.543Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:59:10.544Z - [REQUEST]: libs/matrix-adapter/src/matrix.service.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:59:10.544Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:59:10.556Z - Time taken for 'hash changed files from watcher' 3.7913750000298023ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:59:10.750Z - Time taken for 'build-project-configs' 187.3268750011921ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:59:10.860Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:59:10.861Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:59:10.861Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:59:10.862Z - Time taken for 'total execution time for createProjectGraph()' 97.58545899763703ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:59:11.484Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:59:11.555Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:59:54.270Z - [WATCHER]: libs/matrix-adapter/src/matrix.service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:59:54.273Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:59:55.374Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:59:56.854Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T14:59:56.911Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:00:00.677Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:00:00.678Z - [REQUEST]: libs/matrix-adapter/src/matrix.service.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:00:00.678Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:00:00.686Z - Time taken for 'hash changed files from watcher' 1.7297499999403954ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:00:00.728Z - Time taken for 'build-project-configs' 43.613165996968746ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:00:00.767Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:00:00.767Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:00:00.767Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:00:00.767Z - Time taken for 'total execution time for createProjectGraph()' 30.74058399349451ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:00:56.377Z - [WATCHER]: libs/matrix-adapter/src/matrix.service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:00:56.381Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:00:58.848Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:00:58.918Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:01:02.783Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:01:02.784Z - [REQUEST]: libs/matrix-adapter/src/matrix.service.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:01:02.784Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:01:02.788Z - Time taken for 'hash changed files from watcher' 0.8827079981565475ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:01:02.828Z - Time taken for 'build-project-configs' 38.03166700154543ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:01:02.865Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:01:02.865Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:01:02.865Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:01:02.865Z - Time taken for 'total execution time for createProjectGraph()' 28.89112500101328ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:01:05.298Z - [WATCHER]: libs/matrix-adapter/src/plugins/matrix-http-file-upload.handler.ts was created or restored
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:01:05.299Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:01:05.410Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:01:05.411Z - [REQUEST]: libs/matrix-adapter/src/plugins/matrix-http-file-upload.handler.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:01:05.411Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:01:05.422Z - Time taken for 'hash changed files from watcher' 1.5322920009493828ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:01:05.485Z - Time taken for 'build-project-configs' 61.209458999335766ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:01:05.574Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:01:05.574Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:01:05.575Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:01:05.575Z - Time taken for 'total execution time for createProjectGraph()' 78.67249999940395ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:01:08.061Z - [WATCHER]: libs/matrix-adapter/src/plugins/matrix-http-file-upload.handler.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:01:08.062Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:01:08.264Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:01:08.264Z - [REQUEST]: libs/matrix-adapter/src/plugins/matrix-http-file-upload.handler.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:01:08.264Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:01:08.269Z - Time taken for 'hash changed files from watcher' 0.9789580032229424ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:01:08.346Z - Time taken for 'build-project-configs' 68.40758399665356ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:01:08.657Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:01:08.657Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:01:08.658Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:01:08.658Z - Time taken for 'total execution time for createProjectGraph()' 308.4872080013156ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:01:55.543Z - [WATCHER]: libs/matrix-adapter/src/plugins was deleted
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:01:55.545Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:01:55.947Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:01:55.948Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:01:55.948Z - [REQUEST]: libs/matrix-adapter/src/plugins
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:01:55.953Z - Time taken for 'hash changed files from watcher' 1.0449580028653145ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:01:56.031Z - Time taken for 'build-project-configs' 71.21608300507069ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:01:56.133Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:01:56.134Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:01:56.134Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:01:56.135Z - Time taken for 'total execution time for createProjectGraph()' 81.99045900255442ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:01:58.060Z - [WATCHER]: libs/matrix-adapter/src/matrix.service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:01:58.061Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:01:58.864Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:01:58.864Z - [REQUEST]: libs/matrix-adapter/src/matrix.service.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:01:58.864Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:01:58.873Z - Time taken for 'hash changed files from watcher' 1.208457998931408ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:01:58.918Z - Time taken for 'build-project-configs' 38.58391600102186ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:01:58.986Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:01:58.987Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:01:58.987Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:01:58.987Z - Time taken for 'total execution time for createProjectGraph()' 64.82995799928904ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:02:00.421Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:02:00.493Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:02:00.714Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:02:00.719Z - [WATCHER]: libs/matrix-adapter/src/plugins/matrix-http-file-upload.handler.ts was created or restored
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:02:00.799Z - [WATCHER]: libs/matrix-adapter/src/plugins/matrix-http-file-upload.handler.ts was deleted
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:02:00.799Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:02:00.822Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:02:00.822Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:02:00.822Z - [REQUEST]: libs/matrix-adapter/src/plugins/matrix-http-file-upload.handler.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:02:00.829Z - Time taken for 'hash changed files from watcher' 0.9066249951720238ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:02:00.911Z - Time taken for 'build-project-configs' 65.80466700345278ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:02:00.985Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:02:00.987Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:02:00.987Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:02:00.989Z - Time taken for 'total execution time for createProjectGraph()' 69.11687500029802ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:04:12.315Z - [WATCHER]: libs/matrix-adapter/src/service/matrix-file-upload-handler.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:04:12.317Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:04:12.517Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:04:12.518Z - [REQUEST]: libs/matrix-adapter/src/service/matrix-file-upload-handler.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:04:12.518Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:04:12.524Z - Time taken for 'hash changed files from watcher' 0.9377500042319298ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:04:12.605Z - Time taken for 'build-project-configs' 74.4140409976244ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:04:12.698Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:04:12.699Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:04:12.699Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:04:12.699Z - Time taken for 'total execution time for createProjectGraph()' 70.16295900195837ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:04:13.535Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:04:14.857Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:04:14.923Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:04:15.000Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:04:58.519Z - [WATCHER]: libs/matrix-adapter/src/service/matrix-file-upload-handler.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:04:58.521Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:04:58.925Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:04:58.926Z - [REQUEST]: libs/matrix-adapter/src/service/matrix-file-upload-handler.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:04:58.926Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:04:58.935Z - Time taken for 'hash changed files from watcher' 2.2962919995188713ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:04:59.040Z - Time taken for 'build-project-configs' 95.03779099881649ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:04:59.126Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:04:59.127Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:04:59.127Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:04:59.128Z - Time taken for 'total execution time for createProjectGraph()' 74.48241699486971ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:04:59.493Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:05:00.997Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:05:01.053Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:05:03.970Z - [WATCHER]: libs/matrix-adapter/src/service/matrix-file-upload-handler.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:05:03.973Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:05:04.789Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:05:04.791Z - [REQUEST]: libs/matrix-adapter/src/service/matrix-file-upload-handler.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:05:04.791Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:05:04.909Z - Time taken for 'hash changed files from watcher' 1.9658749997615814ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:05:04.984Z - Time taken for 'build-project-configs' 59.39883299916983ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:05:05.063Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:05:05.063Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:05:05.064Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:05:05.064Z - Time taken for 'total execution time for createProjectGraph()' 84.39783300459385ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:05:05.470Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:05:07.284Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:05:07.345Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:05:07.398Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:05:55.769Z - [WATCHER]: libs/matrix-adapter/src/service/matrix-file-upload-handler.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:05:55.774Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:05:56.718Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:05:57.379Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:05:57.380Z - [REQUEST]: libs/matrix-adapter/src/service/matrix-file-upload-handler.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:05:57.380Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:05:57.404Z - Time taken for 'hash changed files from watcher' 1.0610420033335686ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:05:57.664Z - Time taken for 'build-project-configs' 272.0544999986887ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:05:58.026Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:05:58.028Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:05:58.028Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:05:58.028Z - Time taken for 'total execution time for createProjectGraph()' 289.36212500184774ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:05:58.582Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:05:58.633Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:08:41.592Z - [WATCHER]: libs/matrix-adapter/src/service/matrix-connection-service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:08:41.595Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:08:42.970Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:08:44.264Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:08:44.321Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:08:44.390Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:08:44.797Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:08:44.797Z - [REQUEST]: libs/matrix-adapter/src/service/matrix-connection-service.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:08:44.797Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:08:44.802Z - Time taken for 'hash changed files from watcher' 1.0120420008897781ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:08:44.850Z - Time taken for 'build-project-configs' 45.81495900452137ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:08:44.902Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:08:44.902Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:08:44.902Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:08:44.902Z - Time taken for 'total execution time for createProjectGraph()' 40.17575000226498ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:09:58.513Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:09:58.519Z - [WATCHER]: libs/matrix-adapter/src/matrix.service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:09:59.184Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:10:04.925Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:10:04.926Z - [REQUEST]: libs/matrix-adapter/src/matrix.service.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:10:04.926Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:10:04.931Z - Time taken for 'hash changed files from watcher' 1.9570830017328262ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:10:04.969Z - Time taken for 'build-project-configs' 27.650834001600742ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:10:05.004Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:10:05.005Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:10:05.005Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:10:05.005Z - Time taken for 'total execution time for createProjectGraph()' 32.13962499797344ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:10:22.119Z - [WATCHER]: libs/matrix-adapter/src/matrix.service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:10:22.120Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:10:22.588Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:10:23.943Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:10:23.999Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:10:28.525Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:10:28.525Z - [REQUEST]: libs/matrix-adapter/src/matrix.service.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:10:28.525Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:10:28.530Z - Time taken for 'hash changed files from watcher' 1.7556659951806068ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:10:28.564Z - Time taken for 'build-project-configs' 32.7260420024395ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:10:28.594Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:10:28.594Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:10:28.594Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:10:28.594Z - Time taken for 'total execution time for createProjectGraph()' 23.846083000302315ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:10:29.017Z - [WATCHER]: libs/matrix-adapter/src/matrix.service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:10:29.018Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:10:29.670Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:10:35.421Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:10:35.422Z - [REQUEST]: libs/matrix-adapter/src/matrix.service.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:10:35.422Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:10:35.433Z - Time taken for 'hash changed files from watcher' 1.4355840012431145ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:10:35.467Z - Time taken for 'build-project-configs' 35.78712499886751ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:10:35.493Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:10:35.493Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:10:35.493Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:10:35.493Z - Time taken for 'total execution time for createProjectGraph()' 24.273749999701977ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:11:30.067Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:11:30.134Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:13:54.035Z - [WATCHER]: libs/matrix-adapter/src/matrix.service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:13:54.053Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:13:55.478Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:13:57.326Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:13:57.393Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:14:00.459Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:14:00.460Z - [REQUEST]: libs/matrix-adapter/src/matrix.service.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:14:00.460Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:14:00.473Z - Time taken for 'hash changed files from watcher' 3.0624160021543503ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:14:00.574Z - Time taken for 'build-project-configs' 99.555374994874ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:14:00.629Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:14:00.629Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:14:00.629Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:14:00.629Z - Time taken for 'total execution time for createProjectGraph()' 47.64637499302626ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:14:03.112Z - [WATCHER]: libs/matrix-adapter/src/matrix.service.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:14:03.113Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:14:06.437Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:14:06.577Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:14:06.635Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:14:09.531Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:14:09.531Z - [REQUEST]: libs/matrix-adapter/src/matrix.service.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:14:09.532Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:14:09.541Z - Time taken for 'hash changed files from watcher' 2.8569590002298355ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:14:09.571Z - Time taken for 'build-project-configs' 29.84433399885893ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:14:09.612Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:14:09.612Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:14:09.612Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:14:09.612Z - Time taken for 'total execution time for createProjectGraph()' 37.73379199951887ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:14:49.729Z - [WATCHER]: libs/matrix-adapter/src/core/matrix-adapter.module.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:14:49.732Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:14:50.353Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:14:56.137Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:14:56.138Z - [REQUEST]: libs/matrix-adapter/src/core/matrix-adapter.module.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:14:56.138Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:14:56.144Z - Time taken for 'hash changed files from watcher' 1.994667001068592ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:14:56.175Z - Time taken for 'build-project-configs' 29.01604200154543ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:14:56.234Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:14:56.235Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:14:56.235Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:14:56.235Z - Time taken for 'total execution time for createProjectGraph()' 50.350583001971245ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:15:06.464Z - [WATCHER]: libs/matrix-adapter/src/core/matrix-adapter.module.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:15:06.466Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:15:09.066Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:15:09.212Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:15:09.539Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:15:10.426Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:15:10.491Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:15:10.781Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:15:10.874Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:15:11.218Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:15:11.293Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:15:12.868Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:15:12.869Z - [REQUEST]: libs/matrix-adapter/src/core/matrix-adapter.module.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:15:12.869Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:15:12.898Z - Time taken for 'hash changed files from watcher' 1.0167500004172325ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:15:12.949Z - Time taken for 'build-project-configs' 58.7223340049386ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:15:13.003Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:15:13.004Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:15:13.004Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:15:13.005Z - Time taken for 'total execution time for createProjectGraph()' 46.65966599434614ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:15:21.775Z - [WATCHER]: libs/matrix-adapter/src/service/matrix-file-upload-handler.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:15:21.779Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:15:23.231Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:15:23.876Z - [WATCHER]: libs/matrix-adapter/src/service/matrix-file-upload-handler.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:15:23.877Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:15:28.183Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:15:28.184Z - [REQUEST]: libs/matrix-adapter/src/service/matrix-file-upload-handler.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:15:28.184Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:15:28.189Z - Time taken for 'hash changed files from watcher' 1.0454579964280128ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:15:28.215Z - Time taken for 'build-project-configs' 26.060915999114513ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:15:28.248Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:15:28.248Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:15:28.248Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:15:28.249Z - Time taken for 'total execution time for createProjectGraph()' 26.967457994818687ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:16:24.827Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:16:24.905Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:17:01.212Z - [WATCHER]: libs/matrix-adapter/src/service/matrix-file-upload-handler.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:17:01.219Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:17:02.464Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:17:03.102Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:17:03.122Z - [WATCHER]: libs/matrix-adapter/src/service/matrix-file-upload-handler.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:17:04.997Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:17:07.622Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:17:07.622Z - [REQUEST]: libs/matrix-adapter/src/service/matrix-file-upload-handler.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:17:07.623Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:17:07.629Z - Time taken for 'hash changed files from watcher' 0.9860830008983612ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:17:07.680Z - Time taken for 'build-project-configs' 44.06504100561142ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:17:07.728Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:17:07.729Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:17:07.729Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:17:07.729Z - Time taken for 'total execution time for createProjectGraph()' 44.07975000143051ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:17:41.567Z - [WATCHER]: libs/matrix-adapter/src/service/matrix-file-upload-handler.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:17:41.568Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:17:42.264Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:17:47.119Z - [WATCHER]: libs/matrix-adapter/src/service/matrix-file-upload-handler.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:17:47.120Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:17:47.972Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:17:47.973Z - [REQUEST]: libs/matrix-adapter/src/service/matrix-file-upload-handler.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:17:47.973Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:17:47.979Z - Time taken for 'hash changed files from watcher' 1.0104580000042915ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:17:48.063Z - Time taken for 'build-project-configs' 79.01979199796915ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:17:48.112Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:17:48.113Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:17:48.113Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:17:48.113Z - Time taken for 'total execution time for createProjectGraph()' 43.97629199922085ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:17:48.242Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:18:48.767Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:18:48.818Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:18:48.871Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:19:16.944Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:19:16.981Z - [WATCHER]: libs/matrix-adapter/src/service/matrix-file-upload-handler.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:19:18.334Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:19:18.423Z - [WATCHER]: libs/matrix-adapter/src/service/matrix-file-upload-handler.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:19:18.424Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:19:23.408Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:19:23.409Z - [REQUEST]: libs/matrix-adapter/src/service/matrix-file-upload-handler.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:19:23.409Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:19:23.419Z - Time taken for 'hash changed files from watcher' 3.3405830040574074ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:19:23.495Z - Time taken for 'build-project-configs' 73.17412500083447ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:19:23.529Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:19:23.529Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:19:23.530Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:19:23.530Z - Time taken for 'total execution time for createProjectGraph()' 30.210957996547222ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:19:35.716Z - [WATCHER]: libs/matrix-adapter/src/service/matrix-file-upload-handler.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:19:35.718Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:19:36.869Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:19:37.467Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:19:37.503Z - [WATCHER]: libs/matrix-adapter/src/service/matrix-file-upload-handler.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:19:42.198Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:19:42.210Z - [REQUEST]: libs/matrix-adapter/src/service/matrix-file-upload-handler.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:19:42.210Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:19:42.285Z - Time taken for 'hash changed files from watcher' 8.584124997258186ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:19:42.358Z - Time taken for 'build-project-configs' 82.31537500023842ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:19:42.415Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:19:42.415Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:19:42.415Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:19:42.416Z - Time taken for 'total execution time for createProjectGraph()' 46.60291700065136ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:20:38.725Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:20:43.786Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:20:43.800Z - [WATCHER]: libs/matrix-adapter/src/service/matrix-file-upload-handler.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:20:45.823Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:20:50.213Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:20:50.213Z - [REQUEST]: libs/matrix-adapter/src/service/matrix-file-upload-handler.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:20:50.213Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:20:50.225Z - Time taken for 'hash changed files from watcher' 3.5146670043468475ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:20:50.275Z - Time taken for 'build-project-configs' 43.845582999289036ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:20:50.342Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:20:50.342Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:20:50.342Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:20:50.342Z - Time taken for 'total execution time for createProjectGraph()' 66.16499999910593ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:21:46.825Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:32:23.179Z - [WATCHER]: Processing file changes in outputs
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:32:23.202Z - [WATCHER]: libs/matrix-adapter/src/service/matrix-file-upload-handler.ts was modified
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:32:28.398Z - Closed a connection. Number of open connections: 2
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:32:29.616Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:32:29.617Z - [REQUEST]: libs/matrix-adapter/src/service/matrix-file-upload-handler.ts
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:32:29.617Z - [REQUEST]: 
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:32:29.635Z - Time taken for 'hash changed files from watcher' 3.078166998922825ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:32:29.733Z - Time taken for 'build-project-configs' 100.3622080013156ms
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:32:29.789Z - [SYNC]: collect registered sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:32:29.790Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:32:29.790Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.0.0 Daemon Server] - 2025-05-26T15:32:29.790Z - Time taken for 'total execution time for createProjectGraph()' 45.47129199653864ms
