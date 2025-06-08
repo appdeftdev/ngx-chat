@@ -32,23 +32,170 @@ export class MatrixRoomService implements RoomService {
 
   setClient(client: sdk.MatrixClient) {
     this.client = client;
+    // Don't load rooms immediately - wait for sync to complete
+  }
+
+  /**
+   * Called after Matrix client sync is complete to load existing rooms
+   */
+  async loadRoomsAfterSync(): Promise<void> {
+    await this.loadExistingRooms();
+  }
+
+  /**
+   * Clear all rooms from the service (called on logout)
+   */
+  clearRooms(): void {
+    this.roomsSubject.next([]);
+    console.log('Cleared all rooms from room service');
+  }
+
+  /**
+   * Add a single room to the existing room list
+   */
+  private addRoomToList(room: Room): void {
+    const currentRooms = this.roomsSubject.getValue();
+    const existingRoomIndex = currentRooms.findIndex(r => r.jid.toString() === room.jid.toString());
+    
+    if (existingRoomIndex >= 0) {
+      // Update existing room
+      currentRooms[existingRoomIndex] = room;
+      this.roomsSubject.next([...currentRooms]);
+    } else {
+      // Add new room
+      this.roomsSubject.next([...currentRooms, room]);
+    }
+  }
+
+  private async loadExistingRooms(): Promise<void> {
+    if (!this.client) return;
+    
+    try {
+      console.log('Loading existing rooms from Matrix client...');
+      
+      // Get DM rooms from account data for proper DM detection
+      const dmRooms = this.client.getAccountData('m.direct' as any)?.getContent() || {};
+      const dmRoomIds = new Set();
+      
+      console.log('DM account data:', dmRooms);
+      
+      // Collect all DM room IDs
+      Object.values(dmRooms).forEach((roomIds: any) => {
+        if (Array.isArray(roomIds)) {
+          roomIds.forEach(roomId => dmRoomIds.add(roomId));
+        }
+      });
+      
+      console.log('DM room IDs identified:', Array.from(dmRoomIds));
+      
+      // Get all rooms from the Matrix client
+      const matrixRooms = this.client.getRooms();
+      const rooms: Room[] = [];
+      
+      for (const matrixRoom of matrixRooms) {
+        try {
+          // Skip DM rooms (they should be handled by contact service)
+          // Use proper DM detection from m.direct account data
+          const isDmRoom = dmRoomIds.has(matrixRoom.roomId);
+          
+          if (isDmRoom) {
+            console.log(`Skipping DM room: ${matrixRoom.name || matrixRoom.roomId}`);
+            continue;
+          }
+          
+          // Additional fallback check for rooms with only 2 members
+          const members = matrixRoom.getMembers();
+          const joinedMembers = matrixRoom.getJoinedMembers();
+          const isLikelyDm = (members.length === 2 || joinedMembers.length === 2) && 
+            (members.some((m) => m.userId === this.client.getUserId()) || 
+             joinedMembers.some((m) => m.userId === this.client.getUserId()));
+          
+          console.log(`Room ${matrixRoom.roomId} analysis:`, {
+            name: matrixRoom.name,
+            totalMembers: members.length,
+            joinedMembers: joinedMembers.length,
+            isDmByAccountData: isDmRoom,
+            isLikelyDm: isLikelyDm,
+            hasCustomName: !!matrixRoom.name
+          });
+          
+          if (isLikelyDm && !matrixRoom.name) {
+            console.log(`Skipping likely DM room: ${matrixRoom.name || matrixRoom.roomId}`);
+            continue;
+          }
+          
+          // Create Room instance
+          const room = new Room(
+            {
+              logLevel: 0,
+              writer: console,
+              messagePrefix: () => 'MatrixRoom:',
+              error: console.error,
+              warn: console.warn,
+              info: console.info,
+              debug: console.debug
+            },
+            parseJid(matrixRoom.roomId),
+            matrixRoom.name || matrixRoom.roomId
+          );
+
+          // Store the original Matrix room ID for proper API calls
+          room.roomId = matrixRoom.roomId;
+
+          // Set room properties
+          const state = matrixRoom.currentState;
+          room.description = state?.getStateEvents('m.room.topic', '')?.getContent()?.['topic'] || '';
+          room.subject = state?.getStateEvents('m.room.topic', '')?.getContent()?.['topic'] || '';
+          room.avatar = state?.getStateEvents('m.room.avatar', '')?.getContent()?.['url'] || '';
+          
+          // Set occupant JID
+          room.occupantJid = parseJid(this.client.getUserId() || '');
+          
+          // Add room members
+          members.forEach(member => {
+            const occupant: RoomOccupant = {
+              jid: parseJid(member.userId),
+              nick: member.name || member.userId,
+              affiliation: Affiliation.member,
+              role: Role.participant
+            };
+            room['roomOccupants'].set(member.userId, occupant);
+          });
+          
+          rooms.push(room);
+          console.log(`Loaded room: ${room.name} (${matrixRoom.roomId})`);
+          
+        } catch (error) {
+          console.warn(`Failed to load room ${matrixRoom.roomId}:`, error);
+        }
+      }
+      
+      // Update the rooms subject
+      this.roomsSubject.next(rooms);
+      console.log(`Loaded ${rooms.length} rooms total`);
+      
+    } catch (error) {
+      console.error('Failed to load existing rooms:', error);
+    }
   }
 
   async createRoom(options: RoomCreationOptions): Promise<Room> {
     if (!this.matrixClient) throw new Error('Not logged in');
     
-    // Create the room with Matrix
-    const response = await this.matrixClient.createRoom({
-      name: options.name || options.roomId,
-      topic: options.subject,
-      initial_state: [
-        {
-          type: 'm.room.name',
-          content: {
-            name: options.name || options.roomId
+    // Create the room with Matrix, using retry logic for rate limiting
+    const response = await this.retryWithBackoff(async () => {
+      return await this.matrixClient.createRoom({
+        name: options.name || options.roomId,
+        topic: options.subject,
+        initial_state: [
+          {
+            type: 'm.room.name',
+            content: {
+              name: options.name || options.roomId
+            }
           }
-        }
-      ]
+        ]
+      });
     });
 
     if (!response.room_id) {
@@ -115,6 +262,9 @@ export class MatrixRoomService implements RoomService {
       options.name || response.room_id
     );
 
+    // Store the original Matrix room ID for proper API calls
+    room.roomId = response.room_id;
+
     // Set additional room properties
     room.description = matrixRoom.currentState?.getStateEvents('m.room.topic', '')?.getContent()?.['topic'] || '';
     room.subject = options.subject || '';
@@ -124,11 +274,21 @@ export class MatrixRoomService implements RoomService {
     room.occupantJid = parseJid(this.matrixClient.getUserId() || '');
 
     // Wait for the room to be fully synced
-    await this.matrixClient.joinRoom(response.room_id);
+    await this.retryWithBackoff(async () => {
+      return await this.matrixClient.joinRoom(response.room_id);
+    });
 
-    // Update room list
-    const currentRooms = this.roomsSubject.getValue();
-    this.roomsSubject.next([...currentRooms, room]);
+    // Enable encryption for the new room
+    try {
+      await this.enableEncryptionInRoom(response.room_id);
+      console.log('Encryption enabled for new room:', response.room_id);
+    } catch (error) {
+      console.warn('Failed to enable encryption for new room:', error);
+      // Continue without encryption - room is still usable
+    }
+
+    // Update room list using helper method
+    this.addRoomToList(room);
 
     return room;
   }
@@ -139,11 +299,15 @@ export class MatrixRoomService implements RoomService {
   }
 
   async subscribeRoom(roomJid: string, _nodes: string[]): Promise<void> {
-    await this.matrixClient.joinRoom(roomJid);
+    await this.retryWithBackoff(async () => {
+      return await this.matrixClient.joinRoom(roomJid);
+    });
   }
 
   async unsubscribeRoom(roomJid: string): Promise<void> {
-    await this.matrixClient.leave(roomJid);
+    await this.retryWithBackoff(async () => {
+      return await this.matrixClient.leave(roomJid);
+    });
   }
 
   async unsubscribeJidFromRoom(roomJid: string, jid: string): Promise<void> {
@@ -238,9 +402,22 @@ export class MatrixRoomService implements RoomService {
     roomJid: string,
     invitationMessage?: string
   ): Promise<void> {
-    await this.matrixClient.invite(roomJid, inviteeJid);
-    if (invitationMessage) {
-      await this.matrixClient.sendTextMessage(roomJid, invitationMessage);
+    try {
+      await this.retryWithBackoff(async () => {
+        await this.matrixClient.invite(roomJid, inviteeJid);
+      });
+      
+      if (invitationMessage) {
+        await this.retryWithBackoff(async () => {
+          await this.matrixClient.sendTextMessage(roomJid, invitationMessage);
+        });
+      }
+    } catch (error: any) {
+      if (error.errcode === 'M_LIMIT_EXCEEDED') {
+        const retryAfter = error.data?.retry_after_ms || 5000;
+        throw new Error(`Rate limited. Please wait ${Math.ceil(retryAfter / 1000)} seconds before inviting again.`);
+      }
+      throw error;
     }
   }
 
@@ -328,7 +505,9 @@ export class MatrixRoomService implements RoomService {
   }
 
   async leaveRoom(roomJid: string, _status?: string): Promise<void> {
-    await this.matrixClient.leave(roomJid);
+    await this.retryWithBackoff(async () => {
+      return await this.matrixClient.leave(roomJid);
+    });
   }
 
   async getRoomByJid(roomJid: string): Promise<Room | undefined> {
@@ -347,7 +526,17 @@ export class MatrixRoomService implements RoomService {
   }
 
   async inviteContact(roomJid: string, contactJid: string): Promise<void> {
-    await this.matrixClient.invite(roomJid, contactJid);
+    try {
+      await this.retryWithBackoff(async () => {
+        await this.matrixClient.invite(roomJid, contactJid);
+      });
+    } catch (error: any) {
+      if (error.errcode === 'M_LIMIT_EXCEEDED') {
+        const retryAfter = error.data?.retry_after_ms || 5000;
+        throw new Error(`Rate limited. Please wait ${Math.ceil(retryAfter / 1000)} seconds before inviting again.`);
+      }
+      throw error;
+    }
   }
 
   async declineRoomInvite(roomJid: string): Promise<void> {
@@ -360,8 +549,10 @@ export class MatrixRoomService implements RoomService {
     }
 
     try {
-        // First join the room
-        await this.matrixClient.joinRoom(roomJid);
+        // First join the room with rate limiting
+        await this.retryWithBackoff(async () => {
+          return await this.matrixClient.joinRoom(roomJid);
+        });
         
         // Get the room after joining
         const matrixRoom = this.matrixClient.getRoom(roomJid);
@@ -401,15 +592,8 @@ export class MatrixRoomService implements RoomService {
             room['roomOccupants'].set(member.userId, occupant);
         });
 
-        // Update room list
-        const currentRooms = this.roomsSubject.getValue();
-        const existingRoomIndex = currentRooms.findIndex(r => r.jid.toString() === roomJid);
-        if (existingRoomIndex >= 0) {
-            currentRooms[existingRoomIndex] = room;
-            this.roomsSubject.next([...currentRooms]);
-        } else {
-            this.roomsSubject.next([...currentRooms, room]);
-        }
+        // Update room list using helper method
+        this.addRoomToList(room);
 
         // Set current user's occupant JID
         room.occupantJid = parseJid(this.matrixClient.getUserId() || '');
@@ -419,6 +603,96 @@ export class MatrixRoomService implements RoomService {
         console.error('Error joining room:', error);
         throw error;
     }
+  }
+
+  /**
+   * Enable end-to-end encryption in a room.
+   * Call this method to enable encryption in existing rooms.
+   */
+  async enableEncryptionInRoom(roomJid: string): Promise<void> {
+    try {
+      // Check if encryption is already enabled
+      const room = this.matrixClient.getRoom(roomJid);
+      if (room) {
+        const encryptionEvent = room.currentState?.getStateEvents('m.room.encryption', '');
+        if (encryptionEvent && encryptionEvent.getContent()?.['algorithm']) {
+          console.log('Encryption already enabled for room:', roomJid);
+          return;
+        }
+      }
+
+      // Enable encryption with retry logic
+      await this.retryWithBackoff(async () => {
+        await this.matrixClient.sendStateEvent(roomJid, 'm.room.encryption' as any, {
+          algorithm: 'm.megolm.v1.aes-sha2'
+        });
+      });
+      
+      console.log('Encryption enabled for room:', roomJid);
+    } catch (error: any) {
+      console.error('Failed to enable encryption in room:', error);
+      
+      // Provide specific error messages
+      if (error.errcode === 'M_FORBIDDEN') {
+        throw new Error('Cannot enable encryption: Insufficient permissions');
+      } else if (error.errcode === 'M_LIMIT_EXCEEDED') {
+        const retryAfter = error.data?.retry_after_ms || 5000;
+        throw new Error(`Rate limited. Please wait ${Math.ceil(retryAfter / 1000)} seconds before trying again.`);
+      }
+      
+      throw error;
+    }
+  }
+
+  // Helper for retry with exponential backoff
+  private async retryWithBackoff<T>(
+    operation: () => Promise<T>,
+    maxRetries: number = 3,
+    baseDelay: number = 1000
+  ): Promise<T> {
+    let lastError: any;
+    
+    for (let attempt = 0; attempt <= maxRetries; attempt++) {
+      try {
+        return await operation();
+      } catch (error: any) {
+        lastError = error;
+        
+        // If it's a rate limit error, respect the server's retry_after_ms
+        if (error.errcode === 'M_LIMIT_EXCEEDED') {
+          const retryAfter = error.data?.retry_after_ms || (baseDelay * Math.pow(2, attempt));
+          console.warn(`Rate limited. Waiting ${retryAfter}ms before retry ${attempt + 1}/${maxRetries + 1}`);
+          
+          if (attempt < maxRetries) {
+            await this.sleep(retryAfter);
+            continue;
+          }
+        }
+        
+        // For other errors or final attempt, throw immediately
+        if (attempt === maxRetries || !this.isRetryableError(error)) {
+          throw error;
+        }
+        
+        // Exponential backoff for other retryable errors
+        const delay = baseDelay * Math.pow(2, attempt);
+        console.warn(`Retrying operation after ${delay}ms. Attempt ${attempt + 1}/${maxRetries + 1}`);
+        await this.sleep(delay);
+      }
+    }
+    
+    throw lastError;
+  }
+
+  private isRetryableError(error: any): boolean {
+    // Retry on rate limits and temporary server errors
+    return error.errcode === 'M_LIMIT_EXCEEDED' || 
+           (error.httpStatus >= 500 && error.httpStatus < 600) ||
+           error.code === 'NETWORK_ERROR';
+  }
+
+  private sleep(ms: number): Promise<void> {
+    return new Promise(resolve => setTimeout(resolve, ms));
   }
 
   // Helper for setting user power levels

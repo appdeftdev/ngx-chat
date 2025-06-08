@@ -142,6 +142,21 @@ export class MessageStore {
       count: messagesCopy.length,
       messageIds: messagesCopy.map((m) => m.id),
     });
+    
+    // Emit immediately AND schedule for next tick to ensure both sync and async scenarios work
     this.messagesSubject.next(messagesCopy);
+    
+    // Also use setTimeout to ensure the emission happens in the next tick
+    // This helps with Angular change detection in some edge cases
+    setTimeout(() => {
+      this.messagesSubject.next([...this.messages]);
+      this.logService.debug(`Messages emitted asynchronously. Count: ${this.messages.length}`);
+    }, 0);
+  }
+
+  // Expose emitMessages for debugging purposes
+  public forceEmission(): void {
+    this.logService.debug('Force emission requested');
+    this.emitMessages();
   }
 }

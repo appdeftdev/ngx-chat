@@ -1,2 +1,8 @@
 <!-- SPDX-License-Identifier: AGPL-3.0-or-later -->
-<div class="chat-avatar" [ngStyle]="{ backgroundImage: 'url(' + imageUrl + ')' }"></div>
+<div 
+  class="chat-avatar" 
+  [ngStyle]="{ backgroundImage: 'url(' + effectiveImageUrl + ')' }"
+  [attr.title]="imageLoadError ? 'Using default avatar (original failed to load)' : (imageUrl ? 'Avatar' : 'Default avatar')"
+  [class.error]="imageLoadError"
+  [class.fallback]="imageLoadError || !imageUrl"
+></div>

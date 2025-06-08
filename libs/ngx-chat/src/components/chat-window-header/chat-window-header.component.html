@@ -5,7 +5,11 @@
   [attr.data-zid]="recipient?.jid"
 >
   <div class="chat-avatar-wrapper" (click)="onContactClick($event)">
-    <ngx-chat-avatar [imageUrl]="recipient?.avatar"></ngx-chat-avatar>
+    <ngx-chat-avatar 
+      [imageUrl]="recipient?.avatar"
+      [contactName]="recipient?.name"
+      [contactId]="recipient?.jid?.toString()"
+    ></ngx-chat-avatar>
   </div>
 
   <div class="header-middle">

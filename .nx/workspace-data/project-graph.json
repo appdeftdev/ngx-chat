@@ -1139,24 +1139,6 @@
         "hash": "sha512-dle9A3yYxlBSrt8Fu+IpjGT8SY8hN0mlaA6GY8t0P5PjIOZemULz/E2Bnm/2dcUOena75OTNkHI76uZBNUUq3A=="
       }
     },
-    "npm:webpack-merge@6.0.1": {
-      "type": "npm",
-      "name": "npm:webpack-merge@6.0.1",
-      "data": {
-        "version": "6.0.1",
-        "packageName": "webpack-merge",
-        "hash": "sha512-hXXvrjtx2PLYx4qruKl+kyRSLc52V+cCvMxRjmKwoA+CBbbF5GfIBtR6kCvl0fYGqTUPKB+1ktVmTHqMOzgCBg=="
-      }
-    },
-    "npm:webpack-merge": {
-      "type": "npm",
-      "name": "npm:webpack-merge",
-      "data": {
-        "version": "5.10.0",
-        "packageName": "webpack-merge",
-        "hash": "sha512-+4zXKdx7UnO+1jaN4l2lHVD+mFvnlZQP/6ljaJVb4SZiwIKeUnrT5l0gkT8z+n4hKpC+jpOv6O9R+gLtag7pSA=="
-      }
-    },
     "npm:@angular-devkit/build-webpack": {
       "type": "npm",
       "name": "npm:@angular-devkit/build-webpack",
@@ -5691,6 +5673,24 @@
         "version": "21.0.0",
         "packageName": "@nx/devkit",
         "hash": "sha512-1Pg3lLTXYYY1CUOcUpJZc5+IdBSvOF8fKlYAwidiUJMG3jrd1/x4twiR5msZHUZpCNq3+EaqhdEx5eR75Ra15Q=="
+      }
+    },
+    "npm:webpack-merge@5.10.0": {
+      "type": "npm",
+      "name": "npm:webpack-merge@5.10.0",
+      "data": {
+        "version": "5.10.0",
+        "packageName": "webpack-merge",
+        "hash": "sha512-+4zXKdx7UnO+1jaN4l2lHVD+mFvnlZQP/6ljaJVb4SZiwIKeUnrT5l0gkT8z+n4hKpC+jpOv6O9R+gLtag7pSA=="
+      }
+    },
+    "npm:webpack-merge": {
+      "type": "npm",
+      "name": "npm:webpack-merge",
+      "data": {
+        "version": "6.0.1",
+        "packageName": "webpack-merge",
+        "hash": "sha512-hXXvrjtx2PLYx4qruKl+kyRSLc52V+cCvMxRjmKwoA+CBbbF5GfIBtR6kCvl0fYGqTUPKB+1ktVmTHqMOzgCBg=="
       }
     },
     "npm:@nx/eslint": {
@@ -18572,7 +18572,7 @@
       },
       {
         "source": "npm:@angular-devkit/build-angular",
-        "target": "npm:webpack-merge@6.0.1",
+        "target": "npm:webpack-merge",
         "type": "static"
       },
       {
@@ -18775,23 +18775,6 @@
       {
         "source": "npm:postcss@8.5.2",
         "target": "npm:source-map-js",
-        "type": "static"
-      }
-    ],
-    "npm:webpack-merge@6.0.1": [
-      {
-        "source": "npm:webpack-merge@6.0.1",
-        "target": "npm:clone-deep",
-        "type": "static"
-      },
-      {
-        "source": "npm:webpack-merge@6.0.1",
-        "target": "npm:flat",
-        "type": "static"
-      },
-      {
-        "source": "npm:webpack-merge@6.0.1",
-        "target": "npm:wildcard",
         "type": "static"
       }
     ],
@@ -25577,7 +25560,7 @@
       },
       {
         "source": "npm:@nx/angular",
-        "target": "npm:webpack-merge",
+        "target": "npm:webpack-merge@5.10.0",
         "type": "static"
       }
     ],
@@ -25625,6 +25608,23 @@
       {
         "source": "npm:@nx/devkit@21.0.0",
         "target": "npm:yargs-parser",
+        "type": "static"
+      }
+    ],
+    "npm:webpack-merge@5.10.0": [
+      {
+        "source": "npm:webpack-merge@5.10.0",
+        "target": "npm:clone-deep",
+        "type": "static"
+      },
+      {
+        "source": "npm:webpack-merge@5.10.0",
+        "target": "npm:flat",
+        "type": "static"
+      },
+      {
+        "source": "npm:webpack-merge@5.10.0",
+        "target": "npm:wildcard",
         "type": "static"
       }
     ],
@@ -43169,5 +43169,5 @@
   },
   "version": "6.0",
   "errors": [],
-  "computedAt": 1748273549779
+  "computedAt": 1749382669179
 }

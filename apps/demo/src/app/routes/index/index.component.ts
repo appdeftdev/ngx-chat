@@ -259,6 +259,30 @@ export class IndexComponent implements OnDestroy {
     if (!contact) {
       return;
     }
+    console.log('🔍 DEMO: Opening chat for contact:', {
+      contactId: contact.jid.toString(),
+      contactName: contact.name,
+      hasMessageStore: !!contact.messageStore,
+      messageCount: contact.messageStore?.messages?.length || 0,
+      storeId: (contact.messageStore as any)?.storeId
+    });
+    
+    // Subscribe to message updates for debugging
+    if (contact.messageStore) {
+      contact.messageStore.messages$.subscribe((messages) => {
+        console.log('🔍 DEMO: Message store updated for selected contact:', {
+          contactId: contact.jid.toString(),
+          messageCount: messages.length,
+          messages: messages.map(m => ({
+            id: m.id,
+            body: m.body?.substring(0, 30),
+            direction: m.direction,
+            datetime: m.datetime?.toISOString()
+          }))
+        });
+      });
+    }
+    
     this.selectedContact = contact;
   }
 
@@ -268,5 +292,139 @@ export class IndexComponent implements OnDestroy {
     }
     const url = await this.fileUploadHandler.upload(file);
     await this.chatService.messageService.sendMessage(this.selectedContact, url);
+  }
+
+  sendTestMessage(): void {
+    if (!this.selectedContact) {
+      return;
+    }
+    const testMessage = `Test message at ${new Date().toLocaleTimeString()}`;
+    console.log('🔍 DEMO: Sending test message:', testMessage);
+    this.chatService.messageService.sendMessage(this.selectedContact, testMessage).catch(error => {
+      console.error('🔍 DEMO: Failed to send test message:', error);
+    });
+  }
+
+  debugMessageStore(): void {
+    if (!this.selectedContact?.messageStore) {
+      console.log('🔍 DEMO: No message store available');
+      return;
+    }
+    
+    console.log('🔍 DEMO: Message store debug info:', {
+      contactId: this.selectedContact.jid.toString(),
+      contactName: this.selectedContact.name,
+      messageCount: this.selectedContact.messageStore.messages.length,
+      storeId: (this.selectedContact.messageStore as any).storeId,
+      messages: this.selectedContact.messageStore.messages.map(m => ({
+        id: m.id,
+        body: m.body,
+        direction: m.direction,
+        datetime: m.datetime?.toISOString(),
+        from: m.from?.toString()
+      }))
+    });
+    
+    // Force emit the messages observable
+    console.log('🔍 DEMO: Forcing message store emission...');
+    (this.selectedContact.messageStore as any).emitMessages?.();
+  }
+
+  debugPresence(): void {
+    console.log('=== PRESENCE DEBUG ===');
+    
+    this.chatService.contactListService.contacts$.subscribe(contacts => {
+      console.log('Current contacts and their presence:');
+      contacts.forEach(contact => {
+        contact.presence$.subscribe(presence => {
+          console.log(`${contact.name} (${contact.jid.toString()}): ${presence}`);
+        });
+      });
+    });
+
+    // If using Matrix adapter, also log the internal presence map
+    if (this.chatService.contactListService.constructor.name === 'MatrixContactListService') {
+      const matrixService = this.chatService.contactListService as any;
+      console.log('Matrix presence map:', 
+        Array.from(matrixService.presenceMap?.entries() || []).map((entry: any) => ({ userId: entry[0], presence: entry[1] }))
+      );
+    }
+  }
+
+  clearMatrixStorage(): void {
+    console.log('=== CLEARING MATRIX STORAGE ===');
+    
+    // Clear IndexedDB data for Matrix encryption
+    if (typeof window !== 'undefined' && window.indexedDB) {
+      const deleteDB = (dbName: string) => {
+        const deleteReq = indexedDB.deleteDatabase(dbName);
+        deleteReq.onsuccess = () => console.log(`Deleted database: ${dbName}`);
+        deleteReq.onerror = (event) => console.error(`Error deleting database ${dbName}:`, event);
+      };
+      
+      // Common Matrix database names
+      deleteDB('matrix-js-sdk:crypto');
+      deleteDB('matrix-js-sdk:riot-web-sync');
+      deleteDB('matrix-rust-sdk');
+    }
+    
+    // Clear localStorage
+    Object.keys(localStorage).forEach(key => {
+      if (key.includes('matrix') || key.includes('mx_')) {
+        localStorage.removeItem(key);
+        console.log('Removed localStorage key:', key);
+      }
+    });
+    
+    // Clear sessionStorage
+    Object.keys(sessionStorage).forEach(key => {
+      if (key.includes('matrix') || key.includes('mx_')) {
+        sessionStorage.removeItem(key);
+        console.log('Removed sessionStorage key:', key);
+      }
+    });
+    
+    alert('Matrix storage cleared! Refresh the page and log in again to fix decryption issues.');
+  }
+
+  testEncryption(): void {
+    console.log('=== ENCRYPTION STATUS TEST ===');
+    
+    // Check if chat service is Matrix
+    if (this.chatService.constructor.name === 'MatrixChatService') {
+      const matrixService = this.chatService as any;
+      const connectionService = matrixService.chatConnectionService;
+      
+      console.log('Encryption supported:', connectionService?.isEncryptionSupported);
+      console.log('Matrix client:', !!connectionService?.getMatrixClient());
+      
+      // Test WebAssembly support
+      console.log('WebAssembly supported:', typeof WebAssembly !== 'undefined');
+      
+      // Test IndexedDB support
+      console.log('IndexedDB supported:', typeof indexedDB !== 'undefined');
+      
+      // Check if WASM files are accessible
+      fetch('/assets/wasm/matrix_sdk_crypto_wasm_bg.wasm')
+        .then(response => {
+          console.log('WASM file accessible:', response.ok);
+          if (!response.ok) {
+            console.error('WASM file fetch failed:', response.status, response.statusText);
+          }
+        })
+        .catch(error => {
+          console.error('WASM file fetch error:', error);
+        });
+        
+      // Show user-friendly status
+      const encSupported = connectionService?.isEncryptionSupported;
+      const statusMessage = encSupported 
+        ? '✅ Encryption is working correctly'
+        : '❌ Encryption failed to initialize - check console for details';
+      
+      alert(statusMessage);
+    } else {
+      alert('This function only works with Matrix adapter');
+    }
   }
 }

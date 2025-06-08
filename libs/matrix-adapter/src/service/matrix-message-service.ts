@@ -1,4 +1,4 @@
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { BehaviorSubject, Observable, Subject, firstValueFrom } from 'rxjs';
 import { NgZone } from '@angular/core';
 import {
   Direction,
@@ -28,13 +28,14 @@ import {
 export class MatrixMessageService implements MessageService {
   private readonly messageReceivedSubject = new Subject<Recipient>();
   private readonly messageSentSubject = new Subject<Recipient>();
-  private readonly messageSubject = new BehaviorSubject<Recipient>(null as any);
+  private readonly messageSubject = new Subject<Recipient>();
   private readonly jidToUnreadCountSubject = new BehaviorSubject<JidToNumber>(new Map());
   private readonly unreadMessageCountSumSubject = new BehaviorSubject<number>(0);
   private readonly roomStore = new Map<string, Room>();
   private readonly logService: Log;
   private client!: sdk.MatrixClient;
   private contactListService!: ContactListService; // Added field
+  private encryptionSupported = false;
 
   readonly messageReceived$: Observable<Recipient>;
   readonly messageSent$: Observable<Recipient>;
@@ -75,10 +76,50 @@ export class MatrixMessageService implements MessageService {
 
   private async getOrCreateRoomForRecipient(recipient: Recipient): Promise<sdk.Room> {
     if (recipient.recipientType === 'room') {
-      const room = this.client.getRoom(recipient.jid.toString());
+      // Use the original Matrix room ID if available, fallback to JID string
+      const roomId = (recipient as any).roomId || recipient.jid.toString();
+      let room = this.client.getRoom(roomId);
+      
       if (!room) {
-        throw new Error('Room not found');
+        // Try to force sync the room if it's not found
+        this.logService.debug('Room not found in client store, attempting to join/sync:', roomId);
+        
+        try {
+          // Try to join the room (in case we're not already in it)
+          await this.client.joinRoom(roomId);
+          
+          // Wait a bit for the room to be added to the client's store
+          await new Promise(resolve => setTimeout(resolve, 1000));
+          
+          room = this.client.getRoom(roomId);
+          
+          if (!room) {
+            // If still not found, try getting room info to verify it exists
+            const roomInfo = await this.client.getJoinedRooms();
+            const isJoined = roomInfo.joined_rooms.includes(roomId);
+            
+            if (isJoined) {
+              // Force a manual sync for this specific room
+              this.logService.debug('Room exists but not in local store, forcing sync...');
+              await this.client.roomInitialSync(roomId, 10);
+              room = this.client.getRoom(roomId);
+            }
+          }
+        } catch (error) {
+          this.logService.warn('Failed to join/sync room:', error);
+        }
+        
+        if (!room) {
+          // Last resort: list all available rooms for debugging
+          const allRooms = this.client.getRooms();
+          this.logService.error('Room not found after sync attempts. Available rooms:', {
+            targetRoomId: roomId,
+            availableRooms: allRooms.map(r => ({ id: r.roomId, name: r.name }))
+          });
+          throw new Error(`Room not found: ${roomId}. You might not be a member of this room or it may not exist.`);
+        }
       }
+      
       return room;
     }
 
@@ -127,9 +168,70 @@ export class MatrixMessageService implements MessageService {
       // Get the underlying Matrix SDK room to send the message
       const sdkRoom = await this.getOrCreateRoomForRecipient(originalRecipient);
 
-      // Send the message via Matrix SDK
-      const sendResult = await this.client.sendTextMessage(sdkRoom.roomId, messageBody);
+      // Check if room is encrypted but encryption is not supported
+      const isRoomEncrypted = sdkRoom.hasEncryptionStateEvent?.() || false;
+      console.log('🔐 MESSAGE SERVICE: Room encrypted =', isRoomEncrypted, ', encryption supported =', this.encryptionSupported);
+      
+      // ENCRYPTION DISABLED: Skip encryption checks for now to make basic chat work
+      if (isRoomEncrypted && !this.encryptionSupported) {
+        console.warn('🔐 MESSAGE SERVICE: ⚠️ Room is encrypted but encryption is disabled - sending as plaintext');
+        console.warn('🔐 MESSAGE SERVICE: This message may not be delivered if the room requires encryption');
+        // Continue without throwing error - let the Matrix SDK handle it
+      }
 
+      // Send the message via Matrix SDK
+      console.log('📨 MESSAGE SERVICE: Sending message to room:', sdkRoom.roomId, 'encrypted:', isRoomEncrypted);
+      
+      let sendResult;
+      try {
+        sendResult = await this.client.sendTextMessage(sdkRoom.roomId, messageBody);
+        console.log('📨 MESSAGE SERVICE: Message sent successfully:', sendResult.event_id);
+      } catch (sendError: any) {
+        console.error('📨 MESSAGE SERVICE: Failed to send message:', sendError);
+        
+        // Check if this is an encryption-related error
+        if (sendError.message?.includes('encryption') || sendError.message?.includes('encrypted')) {
+          console.warn('📨 MESSAGE SERVICE: Encryption error encountered, but allowing message to be added to UI');
+          
+          // Create a failed message to show in the UI with encryption-specific error
+          const encryptionFailedMessage: Message = {
+            body: `❌ ${messageBody}\n\n⚠️ Message may not be delivered - room requires encryption`,
+            datetime: new Date(),
+            direction: Direction.out,
+            id: 'encryption-failed-' + Date.now(),
+            from: parseJid(this.client.getUserId() || ''),
+            delayed: false,
+            fromArchive: false,
+            state: MessageState.SENDING, // Use SENDING to indicate potential failure
+          };
+
+          // Add the failed message to UI and continue without throwing
+          try {
+            let targetRecipient = originalRecipient;
+            if (originalRecipient.recipientType === 'contact') {
+              targetRecipient = await this.contactListService.getOrCreateContactById(originalRecipient.jid.toString());
+            } else {
+              const sdkRoom = await this.getOrCreateRoomForRecipient(originalRecipient);
+              targetRecipient = this.getOrCreateRoom(sdkRoom.roomId, sdkRoom.name);
+            }
+            
+            const messageStore = this.getOrCreateMessageStore(targetRecipient);
+            messageStore.addMessage(encryptionFailedMessage);
+            this.messageSubject.next(targetRecipient);
+            console.log('📨 MESSAGE SERVICE: Added encryption warning message to UI');
+          } catch (storeError) {
+            console.error('📨 MESSAGE SERVICE: Could not add encryption warning to store:', storeError);
+          }
+          
+          // Don't throw error - let the user see the warning message
+          return;
+        }
+        
+        // Re-throw other errors as-is
+        throw sendError;
+      }
+
+      // Create the message object to add to store immediately
       const newMessage: Message = {
         body: messageBody,
         datetime: new Date(),
@@ -176,15 +278,15 @@ export class MatrixMessageService implements MessageService {
         });
       }
 
+      // Add the message immediately to ensure it appears in the UI
+      // MessageStore has built-in duplicate prevention, so this is safe
       const messageStore = this.getOrCreateMessageStore(targetRecipientForEvents);
       messageStore.addMessage(newMessage);
-
-      this.logService.debug('Outgoing message added to store:', {
+      
+      console.log('📨 MESSAGE SERVICE: Message added to store immediately:', {
+        eventId: sendResult.event_id,
         recipientId: targetRecipientForEvents.jid.toString(),
-        recipientType: targetRecipientForEvents.recipientType,
-        messageStoreId: (targetRecipientForEvents as any).messageStore?.storeId, // Log storeId
-        messageId: newMessage.id,
-        storeSize: messageStore.messages.length,
+        messageCount: messageStore.messages.length
       });
 
       this.messageSentSubject.next(targetRecipientForEvents);
@@ -199,14 +301,102 @@ export class MatrixMessageService implements MessageService {
       });
     } catch (error: any) {
       this.logService.error('Error sending Matrix message:', error);
-      // Potentially add message to store with 'failed' state here
+      
+      // Create a failed message to show in the UI
+      const failedMessage: Message = {
+        body: `❌ Failed to send: ${messageBody}`,
+        datetime: new Date(),
+        direction: Direction.out,
+        id: 'failed-' + Date.now(),
+        from: parseJid(this.client.getUserId() || ''),
+        delayed: false,
+        fromArchive: false,
+        state: MessageState.SENDING, // Use SENDING to indicate failed/unsent state
+      };
+
+      // Show the failed message in the UI
+      try {
+        const messageStore = this.getOrCreateMessageStore(originalRecipient);
+        messageStore.addMessage(failedMessage);
+        this.messageSubject.next(originalRecipient);
+        console.log('📨 MESSAGE SERVICE: Added failed message to UI');
+      } catch (storeError) {
+        console.error('📨 MESSAGE SERVICE: Could not add failed message to store:', storeError);
+      }
+      
       throw error;
     }
   }
 
-  setClient(client: sdk.MatrixClient) {
+  setClient(client: sdk.MatrixClient, encryptionSupported: boolean = false) {
+    console.log('🔐 MESSAGE SERVICE: setClient called with encryptionSupported =', encryptionSupported);
     this.client = client;
+    this.encryptionSupported = encryptionSupported;
     this.setupMessageHandlers();
+    
+    // With encryption disabled, we can process existing timelines immediately
+    console.log('📨 MESSAGE SERVICE: Encryption disabled, processing existing room timelines...');
+    // Don't process timelines immediately - wait for proper initialization
+  }
+
+  /**
+   * Initialize message loading after contacts and rooms are loaded
+   */
+  async initializeAfterContactsLoaded(): Promise<void> {
+    console.log('📨 MESSAGE SERVICE: Initializing message service after contacts loaded...');
+    
+    // Setup message handlers first
+    this.setupMessageHandlers();
+    
+    // Give Matrix client a moment to fully sync before processing timelines
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    
+    console.log('📨 MESSAGE SERVICE: Starting timeline processing...');
+    await this.processExistingRoomTimelines();
+    
+    // Force load recent messages for all contacts that have corresponding Matrix rooms
+    console.log('📨 MESSAGE SERVICE: Loading recent messages for existing contacts...');
+    await this.loadMessagesForExistingContacts();
+    
+    console.log('📨 MESSAGE SERVICE: Initialization complete');
+  }
+
+  private async loadMessagesForExistingContacts(): Promise<void> {
+    try {
+      // Get contacts from the observable
+      const contacts = await firstValueFrom(this.contactListService.contacts$);
+      console.log(`📨 MESSAGE SERVICE: Found ${contacts.length} contacts to load messages for`);
+      
+      for (const contact of contacts) {
+        try {
+          // Find the DM room for this contact
+          const userId = contact.jid.toString();
+          const rooms = this.client.getRooms();
+          const dmRoom = rooms.find(r => {
+            const members = r.getMembers();
+            return members.length === 2 && 
+                   members.some(m => m.userId === this.client.getUserId()) &&
+                   members.some(m => m.userId === userId);
+          });
+          
+          if (dmRoom) {
+            console.log(`📨 MESSAGE SERVICE: Loading messages for contact: ${contact.name} (${userId})`);
+            await this.loadMostRecentMessages(contact);
+            
+            // Force emit the messages to ensure UI updates
+            contact.messageStore.forceEmission();
+          } else {
+            console.log(`📨 MESSAGE SERVICE: No DM room found for contact: ${contact.name} (${userId})`);
+          }
+        } catch (error) {
+          console.warn(`📨 MESSAGE SERVICE: Failed to load messages for contact ${contact.jid.toString()}:`, error);
+        }
+      }
+      
+      console.log('📨 MESSAGE SERVICE: Finished loading messages for all contacts');
+    } catch (error) {
+      console.error('📨 MESSAGE SERVICE: Error loading messages for contacts:', error);
+    }
   }
 
   private get matrixClient(): sdk.MatrixClient {
@@ -218,9 +408,57 @@ export class MatrixMessageService implements MessageService {
     let room = this.roomStore.get(roomId);
     if (!room) {
       room = new Room(this.logService, parseJid(roomId), roomName);
+      // Store the original Matrix room ID for proper API calls
+      room.roomId = roomId;
       this.roomStore.set(roomId, room);
     }
     return room;
+  }
+
+  private async determineTargetRecipient(matrixSdkRoom: sdk.Room, roomId: string): Promise<Recipient | undefined> {
+    // Better logic to determine if it's a DM or a MUC
+    const members = matrixSdkRoom.getMembers();
+    const joinedMembers = matrixSdkRoom.getJoinedMembers();
+    
+    // Check if it's explicitly marked as direct
+    const isDirect = matrixSdkRoom.getDMInviter() !== null;
+    
+    // Also check if it's a 2-person room with us and one other person
+    const isTwoPersonRoom = joinedMembers.length === 2 && 
+                           joinedMembers.some((m) => m.userId === this.client.getUserId());
+    
+    const isDmRoom = isDirect || isTwoPersonRoom;
+
+    console.log('🔍 MESSAGE SERVICE: Room analysis:', {
+      roomId,
+      roomName: matrixSdkRoom.name,
+      totalMembers: members.length,
+      joinedMembers: joinedMembers.length,
+      isDirect,
+      isTwoPersonRoom,
+      isDmRoom,
+      memberIds: joinedMembers.map(m => m.userId)
+    });
+
+    if (isDmRoom) {
+      const otherMember = joinedMembers.find((m) => m.userId !== this.client.getUserId());
+      if (otherMember?.userId) {
+        try {
+          console.log('🔍 MESSAGE SERVICE: Creating contact for DM:', otherMember.userId);
+          return await this.contactListService.getOrCreateContactById(otherMember.userId);
+        } catch (e) {
+          console.warn('🔍 MESSAGE SERVICE: Failed to create contact for DM:', e);
+          return undefined; // Silent fail
+        }
+      } else {
+        console.warn('🔍 MESSAGE SERVICE: No other member found in DM room');
+        return undefined; // Silent fail
+      }
+    } else {
+      // For MUCs or other room types
+      console.log('🔍 MESSAGE SERVICE: Creating room object for MUC:', roomId, matrixSdkRoom.name);
+      return this.getOrCreateRoom(roomId, matrixSdkRoom.name);
+    }
   }
 
   private setupMessageHandlers() {
@@ -248,8 +486,8 @@ export class MatrixMessageService implements MessageService {
                 );
 
                 roomData.timeline.events.forEach((event: any) => {
-                  if (event.type === 'm.room.message') {
-                    this.handleMatrixMessage(event, roomId);
+                  if (event.type === 'm.room.message' || event.type === 'm.room.encrypted') {
+                    this.handleMatrixMessage(event, roomId, false); // Fresh events from sync
                   }
                 });
               }
@@ -295,8 +533,8 @@ export class MatrixMessageService implements MessageService {
           content: event.getContent(),
         });
 
-        if (event.getType() === 'm.room.message') {
-          this.handleMatrixMessage(event, room.roomId);
+        if (event.getType() === 'm.room.message' || event.getType() === 'm.room.encrypted') {
+          this.handleMatrixMessage(event, room.roomId, false); // Fresh timeline events
         }
       }
     );
@@ -318,17 +556,20 @@ export class MatrixMessageService implements MessageService {
       this.logService.error('Matrix client error:', error);
     });
 
-    // Start initial sync
-    this.matrixClient.startClient().catch((error: any) => {
-      this.logService.error('Error starting Matrix client:', error);
-    });
+    // Note: Client is already started in MatrixConnectionService
+    this.logService.debug('Matrix message handlers set up successfully');
   }
 
-  private async handleMatrixMessage(event: sdk.MatrixEvent, roomId: string): Promise<void> {
+  private async handleMatrixMessage(event: sdk.MatrixEvent, roomId: string, fromHistory: boolean = false): Promise<void> {
+    const eventType = event.getType();
+    const isEncrypted = eventType === 'm.room.encrypted';
+    const eventSender = event.getSender();
+    console.log('🔐 MESSAGE SERVICE: Handling message - type:', eventType, 'encrypted:', isEncrypted, 'sender:', eventSender);
+    
     const matrixSdkRoom = this.client.getRoom(roomId);
     if (!matrixSdkRoom) {
-      this.logService.warn(`Matrix SDK Room ${roomId} not found for message event`);
-      return;
+      console.warn('🔐 MESSAGE SERVICE: Room not found for event:', roomId);
+      return; // Silent fail
     }
 
     const sender = event.getSender();
@@ -337,30 +578,95 @@ export class MatrixMessageService implements MessageService {
     const timestamp = event.getTs();
 
     if (!sender || !content || !eventId || !timestamp) {
-      this.logService.warn('Invalid message event:', event);
+      console.warn('🔐 MESSAGE SERVICE: Invalid message event data:', { sender, hasContent: !!content, eventId, timestamp });
+      return; // Silent fail
+    }
+
+    // Handle encrypted events that failed to decrypt
+    if (event.getType() === 'm.room.encrypted' && event.isDecryptionFailure()) {
+      const decryptionError = event.decryptionFailureReason || event.getContent()?.['body'] || 'UNKNOWN_ERROR';
+      console.warn('🔐 MESSAGE SERVICE: Skipping encrypted message (encryption disabled):', { 
+        eventId, 
+        roomId, 
+        error: decryptionError
+      });
+      
+      // Provide user-friendly error messages based on the error content
+      let errorMessage = '[Unable to decrypt message]';
+      let debugInfo = '';
+      
+      // Check error message content since types may vary
+      const errorStr = String(decryptionError).toLowerCase();
+      
+      if (errorStr.includes('unknown_message_index') || errorStr.includes('message index')) {
+        errorMessage = '🔐 Message sent before you joined this room';
+        debugInfo = 'This message was sent before your device joined this encrypted room. Historical messages cannot be decrypted.';
+      } else if (errorStr.includes('missing_session') || errorStr.includes('missing session')) {
+        errorMessage = '🔐 Missing encryption keys for this device';
+        debugInfo = 'Your device is missing the encryption session for this message. The sender may need to re-share keys.';
+      } else if (errorStr.includes('unknown_sender_device') || errorStr.includes('unknown device')) {
+        errorMessage = '🔐 Message from unknown device';
+        debugInfo = 'This message was sent from a device that is not recognized in the encryption system.';
+      } else if (errorStr.includes('unsigned_sender_device') || errorStr.includes('unverified device')) {
+        errorMessage = '🔐 Message from unverified device';
+        debugInfo = 'This message was sent from a device that has not been verified for end-to-end encryption.';
+      } else {
+        errorMessage = `🔐 Encrypted message (encryption disabled)`;
+        debugInfo = `This message is encrypted but encryption is currently disabled. Enable encryption to view encrypted messages.`;
+      }
+      
+      console.warn('🔐 MESSAGE SERVICE: Decryption failure details:', {
+        errorMessage,
+        debugInfo,
+        originalError: decryptionError,
+        eventContent: event.getContent()
+      });
+      
+      // Create message with enhanced decryption failure info
+      const failureMessage: Message = {
+        body: errorMessage,
+        direction: sender === this.client.getUserId() ? Direction.out : Direction.in,
+        datetime: new Date(timestamp),
+        state: MessageState.RECIPIENT_RECEIVED,
+        id: eventId,
+        delayed: false,
+        fromArchive: false,
+        from: parseJid(sender),
+      };
+
+      // Get target recipient for failure message
+      const targetRecipient = await this.determineTargetRecipient(matrixSdkRoom, roomId);
+      if (targetRecipient) {
+        const messageStore = this.getOrCreateMessageStore(targetRecipient);
+        messageStore.addMessage(failureMessage);
+        this.messageReceivedSubject.next(targetRecipient);
+        this.messageSubject.next(targetRecipient);
+        
+        console.log('🔐 MESSAGE SERVICE: Added decryption failure message to store for', targetRecipient.jid.toString());
+      }
       return;
     }
 
-    this.logService.debug('Processing message:', {
-      roomId,
-      senderId: sender,
-      content,
-      eventId,
-      timestamp,
-    });
-
-    const messageBody =
+    let messageBody =
       content.msgtype === 'm.text'
         ? content['body']
         : content.msgtype === 'm.image'
           ? '[Image]'
           : content.msgtype === 'm.file'
             ? '[File]'
-            : '[Unsupported message type]';
+            : content['body'] || '[Unsupported message type]';
+
+    // Clean up message body - remove extra whitespace and normalize line breaks
+    if (typeof messageBody === 'string') {
+      messageBody = messageBody
+        .replace(/\r\n/g, '\n')  // Normalize Windows line endings
+        .replace(/\r/g, '\n')    // Normalize Mac line endings
+        .trim();                 // Remove leading/trailing whitespace
+    }
 
     if (!messageBody) {
-      this.logService.warn('Empty message body, skipping:', content);
-      return;
+      console.warn('🔐 MESSAGE SERVICE: No message body found in event:', eventId);
+      return; // Silent fail
     }
 
     const message: Message = {
@@ -374,75 +680,37 @@ export class MatrixMessageService implements MessageService {
       from: parseJid(sender),
     };
 
-    this.logService.debug('Created message object:', message);
-
-    let targetRecipient: Recipient | undefined;
-
-    // Determine if it's a DM or a MUC
-    const members = matrixSdkRoom.getMembers();
-    // A DM room typically has 2 members, one of whom is the current user.
-    // And it should be marked as a direct chat in account data,
-    // but for incoming messages, checking member count and presence of self is a strong indicator.
-    const isDmRoom =
-      members.length === 2 && members.some((m) => m.userId === this.client.getUserId());
-
-    if (isDmRoom) {
-      const otherMember = members.find((m) => m.userId !== this.client.getUserId());
-      if (otherMember?.userId) {
-        try {
-          targetRecipient = await this.contactListService.getOrCreateContactById(
-            otherMember.userId
-          );
-          this.logService.debug('Identified DM recipient as Contact:', {
-            contactId: targetRecipient.jid.toString(),
-          });
-        } catch (e) {
-          this.logService.error(
-            `Failed to get/create contact for DM user ${otherMember.userId}`,
-            e
-          );
-          return;
-        }
-      } else {
-        this.logService.warn('DM room detected, but could not identify other member.', {
-          roomId,
-          members,
-        });
-        return;
-      }
-    } else {
-      // For MUCs or other room types
-      targetRecipient = this.getOrCreateRoom(roomId, matrixSdkRoom.name);
-      this.logService.debug('Identified MUC recipient as Room:', {
-        roomId: targetRecipient.jid.toString(),
-      });
-    }
+    const targetRecipient = await this.determineTargetRecipient(matrixSdkRoom, roomId);
 
     if (!targetRecipient) {
-      this.logService.error('Could not determine target recipient for message.', {
-        roomId,
-        sender,
-      });
+      console.warn('🔐 MESSAGE SERVICE: Could not determine target recipient for message:', { eventId, roomId, sender });
+      return; // Silent fail
+    }
+
+    // Skip outgoing messages only if they're fresh events (not from history) to prevent duplicates
+    // Historical outgoing messages should still be loaded
+    if (message.direction === Direction.out && !fromHistory) {
+      console.log('📨 MESSAGE SERVICE: Skipping fresh outgoing message from event handler to prevent duplicate:', eventId);
       return;
     }
+    
+    // Process incoming messages or historical outgoing messages
+    const messageStore = this.getOrCreateMessageStore(targetRecipient);
+    messageStore.addMessage(message);
+    
+    const messageType = fromHistory ? 'historical' : (message.direction === Direction.in ? 'incoming' : 'outgoing');
+    console.log(`📨 MESSAGE SERVICE: ${messageType} message added. Store count:`, messageStore.messages.length);
 
+    // Emit events appropriately
     if (message.direction === Direction.in) {
-      const messageStore = this.getOrCreateMessageStore(targetRecipient);
-      messageStore.addMessage(message);
-
-      this.logService.debug('Message added to store:', {
-        recipientId: targetRecipient.jid.toString(),
-        recipientType: targetRecipient.recipientType,
-        messageStoreId: (targetRecipient as any).messageStore?.storeId, // Log storeId
-        messageId: message.id,
-        storeSize: messageStore.messages.length,
-      });
-      this.logService.debug(
-        `Incoming message for ${targetRecipient.jid.toString()}, storeId: ${(targetRecipient as any).messageStore?.storeId}`
-      ); // Log storeId
       this.messageReceivedSubject.next(targetRecipient);
+    } else if (fromHistory) {
+      // For historical outgoing messages, emit sent event
+      this.messageSentSubject.next(targetRecipient);
     }
-    this.messageSubject.next(targetRecipient); // This updates the general message stream
+    this.messageSubject.next(targetRecipient);
+    
+    console.log(`📨 MESSAGE SERVICE: Events emitted for ${messageType} message:`, eventId);
   }
 
   async loadCompleteHistory(): Promise<void> {
@@ -470,8 +738,25 @@ export class MatrixMessageService implements MessageService {
   }
 
   async loadMessagesBeforeOldestMessage(recipient: Recipient): Promise<void> {
-    const room = this.matrixClient.getRoom(recipient.jid.toString());
-    if (!room) return;
+    let room: sdk.Room | null = null;
+    
+    if (recipient.recipientType === 'contact') {
+      // For contacts, find the DM room
+      const contactJid = recipient.jid.toString();
+      const rooms = this.matrixClient.getRooms();
+      room = rooms.find((r) => {
+        const members = r.getMembers();
+        return members.length === 2 && 
+               members.some((m) => m.userId === this.matrixClient.getUserId()) &&
+               members.some((m) => m.userId === contactJid);
+      }) || null;
+      
+      if (!room) return;
+    } else {
+      // For rooms, use the JID directly as room ID
+      room = this.matrixClient.getRoom(recipient.jid.toString());
+      if (!room) return;
+    }
 
     const timeline = room.getLiveTimeline();
     const events = timeline.getEvents();
@@ -494,17 +779,152 @@ export class MatrixMessageService implements MessageService {
   }
 
   async loadMostRecentMessages(recipient: Recipient): Promise<void> {
-    const room = this.matrixClient.getRoom(recipient.jid.toString());
-    if (!room) return;
+    let room: sdk.Room | null = null;
+    
+    if (recipient.recipientType === 'contact') {
+      // For contacts, find the DM room
+      const contactJid = recipient.jid.toString();
+      const rooms = this.client.getRooms();
+      room = rooms.find((r) => {
+        const members = r.getMembers();
+        return members.length === 2 && 
+               members.some((m) => m.userId === this.client.getUserId()) &&
+               members.some((m) => m.userId === contactJid);
+      }) || null;
+      
+      if (!room) {
+        console.warn('DM room not found for contact:', contactJid);
+        return;
+      }
+    } else {
+      // For rooms, use the JID directly as room ID
+      // Use the original Matrix room ID if available, fallback to JID string
+      const roomId = (recipient as any).roomId || recipient.jid.toString();
+      room = this.client.getRoom(roomId);
+      if (!room) {
+        console.warn('Room not found for recipient:', roomId);
+        return;
+      }
+    }
 
-    const timeline = room.getLiveTimeline();
-    const events = timeline.getEvents();
-    if (events.length === 0) return;
+    try {
+      // Get the current timeline
+      const timeline = room.getLiveTimeline();
+      let paginationToken = timeline.getPaginationToken(MatrixDirection.Backward);
+      
+      if (!paginationToken) {
+        console.log('No more history available for room:', room.name || room.roomId);
+        return;
+      }
 
-    // Matrix loads recent messages automatically
+      // Load messages in smaller batches to prevent freezing
+      const batchSize = 20;
+      let totalLoaded = 0;
+      const maxMessages = 100; // Maximum messages to load
+      
+      while (totalLoaded < maxMessages) {
+        // Add timeout to prevent hanging
+        const timeoutPromise = new Promise((_, reject) => 
+          setTimeout(() => reject(new Error('Timeout')), 5000)
+        );
+
+        try {
+          // Try to load more messages with timeout protection
+          await Promise.race([
+            this.client.scrollback(room, batchSize),
+            timeoutPromise
+          ]);
+
+          // Get newly loaded events
+          const events = timeline.getEvents();
+          const messageEvents = events.filter(event => 
+            event.getType() === 'm.room.message' && 
+            !event.isRedacted()
+          );
+          
+          // Process new messages
+          for (const event of messageEvents) {
+            await this.handleMatrixMessage(event, room.roomId, true); // Historical messages
+          }
+
+          totalLoaded += messageEvents.length;
+          
+          // Check if we can load more
+          const newToken = timeline.getPaginationToken(MatrixDirection.Backward);
+          if (!newToken || newToken === paginationToken) {
+            console.log('No more messages available');
+            break;
+          }
+          
+          // Update token for next iteration
+          paginationToken = newToken;
+          
+        } catch (error) {
+          console.warn('Failed to load batch:', error);
+          break;
+        }
+      }
+
+      console.log(`Loaded ${totalLoaded} messages for ${room.name || room.roomId}`);
+      
+    } catch (error) {
+      console.warn(`Failed to load messages for ${room.name || room.roomId}:`, error);
+    }
   }
 
   getContactMessageState(message: Message, _recipientJid: string): MessageState {
     return message.state || MessageState.SENT;
+  }
+
+  private async processExistingRoomTimelines(): Promise<void> {
+    try {
+      const rooms = this.client.getRooms();
+      console.log(`🔐 MESSAGE SERVICE: Processing existing timelines for ${rooms.length} rooms`);
+      
+      // Process ALL rooms, not just a subset
+      for (const room of rooms) {
+        try {
+          console.log(`🔐 MESSAGE SERVICE: Processing room ${room.name || room.roomId}...`);
+          const events = room.getLiveTimeline().getEvents();
+          
+          // Process ALL messages in the timeline, not just recent ones
+          console.log(`🔐 MESSAGE SERVICE: Found ${events.length} events in timeline for ${room.name || room.roomId}`);
+          
+          let processedCount = 0;
+          for (const event of events) {
+            if (event.getType() === 'm.room.message') {
+              // Process plain text messages
+              console.log(`📨 MESSAGE SERVICE: Processing plain message ${event.getId()} in room ${room.roomId}`);
+              await this.handleMatrixMessage(event, room.roomId, true); // Historical messages
+              processedCount++;
+            } else if (event.getType() === 'm.room.encrypted' && this.encryptionSupported) {
+              // Only process encrypted messages if encryption is enabled
+              console.log(`🔐 MESSAGE SERVICE: Processing encrypted event ${event.getId()} in room ${room.roomId}`);
+              await this.handleMatrixMessage(event, room.roomId, true); // Historical messages
+              processedCount++;
+            } else if (event.getType() === 'm.room.encrypted') {
+              // Skip encrypted messages when encryption is disabled
+              console.log(`📨 MESSAGE SERVICE: Skipping encrypted message ${event.getId()} (encryption disabled)`);
+            }
+          }
+          
+          console.log(`🔐 MESSAGE SERVICE: Processed ${processedCount} messages from room ${room.name || room.roomId}`);
+          
+          // Force a refresh of the room data after processing
+          const targetRecipient = await this.determineTargetRecipient(room, room.roomId);
+          if (targetRecipient) {
+            console.log(`🔐 MESSAGE SERVICE: Forcing UI update for ${targetRecipient.jid.toString()}`);
+            this.messageSubject.next(targetRecipient);
+          }
+          
+        } catch (error) {
+          console.warn(`🔐 MESSAGE SERVICE: Failed to process timeline for room ${room.name || room.roomId}:`, error);
+        }
+      }
+      
+      console.log('🔐 MESSAGE SERVICE: Timeline processing complete');
+    } catch (error) {
+      console.error('🔐 MESSAGE SERVICE: Error processing room timelines:', error);
+    }
   }
 }

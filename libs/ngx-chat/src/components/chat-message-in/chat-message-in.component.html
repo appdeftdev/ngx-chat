@@ -4,6 +4,8 @@
     [avatar]="contact?.avatar"
     [avatarClickable]="true"
     [showAvatar]="showAvatar"
+    [contactName]="contact?.name"
+    [contactId]="contact?.jid?.toString()"
     (clicked$)="onContactClick()"
   />
   <ngx-chat-message-text-area [textContent]="message?.body" />

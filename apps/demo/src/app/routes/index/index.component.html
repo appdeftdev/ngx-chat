@@ -80,9 +80,16 @@
       Enable Notifications
     </button>
     <button name="log-ws" (click)="logWebstream()">log ws</button>
+    <button name="debug-presence" (click)="debugPresence()">Debug Presence</button>
+    <button name="debug-messages" (click)="debugMessageStore()">Debug Messages</button>
+    <button name="clear-matrix-storage" (click)="clearMatrixStorage()">Clear Matrix Storage</button>
+    <button name="test-encryption" (click)="testEncryption()">Test Encryption</button>
   </div>
 
   <div data-zid="chat-connection-state">State: {{ state$ | async }}</div>
+  <div style="color: orange; font-weight: bold; margin: 5px 0;">
+    ⚠️ Matrix Encryption is currently DISABLED for better compatibility
+  </div>
 
   <div *ngIf="registrationMessage$ | async as message">
     <p data-zid="registration-success">{{ message }}</p>
@@ -101,6 +108,19 @@
       <ngx-chat-file-drop *ngIf="selectedContact">
           <ngx-chat-history [recipient]="selectedContact"></ngx-chat-history>
           <ngx-chat-window-input [recipient]="selectedContact" (fileUploaded)="uploadFile($event)" />
+          
+          <!-- Debug section -->
+          <div style="margin-top: 10px; padding: 10px; background: #f0f0f0; border-radius: 5px;">
+            <h4>Debug Info:</h4>
+            <p><strong>Selected Contact:</strong> {{ selectedContact.name }} ({{ selectedContact.jid.toString() }})</p>
+            <p><strong>Message Count:</strong> {{ selectedContact.messageStore?.messages?.length || 0 }}</p>
+            <button (click)="sendTestMessage()" [disabled]="!selectedContact" style="margin: 5px;">
+              Send Test Message
+            </button>
+            <button (click)="debugMessageStore()" [disabled]="!selectedContact" style="margin: 5px;">
+              Debug Message Store
+            </button>
+          </div>
       </ngx-chat-file-drop>
 
     <ngx-chat-demo-stanza />

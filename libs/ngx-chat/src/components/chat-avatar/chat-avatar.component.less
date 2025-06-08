@@ -2,8 +2,34 @@
 .chat-avatar {
   border-radius: 50%;
   background-size: cover;
-  background-position: 50%;
+  background-position: center;
   background-repeat: no-repeat;
   width: 100%;
   height: 100%;
+  display: block;
+  
+  /* Fallback for missing avatars */
+  background-color: #e5e6e8;
+  
+  /* Add a subtle border */
+  border: 1px solid #ddd;
+  
+  /* Ensure the avatar container is visible even without an image */
+  min-width: 2em;
+  min-height: 2em;
+  
+  /* Force visibility and ensure it's not hidden */
+  visibility: visible !important;
+  opacity: 1 !important;
+  
+  /* Style for fallback avatars */
+  &.fallback {
+    border-color: #ccc;
+    background-color: #f0f0f0;
+  }
+  
+  /* Style for error state */
+  &.error {
+    border-color: #ffa500;
+  }
 }

@@ -8,39 +8,34 @@
     <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgo=" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script>
-      // (function(w) {
-      //   var oldST = w.setTimeout;
-      //   var oldSI = w.setInterval;
-      //   var oldCI = w.clearInterval;
-      //   var timers = [];
-      //   w.timers = timers;
-      //   w.setTimeout = function(fn, delay) {
-      //     var id = oldST(function() {
-      //       fn && fn();
-      //       removeTimer(id);
-      //     }, delay);
-      //     // console.trace('setTimeout', id);
-      //     timers.push(id);
-      //     return id;
-      //   };
-      //   w.setInterval = function(fn, delay) {
-      //     var id = oldSI(fn, delay);
-      //     // console.trace('setInterval', id);
-      //     timers.push(id);
-      //     return id;
-      //   };
-      //   w.clearInterval = function(id) {
-      //     oldCI(id);
-      //     removeTimer(id);
-      //   };
-      //   w.clearTimeout = w.clearInterval;
-      //
-      //   function removeTimer(id) {
-      //     var index = timers.indexOf(id);
-      //     if (index >= 0)
-      //       timers.splice(index, 1);
-      //   }
-      // }(window));
+      // Configure Matrix SDK WASM loading before any modules load
+      window.matrixWasmPath = '/assets/wasm/';
+      
+      // Override fetch to intercept WASM requests
+      const originalFetch = window.fetch;
+      window.fetch = function(input, init) {
+        const url = input instanceof Request ? input.url : input.toString();
+        if (url.includes('.wasm') || url.includes('matrix') && url.includes('crypto')) {
+          console.log('🔐 ENCRYPTION: Matrix SDK trying to fetch WASM from:', url);
+          // Redirect all WASM requests to our assets path
+          if (url.includes('matrix_sdk_crypto_wasm_bg.wasm') || url.includes('matrix-sdk-crypto-wasm')) {
+            console.log('🔐 ENCRYPTION: Redirecting WASM request to /assets/wasm/matrix_sdk_crypto_wasm_bg.wasm');
+            return originalFetch('/assets/wasm/matrix_sdk_crypto_wasm_bg.wasm', init);
+          }
+        }
+        return originalFetch(input, init);
+      };
+
+      // Also override WebAssembly as backup
+      if (typeof WebAssembly !== 'undefined' && WebAssembly.instantiateStreaming) {
+        const originalInstantiateStreaming = WebAssembly.instantiateStreaming;
+        WebAssembly.instantiateStreaming = function(source, importObject) {
+          console.log('🔐 ENCRYPTION: WebAssembly.instantiateStreaming called with:', source);
+          return originalInstantiateStreaming.call(this, source, importObject);
+        };
+      }
+      
+      console.log('Matrix WASM override configured');
     </script>
   </head>
   <body>

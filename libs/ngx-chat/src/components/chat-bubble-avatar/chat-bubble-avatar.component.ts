@@ -12,13 +12,30 @@ import { Subject } from 'rxjs';
 })
 export class ChatBubbleAvatarComponent {
   @Input()
-  avatar: string | undefined | null;
+  set avatar(value: string | undefined | null) {
+    this._avatar = value;
+    console.debug('ChatBubbleAvatar: avatar set to', value);
+  }
+  get avatar(): string | undefined | null {
+    return this._avatar;
+  }
+  private _avatar: string | undefined | null;
 
   @Input()
   avatarClickable = false;
 
   @Input()
-  showAvatar?: boolean;
+  set showAvatar(value: boolean | undefined) {
+    this._showAvatar = value;
+    console.debug('ChatBubbleAvatar: showAvatar set to', value);
+  }
+  get showAvatar(): boolean | undefined {
+    return this._showAvatar;
+  }
+  private _showAvatar?: boolean;
+
+  @Input() contactName?: string;
+  @Input() contactId?: string;
 
   private clickedSubject = new Subject<void>();
 

@@ -73,35 +73,41 @@ export class ChatHistoryComponent implements OnDestroy, OnInit {
       return;
     }
 
-    // Log initial message count
-    value.messageStore.messages$.subscribe((messages) => {
-      this.logService.debug('Initial message store state:', {
-        recipientId: value.jid.toString(),
-        messageCount: messages.length,
-        messages: messages.map((m) => ({
-          id: m.id,
-          body: m.body?.substring(0, 50), // Only log first 50 chars
-          direction: m.direction,
-          datetime: m.datetime,
-          from: m.from?.toString(),
-        })),
-      });
-    });
-
-    // Subscribe to messages
+    // Subscribe to messages with enhanced debugging
     this.noMessages$ = value.messageStore.messages$.pipe(
       runInZone(this.ngZone), // Ensure emissions run in Angular's zone
       map((messages: Message[]) => {
-        // Add strong type for messages
         this.logService.debug('Messages updated in chat history (in zone):', {
           count: messages.length,
           recipientId: value.jid.toString(),
-          messageIds: messages.map((m) => m.id), // Log only IDs for brevity
+          messageIds: messages.map((m) => m.id),
+          messages: messages.map((m) => ({
+            id: m.id,
+            body: m.body?.substring(0, 30),
+            direction: m.direction,
+            datetime: m.datetime?.toISOString(),
+            from: m.from?.toString()
+          }))
         });
+        
+        // Force change detection
+        setTimeout(() => {
+          this.logService.debug('Triggering change detection for messages:', messages.length);
+        }, 0);
+        
         return messages.length === 0;
       }),
       distinctUntilChanged()
     );
+
+    // Also subscribe directly to the message store for logging
+    value.messageStore.messages$.subscribe((messages) => {
+      this.logService.debug('Direct message store subscription triggered:', {
+        recipientId: value.jid.toString(),
+        messageCount: messages.length,
+        storeId: (value.messageStore as any).storeId,
+      });
+    });
 
     // Force initial load of messages
     this.loadMessagesOnScrollToTop();
